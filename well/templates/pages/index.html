@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 min-height-0"></div>
+  </div>
+</div>
+
+<div class="content">
+  <div id="mainpage-intro-container">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+              background-image: url('{% static 'images/heroimage/d3c3217a0e43d3688b6b417d34038d311.jpg' %}');
+            "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+              background-image: url('{% static 'images/heroimage/5.jpg' %}');
+            "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+              background-image: url('{% static 'images/heroimage/7.jpg' %}');
+            "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+          background-image: url('{% static 'images/heroimage/2.jpg' %}');
+          "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+          background-image: url('{% static 'images/heroimage/0bfacecd012f2aafb247d52d82077acd1.jpg' %}');
+          "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+          background-image: url('{% static 'images/heroimage/eded3fef38b7328c3c1e585f2fea4a3e.jpg' %}');
+          "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+          background-image: url('{% static 'images/heroimage/e4700d5e179e4c5aaa907300b61a6c011.jpg' %}');
+          "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+          background-image: url('{% static 'images/heroimage/61dfb221b2e1a5470bf71af15a7b03d.jpg' %}');
+          "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+          background-image: url('{% static 'images/heroimage/3.jpg' %}');
+          "></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container-fluid intro-fullscreen-container intro-fullscreen-container-yoga" style="
+              background-image: url('{% static 'images/heroimage/8.jpg' %}');
+            "></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-searchbar_1" class="hidden-xs container-fluid bg-purple">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 white-text">
+            <div id="mainpage-searchbar">
+              <form id="mainpage-search-form_1" action="/site/#" method="post">
+                <input type="hidden" name="_csrf"
+                  value="w9J4LyYTLRW4bCTH4zAYIj0NGzMYMPfmQsIA1iT8GyyslSJobCd_WdItQ4yCAkpRdUV-ZVUdsJM4mkauXLRhZg==" /><input
+                  type="hidden" id="theme_string_1" class="theme_string" name="theme_string" value="Any" /><input
+                  type="hidden" id="country_string_1" class="country_string" name="country_string" value="Any" /><input
+                  type="hidden" id="Search_categories_1" class="Search_categories" name="Search[categories]"
+                  value="" /><input type="hidden" id="Search_countries_1" class="Search_countries"
+                  name="Search[countries]" value="" /><input type="hidden" id="Search_date_from_1"
+                  class="Search_date_from" name="Search[date_from]" value="" /><input type="hidden"
+                  id="Search_date_until_1" class="Search_date_until" name="Search[date_until]" value="" /><input
+                  type="hidden" id="Search_nr_of_persons_1" class="Search_nr_of_persons" name="Search[nr_of_persons]"
+                  value="2" />
+                <div class="mainpage-searchbar-column mainpage-searchbar-auto-column">
+                  <span id="searchbar-theme_lbl_1"
+                    class="searchbar-theme_lbl searchbar-label float-right first-label-from-right">نوع المرض<span
+                      class="search-interpunction" style="display: none">:</span></span>
+                  <div id="searchbar-theme_txt_1" class="searchbar-theme_txt search-input-size-big float-left"
+                    style="display: none">
+                    Any
+                  </div>
+                  <select id="searchbar-theme-1" class="searchbar-select-box searchbar-theme form-control"
+                    name="themes_1[]" multiple size="4" key="1" data-s2-options="s2options_7ebc6538"
+                    data-krajee-select2="select2_dddbc607">
+                    <option value="11"></option>
+                    <option value="12"></option>
+                    <option value="13"></option>
+                    <option value="14"></option>
+                    <option value="15"></option>
+                    <option value="17"></option>
+                    <option value="19"></option>
+                    <option value="20"></option>
+                    <option value="21"></option>
+                    <option value="22"></option>
+                    <option value="123"></option>
+                    <option value="124"></option>
+                    <option value="134"></option>
+                    <option value="135"></option>
+                  </select>
+                </div>
+                <div id="intro-search-bar-destinations"
+                  class="mainpage-searchbar-column mainpage-searchbar-auto-column">
+                  <span id="searchbar-destinations_lbl_1"
+                    class="searchbar-destinations_lbl searchbar-label float-right">الأماكن<span
+                      class="search-interpunction" style="display: none">:</span></span>
+                  <div id="searchbar-destinations_txt_1"
+                    class="searchbar-destinations_txt search-input-size-big float-left" style="display: none">
+                    Any
+                  </div>
+                  <select id="searchbar-destinations-1" class="searchbar-select-box searchbar-destinations form-control"
+                    name="countries_1[]" multiple size="4" key="1" data-s2-options="s2options_7ebc6538"
+                    data-krajee-select2="select2_dddbc607">
+                    <option value="55"></option>
+                    <option value="41"></option>
+                    <option value="92"></option>
+                    <option value="69"></option>
+                    <option value="82"></option>
+                    <option value="61"></option>
+                    <option value="62"></option>
+                    <option value="96"></option>
+                    <option value="52"></option>
+                    <option value="70"></option>
+                    <option value="57"></option>
+                    <option value="36"></option>
+                    <option value="53">Madeira (Portugal)</option>
+                    <option value="42">Maldives</option>
+                    <option value="56">Mauritius</option>
+                    <option value="85">Mexico</option>
+                    <option value="60">Morocco</option>
+                    <option value="89">Mozambique</option>
+                    <option value="44">Portugal</option>
+                    <option value="47">Slovenia</option>
+                    <option value="43">Spain</option>
+                    <option value="40">Sri Lanka</option>
+                    <option value="72">Switzerland</option>
+                    <option value="86">Tenerife (Spain)</option>
+                    <option value="33">Thailand</option>
+                    <option value="97">The Middle East</option>
+                    <option value="35">Turkey</option>
+                    <option value="84">United Kingdom</option>
+                    <option value="68">Vietnam</option>
+                  </select>
+                </div>
+                <div class="clearfix hidden-sm hidden-md hidden-lg"></div>
+
+                <div class="mainpage-searchbar-column mainpage-searchbar-auto-column">
+                  <span class="searchbar-label">عددالأفراد<span class="search-interpunction"
+                      style="display: none">:</span></span>
+                  <input type="text" id="edit_nr_of_persons_1"
+                    class="edit_nr_of_persons searchbar-text-field-like-button search-input-size-small"
+                    name="Search[nr_of_persons_1]" value="2" style="" />
+                  <div id="edit_nr_of_persons_txt_1" class="edit_nr_of_persons_txt search-input-size-small"
+                    style="display: none">
+                    2
+                  </div>
+                </div>
+
+                <div class="mainpage-searchbar-column mainpage-searchbar-button-column mainpage-searchbar-auto-column">
+                  <div class="search-btn">
+                    <button id="intro-update-date-btn_1" class="btn btn-search btn-purple intro-update-date-btn"
+                      style="">
+                      تعديل
+                    </button>
+                    <button id="intro-edit-search-btn_1" class="btn btn-search btn-purple intro-edit-search-btn"
+                      style="display: none">
+                      تعديل البحث
+                    </button>
+                    <button key="1" id="intro-search-btn-desktop_1"
+                      class="btn btn-search btn-purple intro-search-btn-desktop" style="">
+                      بحث
+                    </button>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-searchbar-mobile-div_1" class="hidden-sm hidden-md hidden-lg container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="text-center btn-mainpage">
+        <a key="1" class="btn btn-fullscreen btn-white intro-search-btn">ابحث عن رحلتك </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="why-wellbeing-escapes-container" class="container">
+  <div class="row inpage-row">
+    <div class="col-xs-12 text-center">
+      <h2 class="margin-0 black-text">ليه تختار EG MedT.</h2>
+    </div>
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 text-center">
+          <div class="title-why-wbe-icon title-font">دليل شامل للمسافر</div>
+          <img class="why-wbe-icon" src="{% static 'images/icon_flexible_pricing.png' %}"
+            alt="Logo for flexible pricing" />
+          <div class="text-why-wbe-icon lower_text cursor-pointer">
+            .نقدم باقات من أفضل المناطق والأماكن المتخصصة في مجال السياحة العلاجية في مصر
+            <div class="why-wellbeing-arrow">
+              <i class="padding-left-20 fa fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+          <div class="title-why-wbe-icon title-font">
+            مزايا وخدمات يتم تقديمها
+          </div>
+          <img class="why-wbe-icon" src="{% static 'images/icon_price.png' %}"
+            alt="Logo for value added benefits and discounts" />
+          <div class="text-why-wbe-icon lower_text cursor-pointer" dir="rtl">
+            نقدم الخدمة العلاجية والسياحية في آن واحد في الأماكن المخصصة لها حيث يوجد العديد من المنتجعات
+            التي تساعد على الاستشفاء من خلال جلسات يقوم بها متخصصون، حيث أنها تساعد على الإسترخاء والراحة وعادة ما تتم
+            في
+            الهواء الطلق حيث الشمس المشرقة والمياه العلاجية الدافئة.<div class="why-wellbeing-arrow">
+              <i class="padding-left-20 fa fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+          <div class="title-why-wbe-icon title-font">
+            أفضل خدمة بأقل سعر
+          </div>
+          <img class="why-wbe-icon" src="{% static 'images/icon_free_treatments.png' %}"
+            alt="Logo for award winning service" />
+          <div class="text-why-wbe-icon lower_text cursor-pointer">
+            نقدم لعملاءنا باقات للسياحة العلاجية في مصر بأسعار منخفضة وخدمات بجودة عالية. بإعتبارنا شركة سفر للعلاج،
+            فإننا قادرون على تقديم قيمة مضافة ممتازة من خلال مزايانا الحصرية بما
+            في ذلك الأسعار المخفضة للمسافرين المنفردين، والإنتقالات المجانية بالإضافة إلى الليالي المجانية والمزايا
+            الإضافية
+            لعملائنا
+            الدائمين.
+            <div class="why-wellbeing-arrow">
+              <i class="padding-left-20 fa fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center margin-bottom-20">
+      <h2 class="black-text newsletter_popup_title">
+        سجل الأن للحصول على اخر العروض
+      </h2>
+      اشترك في موقعنا للحصول على العروض الحصرية المرسلة إلى صندوق الوارد الخاص بك.
+    </div>
+    <div class="col-xs-12 text-center">
+      <div class="row">
+        <form id="form_subscribe_newsletter_1" action="/site/newsletter" method="post">
+          <input type="hidden" name="_csrf"
+            value="w9J4LyYTLRW4bCTH4zAYIj0NGzMYMPfmQsIA1iT8GyyslSJobCd_WdItQ4yCAkpRdUV-ZVUdsJM4mkauXLRhZg==" />
+          <div class="hidden-xs col-sm-2 text-right">
+            <i class="darkgrey-text fa fa-envelope-o fa-2x"></i>
+          </div>
+          <div class="input-field-newsletter col-xs-7">
+            <input type="text" id="Newsletter_email_address_1" class="search-input-mainpage-newsletter"
+              name="Newsletter[email_address]" value="" placeholder="البريد الإلكتروني" />
+          </div>
+          <div id="emailaddress" class="col-xs-5 col-sm-3 text-left">
+            <div class="search-btn">
+              <button type="submit" val="1" class="btn btn-signup btn-white">
+                تسجيل
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center" id="newsletter_subscribe_result_1" style="display: none"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="mainpage-destinations-container" class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <hr />
+      <h2 class="black-text">الأماكن</h2>
+    </div>
+    {% for tt in data %}
+      {% if forloop.counter <= 3 %} <div url="{% url tt.location %}"
+      class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer country-block">
+      {% if tt.photo %}
+      <img class="full-width" src="{{tt.photo.url}}" />
+      <div class="image-overlay-text title-font bg-purple white-text">
+        {{tt.name}}
+      </div>
+      {% endif %}
+  </div>
+      {% endif %}
+
+    {% endfor %}
+
+  <div class="col-xs-12 text-center">
+    <a type="button" id="destinations-view-more-btn" href="/destinations " class="btn btn-viewmore btn-white">عرض
+      المزيد</a>
+  </div>
+</div>
+</div>
+
+<div id="mainpage-offers-container" class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <hr />
+      <h2 class="black-text">الباقات</h2>
+    </div>
+
+    <div ref="{% url 'P1' %}" class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+      <img class="full-width" src="{% static 'images/hotel/740x370/d0cec58a941a795311f14b026d6635c.jpg' %}" />
+      <div class="image-underlay-text bg-purple white-text">
+        الدفن في الرمال
+      </div>
+    </div>
+
+    <div ref="/hotel/259/sianji-wellbeing-resort"
+      class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+      <img class="full-width" src="{% static 'images/hotel/740x370/97f475746c1e6df957882d801d72693.jpg'  %}" />
+      <div class="image-underlay-text bg-purple white-text">
+        أبار المياه الكبريتية
+      </div>
+    </div>
+
+    <div ref="/hotel/568/amal-tamara"
+      class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+      <img class="full-width" src="{% static 'images/hotel/740x370/9344e41bc61983ca2260d476045b688.jpg' %}" />
+      <div class="image-underlay-text bg-purple white-text">
+        كهوف الملح </div>
+    </div>
+    <div class="col-xs-12 text-center">
+      <a type="button" href="{% url 'offers' %}" id="offers-view-more-btn" class="btn btn-viewmore btn-white">عرض
+        المزيد</a>
+    </div>
+  </div>
+</div>
+<br />
+</div>
+{% endblock content %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="content">
+  <div class="container">
+    <div class="row" dir="rtl">
+      <div class="hidden-xs col-sm-3">
+
+        <div class="row" dir="rtl">
+          <div class="col-xs-12 margin-top-10">
+            <div class="filter-border-purple padding-10" id="contactwidget">
+              <div>
+                <p><b>عنوان البريد الإلكتروني:</b></p>
+                <p><a href="mailto:info@.com">info@ُEMT.com</a></p>
+              </div>
+              <br>
+              <div>
+                <p><b>رقم الهاتف:</b></p>
+                <p><a href="tel:+2001141054678">+2001141054678</a></p>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+
+        <h1 class=" margin-top-10 text-center">تواصل معنا</h1>
+
+        <form id="contact-form" action="{% url 'contact' %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="_csrf"
+            value="7TiFpqPExe6Les8Q-bYu4f2YjC0ueC--TmSpkgH8YEybecmf0rKdnv4jmU-w90iIlMDEXEA6ePh-M-XHOYk5fw==">
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="form-group field-contactform-firstname required">
+              <label class="control-label" for="contactform-firstname">الإسم الأول</label>
+              <input type="text" id="contactform-firstname" class="form-control" name="firstname"
+                maxlength="32" aria-required="true">
+
+              <p class="help-block help-block-error"></p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="form-group field-contactform-lastname required">
+              <label class="control-label" for="contactform-lastname">أسم العائلة/اللقب</label>
+              <input type="text" id="contactform-lastname" class="form-control" name="lastname" autofocus
+                aria-required="true">
+
+              <p class="help-block help-block-error"></p>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group field-contactform-email required">
+              <label class="control-label" for="contactform-email">البريد الإلكتروني</label>
+              <input type="email" id="contactform-email" class="form-control" name="email"
+                aria-required="true">
+
+              <p class="help-block help-block-error"></p>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group field-contactform-telephone">
+              <label class="control-label" for="contactform-telephone">رقم الهاتف</label>
+              <input type="tel" id="contactform-telephone" class="form-control" name="telephone"
+                maxlength="20">
+
+              <p class="help-block help-block-error"></p>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="form-group field-contactform-body required">
+              <label class="control-label" for="contactform-body">ملاحظات</label>
+              <textarea id="contactform-body" class="form-control" name="body" maxlength="1999" rows="6"
+                aria-required="true"></textarea>
+
+              <p class="help-block help-block-error"></p>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="form-group field-contactform-recaptcha">
+
+              <input type="hidden" id="contactform-recaptcha" class="form-control" name="ContactForm[reCaptcha]">
+              <div id="contactform-recaptcha-recaptcha-contact-form" class="g-recaptcha"
+                data-sitekey="6LfM73cUAAAAADtC_mtsY-eGdYmGXf5lKRXdjtYu" data-input-id="contactform-recaptcha"
+                data-form-id="contact-form"></div>
+
+              <p class="help-block help-block-error"></p>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="form-group">
+              <button type="submit" class="btn btn-orange" name="contact-button"
+                style="padding: 5px 10px">تقديم</button>
+            </div>
+          </div>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock content %}

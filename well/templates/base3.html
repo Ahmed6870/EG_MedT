@@ -1,0 +1,2816 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <script type="text/javascript">
+    window.flatStyles = window.flatStyles || ''
+
+    window.lightspeedOptimizeStylesheet = function () {
+      const currentStylesheet = document.querySelector('.tcb-lightspeed-style:not([data-ls-optimized])')
+
+      if (currentStylesheet) {
+        try {
+          if (currentStylesheet.sheet && currentStylesheet.sheet.cssRules) {
+            if (window.flatStyles) {
+              if (this.optimizing) {
+                setTimeout(window.lightspeedOptimizeStylesheet.bind(this), 24)
+              } else {
+                this.optimizing = true;
+
+                let rulesIndex = 0;
+
+                while (rulesIndex < currentStylesheet.sheet.cssRules.length) {
+                  const rule = currentStylesheet.sheet.cssRules[rulesIndex]
+                  /* remove rules that already exist in the page */
+                  if (rule.type === CSSRule.STYLE_RULE && window.flatStyles.includes(`${rule.selectorText}{`)) {
+                    currentStylesheet.sheet.deleteRule(rulesIndex)
+                  } else {
+                    rulesIndex++
+                  }
+                }
+                /* optimize, mark it such, move to the next file, append the styles we have until now */
+                currentStylesheet.setAttribute('data-ls-optimized', '1')
+
+                window.flatStyles += currentStylesheet.innerHTML
+
+                this.optimizing = false
+              }
+            } else {
+              window.flatStyles = currentStylesheet.innerHTML
+              currentStylesheet.setAttribute('data-ls-optimized', '1')
+            }
+          }
+        } catch (error) {
+          console.warn(error)
+        }
+
+        if (currentStylesheet.parentElement.tagName !== 'HEAD') {
+          /* always make sure that those styles end up in the head */
+          const stylesheetID = currentStylesheet.id;
+          /**
+           * make sure that there is only one copy of the css
+           * e.g display CSS
+           */
+          if ((!stylesheetID || (stylesheetID && !document.querySelector(`head #${stylesheetID}`)))) {
+            document.head.prepend(currentStylesheet)
+          } else {
+            currentStylesheet.remove();
+          }
+        }
+      }
+    }
+
+    window.lightspeedOptimizeFlat = function (styleSheetElement) {
+      if (document.querySelectorAll('link[href*="thrive_flat.css"]').length > 1) {
+        /* disable this flat if we already have one */
+        styleSheetElement.setAttribute('disabled', true)
+      } else {
+        /* if this is the first one, make sure he's in head */
+        if (styleSheetElement.parentElement.tagName !== 'HEAD') {
+          document.head.append(styleSheetElement)
+        }
+      }
+    }
+  </script>
+  <script type="text/html" id="tmpl-bb-link-preview">
+<% if ( link_scrapping ) { %>
+	<% if ( link_loading ) { %>
+		<span class="bb-url-scrapper-loading bb-ajax-loader"><i class="bb-icon-l bb-icon-spinner animate-spin"></i>Loading preview...</span>
+	<% } %>
+	<% if ( link_success || link_error ) { %>
+		<a title="Cancel Preview" href="#" id="bb-close-link-suggestion">Remove Preview</i></a>
+		<div class="bb-link-preview-container">
+
+			<% if ( link_images && link_images.length && link_success && ! link_error && '' !== link_image_index ) { %>
+				<div id="bb-url-scrapper-img-holder">
+					<div class="bb-link-preview-image">
+						<div class="bb-link-preview-image-cover">
+							<img src="<%= link_images[link_image_index] %>"/>
+						</div>
+						<div class="bb-link-preview-icons">
+							<%
+							if ( link_images.length > 1 ) { %>
+								<a data-bp-tooltip-pos="up" data-bp-tooltip="Change image" href="#" class="icon-exchange toolbar-button bp-tooltip" id="icon-exchange"><i class="bb-icon-l bb-icon-exchange"></i></a>
+							<% } %>
+							<% if ( link_images.length ) { %>
+								<a data-bp-tooltip-pos="up" data-bp-tooltip="Remove image" href="#" class="icon-image-slash toolbar-button bp-tooltip" id="bb-link-preview-remove-image"><i class="bb-icon-l bb-icon-image-slash"></i></a>
+							<% } %>
+							<a data-bp-tooltip-pos="up" data-bp-tooltip="Confirm" class="toolbar-button bp-tooltip" href="#" id="bb-link-preview-select-image">
+								<i class="bb-icon-check bb-icon-l"></i>
+							</a>
+						</div>
+					</div>
+					<% if ( link_images.length > 1 ) { %>
+						<div class="bb-url-thumb-nav">
+							<button type="button" id="bb-url-prevPicButton"><span class="bb-icon-l bb-icon-angle-left"></span></button>
+							<button type="button" id="bb-url-nextPicButton"><span class="bb-icon-l bb-icon-angle-right"></span></button>
+							<div id="bb-url-scrapper-img-count">
+								Image <%= link_image_index + 1 %>&nbsp;of&nbsp;<%= link_images.length %>
+							</div>
+						</div>
+					<% } %>
+				</div>
+			<% } %>
+
+			<% if ( link_success && ! link_error && link_url ) { %>
+				<div class="bb-link-preview-info">
+					<% var a = document.createElement('a');
+						a.href = link_url;
+						var hostname = a.hostname;
+						var domainName = hostname.replace('www.', '' );
+					%>
+
+					<% if ( 'undefined' !== typeof link_title && link_title.trim() && link_description ) { %>
+						<p class="bb-link-preview-link-name"><%= domainName %></p>
+					<% } %>
+
+					<% if ( link_success && ! link_error ) { %>
+						<p class="bb-link-preview-title"><%= link_title %></p>
+					<% } %>
+
+					<% if ( link_success && ! link_error ) { %>
+						<div class="bb-link-preview-excerpt"><p><%= link_description %></p></div>
+					<% } %>
+				</div>
+			<% } %>
+			<% if ( link_error && ! link_success ) { %>
+				<div id="bb-url-error" class="bb-url-error"><%= link_error_msg %></div>
+			<% } %>
+		</div>
+	<% } %>
+<% } %>
+</script>
+  <meta name='robots' content='noindex, follow' />
+
+  <!-- This site is optimized with the Yoast SEO plugin v22.4 - https://yoast.com/wordpress/plugins/seo/ -->
+  <title>My account - wellbeing-athome.com</title>
+  <link rel="canonical" href="https://wellbeing-athome.com/my-account/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="My account - wellbeing-athome.com" />
+  <meta property="og:url" content="https://wellbeing-athome.com/my-account/" />
+  <meta property="og:site_name" content="wellbeing-athome.com" />
+  <meta property="article:publisher" content="https://www.facebook.com/Wellbeing-Escapes-120617274622" />
+  <meta property="article:modified_time" content="2021-11-05T09:39:19+00:00" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json"
+    class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://wellbeing-athome.com/my-account/","url":"https://wellbeing-athome.com/my-account/","name":"My account - wellbeing-athome.com","isPartOf":{"@id":"https://wellbeing-athome.com/#website"},"datePublished":"2021-09-17T09:14:31+00:00","dateModified":"2021-11-05T09:39:19+00:00","breadcrumb":{"@id":"https://wellbeing-athome.com/my-account/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://wellbeing-athome.com/my-account/"]}]},{"@type":"BreadcrumbList","@id":"https://wellbeing-athome.com/my-account/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://wellbeing-athome.com/"},{"@type":"ListItem","position":2,"name":"My account"}]},{"@type":"WebSite","@id":"https://wellbeing-athome.com/#website","url":"https://wellbeing-athome.com/","name":"wellbeing-athome.com","description":"Take Charge Of Your Health &amp; Wellbeing","publisher":{"@id":"https://wellbeing-athome.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://wellbeing-athome.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://wellbeing-athome.com/#organization","name":"Wellbeing At Home","url":"https://wellbeing-athome.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://wellbeing-athome.com/#/schema/logo/image/","url":"https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png","contentUrl":"https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png","width":974,"height":928,"caption":"Wellbeing At Home"},"image":{"@id":"https://wellbeing-athome.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/Wellbeing-Escapes-120617274622","https://www.instagram.com/wellbeingescapes/","https://www.youtube.com/user/WellbeingEscapes"]}]}</script>
+  <!-- / Yoast SEO plugin. -->
+
+
+  <link rel='dns-prefetch' href='//stats.wp.com' />
+  <link rel='dns-prefetch' href='//accounts.google.com' />
+  <link rel='dns-prefetch' href='//apis.google.com' />
+  <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+  <link rel="alternate" type="application/rss+xml" title="wellbeing-athome.com &raquo; Feed"
+    href="https://wellbeing-athome.com/feed/" />
+  <link rel="alternate" type="application/rss+xml" title="wellbeing-athome.com &raquo; Comments Feed"
+    href="https://wellbeing-athome.com/comments/feed/" />
+  <link rel="alternate" type="text/calendar" title="wellbeing-athome.com &raquo; iCal Feed"
+    href="https://wellbeing-athome.com/events/?ical=1" />
+  <script type="text/javascript">
+    window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/wellbeing-athome.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.3.4" } };
+    /*! This file is auto-generated */
+    !function (i, n) { var o, s, e; function c(e) { try { var t = { supportTests: e, timestamp: (new Date).valueOf() }; sessionStorage.setItem(o, JSON.stringify(t)) } catch (e) { } } function p(e, t, n) { e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0); var t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data), r = (e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0), new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data)); return t.every(function (e, t) { return e === r[t] }) } function u(e, t, n) { switch (t) { case "flag": return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : !n(e, "\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && !n(e, "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f", "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"); case "emoji": return !n(e, "\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff", "\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff") }return !1 } function f(e, t, n) { var r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(300, 150) : i.createElement("canvas"), a = r.getContext("2d", { willReadFrequently: !0 }), o = (a.textBaseline = "top", a.font = "600 32px Arial", {}); return e.forEach(function (e) { o[e] = t(a, e, n) }), o } function t(e) { var t = i.createElement("script"); t.src = e, t.defer = !0, i.head.appendChild(t) } "undefined" != typeof Promise && (o = "wpEmojiSettingsSupports", s = ["flag", "emoji"], n.supports = { everything: !0, everythingExceptFlag: !0 }, e = new Promise(function (e) { i.addEventListener("DOMContentLoaded", e, { once: !0 }) }), new Promise(function (t) { var n = function () { try { var e = JSON.parse(sessionStorage.getItem(o)); if ("object" == typeof e && "number" == typeof e.timestamp && (new Date).valueOf() < e.timestamp + 604800 && "object" == typeof e.supportTests) return e.supportTests } catch (e) { } return null }(); if (!n) { if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" != typeof URL && URL.createObjectURL && "undefined" != typeof Blob) try { var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), p.toString()].join(",") + "));", r = new Blob([e], { type: "text/javascript" }), a = new Worker(URL.createObjectURL(r), { name: "wpTestEmojiSupports" }); return void (a.onmessage = function (e) { c(n = e.data), a.terminate(), t(n) }) } catch (e) { } c(n = f(s, u, p)) } t(n) }).then(function (e) { for (var t in e) n.supports[t] = e[t], n.supports.everything = n.supports.everything && n.supports[t], "flag" !== t && (n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && n.supports[t]); n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && !n.supports.flag, n.DOMReady = !1, n.readyCallback = function () { n.DOMReady = !0 } }).then(function () { return e }).then(function () { var e; n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e.concatemoji) : e.wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji))) })) }((window, document), window._wpemojiSettings);
+  </script>
+  <link rel='stylesheet' id='dashicons-css'
+    href='https://wellbeing-athome.com/wp-includes/css/dashicons.min.css?ver=6.3.4' type='text/css' media='all' />
+  <link rel='stylesheet' id='thickbox-css'
+    href='https://wellbeing-athome.com/wp-includes/js/thickbox/thickbox.css?ver=6.3.4' type='text/css' media='all' />
+  <link rel='stylesheet' id='mbr-general-css-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/activemember360/assets/css/general.css?ver=4.2.3'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='datatables-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/activemember360/libs/datatables/css/datatables.min.css?ver=4.2.3'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='datatables-editor-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/activemember360/libs/datatables/css/datatables_editor_ext.css?ver=4.2.3'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='bp-nouveau-icons-map-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/icons-map.min.css?ver=2.4.00'
+    type='text/css' media='screen' />
+  <link rel='stylesheet' id='bp-nouveau-bb-icons-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/bb-icons.min.css?ver=1.0.3'
+    type='text/css' media='screen' />
+  <link rel='stylesheet' id='bp-nouveau-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/css/buddypress.min.css?ver=2.4.00'
+    type='text/css' media='screen' />
+  <style id='bp-nouveau-inline-css' type='text/css'>
+    .list-wrap .bs-group-cover a:before {
+      background: unset;
+    }
+  </style>
+  <link rel='stylesheet' id='tec-variables-skeleton-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-skeleton.min.css?ver=5.2.5'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tec-variables-full-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-full.min.css?ver=5.2.5'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='event-tickets-plus-tickets-css-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/event-tickets-plus/src/resources/css/tickets.min.css?ver=5.10.0'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='event-tickets-tickets-rsvp-css-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/event-tickets/src/resources/css/rsvp-v1.min.css?ver=5.9.0'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tribe-common-skeleton-style-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css?ver=5.2.5'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tribe-common-full-style-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/the-events-calendar/common/src/resources/css/common-full.min.css?ver=5.2.5'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='event-tickets-tickets-css-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/event-tickets/src/resources/css/tickets.min.css?ver=5.9.0'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss_legacy-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/buddyboss_legacy.css?ver=1.0'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='wp-block-library-css'
+    href='https://wellbeing-athome.com/wp-includes/css/dist/block-library/style.min.css?ver=6.3.4' type='text/css'
+    media='all' />
+  <link rel='stylesheet' id='bb_theme_block-buddypanel-style-css-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/blocks/buddypanel/build/style-buddypanel.css?ver=a43481f57c3cc73f6cce06223a569c14'
+    type='text/css' media='all' />
+  <style id='classic-theme-styles-inline-css' type='text/css'>
+    /*! This file is auto-generated */
+    .wp-block-button__link {
+      color: #fff;
+      background-color: #32373c;
+      border-radius: 9999px;
+      box-shadow: none;
+      text-decoration: none;
+      padding: calc(.667em + 2px) calc(1.333em + 2px);
+      font-size: 1.125em
+    }
+
+    .wp-block-file__button {
+      background: #32373c;
+      color: #fff;
+      text-decoration: none
+    }
+  </style>
+  <style id='global-styles-inline-css' type='text/css'>
+    body {
+      --wp--preset--color--black: #000000;
+      --wp--preset--color--cyan-bluish-gray: #abb8c3;
+      --wp--preset--color--white: #ffffff;
+      --wp--preset--color--pale-pink: #f78da7;
+      --wp--preset--color--vivid-red: #cf2e2e;
+      --wp--preset--color--luminous-vivid-orange: #ff6900;
+      --wp--preset--color--luminous-vivid-amber: #fcb900;
+      --wp--preset--color--light-green-cyan: #7bdcb5;
+      --wp--preset--color--vivid-green-cyan: #00d084;
+      --wp--preset--color--pale-cyan-blue: #8ed1fc;
+      --wp--preset--color--vivid-cyan-blue: #0693e3;
+      --wp--preset--color--vivid-purple: #9b51e0;
+      --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+      --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+      --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+      --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+      --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+      --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+      --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+      --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+      --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+      --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+      --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+      --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+      --wp--preset--font-size--small: 13px;
+      --wp--preset--font-size--medium: 20px;
+      --wp--preset--font-size--large: 36px;
+      --wp--preset--font-size--x-large: 42px;
+      --wp--preset--spacing--20: 0.44rem;
+      --wp--preset--spacing--30: 0.67rem;
+      --wp--preset--spacing--40: 1rem;
+      --wp--preset--spacing--50: 1.5rem;
+      --wp--preset--spacing--60: 2.25rem;
+      --wp--preset--spacing--70: 3.38rem;
+      --wp--preset--spacing--80: 5.06rem;
+      --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+      --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+      --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+      --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+      --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+    }
+
+    :where(.is-layout-flex) {
+      gap: 0.5em;
+    }
+
+    :where(.is-layout-grid) {
+      gap: 0.5em;
+    }
+
+    body .is-layout-flow>.alignleft {
+      float: left;
+      margin-inline-start: 0;
+      margin-inline-end: 2em;
+    }
+
+    body .is-layout-flow>.alignright {
+      float: right;
+      margin-inline-start: 2em;
+      margin-inline-end: 0;
+    }
+
+    body .is-layout-flow>.aligncenter {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    body .is-layout-constrained>.alignleft {
+      float: left;
+      margin-inline-start: 0;
+      margin-inline-end: 2em;
+    }
+
+    body .is-layout-constrained>.alignright {
+      float: right;
+      margin-inline-start: 2em;
+      margin-inline-end: 0;
+    }
+
+    body .is-layout-constrained>.aligncenter {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    body .is-layout-constrained> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+      max-width: var(--wp--style--global--content-size);
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    body .is-layout-constrained>.alignwide {
+      max-width: var(--wp--style--global--wide-size);
+    }
+
+    body .is-layout-flex {
+      display: flex;
+    }
+
+    body .is-layout-flex {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    body .is-layout-flex>* {
+      margin: 0;
+    }
+
+    body .is-layout-grid {
+      display: grid;
+    }
+
+    body .is-layout-grid>* {
+      margin: 0;
+    }
+
+    :where(.wp-block-columns.is-layout-flex) {
+      gap: 2em;
+    }
+
+    :where(.wp-block-columns.is-layout-grid) {
+      gap: 2em;
+    }
+
+    :where(.wp-block-post-template.is-layout-flex) {
+      gap: 1.25em;
+    }
+
+    :where(.wp-block-post-template.is-layout-grid) {
+      gap: 1.25em;
+    }
+
+    .has-black-color {
+      color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-color {
+      color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-color {
+      color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-color {
+      color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-color {
+      color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-color {
+      color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-color {
+      color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-color {
+      color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-color {
+      color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-color {
+      color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-color {
+      color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-color {
+      color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-background-color {
+      background-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-background-color {
+      background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-background-color {
+      background-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-background-color {
+      background-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-background-color {
+      background-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-background-color {
+      background-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-background-color {
+      background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-background-color {
+      background-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-border-color {
+      border-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-border-color {
+      border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-border-color {
+      border-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-border-color {
+      border-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-border-color {
+      border-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-border-color {
+      border-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-border-color {
+      border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-border-color {
+      border-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+      background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+    }
+
+    .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+      background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+    }
+
+    .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+    }
+
+    .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+      background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+    }
+
+    .has-cool-to-warm-spectrum-gradient-background {
+      background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+    }
+
+    .has-blush-light-purple-gradient-background {
+      background: var(--wp--preset--gradient--blush-light-purple) !important;
+    }
+
+    .has-blush-bordeaux-gradient-background {
+      background: var(--wp--preset--gradient--blush-bordeaux) !important;
+    }
+
+    .has-luminous-dusk-gradient-background {
+      background: var(--wp--preset--gradient--luminous-dusk) !important;
+    }
+
+    .has-pale-ocean-gradient-background {
+      background: var(--wp--preset--gradient--pale-ocean) !important;
+    }
+
+    .has-electric-grass-gradient-background {
+      background: var(--wp--preset--gradient--electric-grass) !important;
+    }
+
+    .has-midnight-gradient-background {
+      background: var(--wp--preset--gradient--midnight) !important;
+    }
+
+    .has-small-font-size {
+      font-size: var(--wp--preset--font-size--small) !important;
+    }
+
+    .has-medium-font-size {
+      font-size: var(--wp--preset--font-size--medium) !important;
+    }
+
+    .has-large-font-size {
+      font-size: var(--wp--preset--font-size--large) !important;
+    }
+
+    .has-x-large-font-size {
+      font-size: var(--wp--preset--font-size--x-large) !important;
+    }
+
+    .wp-block-navigation a:where(:not(.wp-element-button)) {
+      color: inherit;
+    }
+
+    :where(.wp-block-post-template.is-layout-flex) {
+      gap: 1.25em;
+    }
+
+    :where(.wp-block-post-template.is-layout-grid) {
+      gap: 1.25em;
+    }
+
+    :where(.wp-block-columns.is-layout-flex) {
+      gap: 2em;
+    }
+
+    :where(.wp-block-columns.is-layout-grid) {
+      gap: 2em;
+    }
+
+    .wp-block-pullquote {
+      font-size: 1.5em;
+      line-height: 1.6;
+    }
+  </style>
+  <link rel='stylesheet' id='bb-pro-enqueue-scripts-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform-pro/assets/css/index.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='bb-access-control-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform-pro/includes/access-control/assets/css/bb-access-control.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='bp-mentions-css-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/css/mentions.min.css?ver=2.4.00'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tve_leads_forms-css'
+    href='//wellbeing-athome.com/wp-content/plugins/thrive-leads/editor-layouts/css/frontend.css?ver=3.28'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tve_style_family_tve_flt-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/css/thrive_flat.css?ver=3.30'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tve-logged-in-style-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/css/logged-in.css?ver=3.30'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='select2-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/css/select2.css?ver=8.7.0' type='text/css'
+    media='all' />
+  <link rel='stylesheet' id='woocommerce-layout-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=8.7.0'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='woocommerce-smallscreen-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=8.7.0'
+    type='text/css' media='only screen and (max-width: 768px)' />
+  <link rel='stylesheet' id='woocommerce-general-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=8.7.0'
+    type='text/css' media='all' />
+  <style id='woocommerce-inline-inline-css' type='text/css'>
+    .woocommerce form .form-row .required {
+      visibility: visible;
+    }
+  </style>
+  <link rel='stylesheet' id='gateway-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/woocommerce-paypal-payments/modules/ppcp-button/assets/css/gateway.css?ver=2.6.1'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tvo-frontend-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/thrive-ovation/tcb-bridge/frontend/css/frontend.css?ver=6.3.4'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='event-tickets-rsvp-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/event-tickets/src/resources/css/rsvp.min.css?ver=5.9.0'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='TribeEventsWooTickets-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/event-tickets-plus/src/resources/css/wootickets.min.css?ver=4.5.0.1'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='bp-zoom-css'
+    href='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/zoom/assets/css/bp-zoom.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-magnific-popup-css-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/vendors/magnific-popup.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-select2-css-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/vendors/select2.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-css-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/theme.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-template-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/template-v2.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-buddypress-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/buddypress.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-forums-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/bbpress.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-woocommerce-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/woocommerce.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-eventscalendar-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/eventscalendar.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='buddyboss-theme-eventscalendar-v2-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/css/eventscalendar-v2.min.css?ver=2.3.90'
+    type='text/css' media='all' />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css?family=Roboto&#038;display=swap&#038;ver=1691076724" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&#038;display=swap&#038;ver=1691076724"
+    media="print" onload="this.media='all'"><noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&#038;display=swap&#038;ver=1691076724" />
+  </noscript>
+  <link rel='stylesheet' id='buddyboss-child-css-css'
+    href='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme-child/assets/css/custom.css?ver=1.0.0'
+    type='text/css' media='all' />
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2'
+    id='wp-polyfill-inert-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.11'
+    id='regenerator-runtime-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0'
+    id='wp-polyfill-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-includes/js/dist/hooks.min.js?ver=c6aec9a8d4e5a5d543a1'
+    id='wp-hooks-js'></script>
+  <script type='text/javascript' src='https://stats.wp.com/w.js?ver=202415' id='woo-tracks-js'></script>
+  <script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.0'
+    id='jquery-core-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1'
+    id='jquery-migrate-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/the-events-calendar/common/vendor/datatables/datatables.min.js?ver=5.2.5'
+    id='datatables-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/activemember360/libs/datatables/js/datatables_editor_ext.js?ver=4.2.3'
+    id='datatables-editor-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/activemember360/assets/js/general.js?ver=4.2.3'
+    id='mbr-general-js-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/activemember360/assets/js/foggy.js?ver=4.2.3'
+    id='foggy-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/activemember360/assets/js/actions.js?ver=4.2.3'
+    id='mbr-actions-js-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/widget-members.min.js?ver=2.4.00'
+    id='bp-widget-members-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/jquery-query.min.js?ver=2.4.00'
+    id='bp-jquery-query-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-cookie.min.js?ver=2.4.00'
+    id='bp-jquery-cookie-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-scroll-to.min.js?ver=2.4.00'
+    id='bp-jquery-scroll-to-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-groups/js/widget-groups.min.js?ver=2.4.00'
+    id='groups_widget_groups_list-js-js'></script>
+  <script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/imagesloaded.min.js?ver=4.1.4'
+    id='imagesloaded-js'></script>
+  <script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/masonry.min.js?ver=4.2.2'
+    id='masonry-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-includes/js/jquery/jquery.masonry.min.js?ver=3.1.2b'
+    id='jquery-masonry-js'></script>
+  <script type='text/javascript' id='tve_frontend-js-extra'>
+    /* <![CDATA[ */
+    var tve_frontend_options = { "is_editor_page": "", "page_events": [], "is_single": "1", "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "social_fb_app_id": "", "dash_url": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/thrive-visual-editor\/thrive-dashboard", "translations": { "Copy": "Copy" }, "post_id": "1503740", "user_profile_nonce": "ffedb39bac", "ip": "102.186.178.242", "current_user": { "user_email": "km4877792@gmail.com", "username": "km4877792@gmail.com", "nickname": "ahmed", "first_name": "Ahmed", "last_name": "", "role": "subscriberbbp_participant", "display_name": "Ahmed", "website": "", "user_bio": "", "ip": "102.186.178.242", "registered": "2024-04-13 14:11:40", "id": "9715", "edit_url": "https:\/\/wellbeing-athome.com\/members\/ahmed-2\/profile\/edit\/" }, "post_title": "My account", "post_type": "page", "post_url": "https:\/\/wellbeing-athome.com\/my-account\/", "is_lp": "", "post_request_data": [], "routes": { "certificate_search": "https:\/\/wellbeing-athome.com\/wp-json\/tva\/v1\/certificate\/search", "assessments": "https:\/\/wellbeing-athome.com\/wp-json\/tva\/v1\/user\/assessment", "testimonials": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/testimonials" }, "query_vars": { "certificate_u": "" }, "woo_rest_routes": { "shop": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/woo\/render_shop", "product_categories": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/woo\/render_product_categories", "product_variations": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/woo\/variations" }, "conditional_display": { "is_tooltip_dismissed": false } };
+    var tve_frontend_options = { "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "is_editor_page": "", "page_events": "", "is_single": "1", "social_fb_app_id": "", "dash_url": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/thrive-visual-editor\/thrive-dashboard", "queried_object": { "ID": 1503740, "post_author": "1" }, "query_vars": { "page": "", "pagename": "my-account", "certificate_u": "" }, "$_POST": [], "translations": { "Copy": "Copy", "empty_username": "ERROR: The username field is empty.", "empty_password": "ERROR: The password field is empty.", "empty_login": "ERROR: Enter a username or email address.", "min_chars": "At least %s characters are needed", "no_headings": "No headings found", "registration_err": { "required_field": "<strong>Error<\/strong>: This field is required", "required_email": "<strong>Error<\/strong>: Please type your email address.", "invalid_email": "<strong>Error<\/strong>: The email address isn&#8217;t correct.", "passwordmismatch": "<strong>Error<\/strong>: Password mismatch" } }, "routes": { "posts": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/posts", "video_reporting": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/video-reporting", "courses": "https:\/\/wellbeing-athome.com\/wp-json\/tva\/v1\/course_list_element", "certificate_search": "https:\/\/wellbeing-athome.com\/wp-json\/tva\/v1\/certificate\/search", "assessments": "https:\/\/wellbeing-athome.com\/wp-json\/tva\/v1\/user\/assessment", "testimonials": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/testimonials" }, "nonce": "786c7e4f51", "allow_video_src": "", "google_client_id": null, "google_api_key": null, "facebook_app_id": null, "lead_generation_custom_tag_apis": ["activecampaign", "aweber", "convertkit", "drip", "klicktipp", "mailchimp", "sendlane", "zapier"], "post_request_data": [], "user_profile_nonce": "ffedb39bac", "ip": "102.186.178.242", "current_user": { "user_email": "km4877792@gmail.com", "username": "km4877792@gmail.com", "nickname": "ahmed", "first_name": "Ahmed", "last_name": "", "role": "subscriberbbp_participant", "display_name": "Ahmed", "website": "", "user_bio": "", "ip": "102.186.178.242", "registered": "2024-04-13 14:11:40", "id": "9715", "edit_url": "https:\/\/wellbeing-athome.com\/members\/ahmed-2\/profile\/edit\/" }, "post_id": "1503740", "post_title": "My account", "post_type": "page", "post_url": "https:\/\/wellbeing-athome.com\/my-account\/", "is_lp": "", "woo_rest_routes": { "shop": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/woo\/render_shop", "product_categories": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/woo\/render_product_categories", "product_variations": "https:\/\/wellbeing-athome.com\/wp-json\/tcb\/v1\/woo\/variations" }, "conditional_display": { "is_tooltip_dismissed": false } };
+    /* ]]> */
+  </script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/general.min.js?ver=3.30'
+    id='tve_frontend-js'></script>
+  <script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/plupload/moxie.min.js?ver=1.3.5'
+    id='moxiejs-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/post-list.min.js?v=3.30&#038;ver=3.30'
+    id='tve_frontend_post-list-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.8.7.0'
+    id='jquery-blockui-js' defer data-wp-strategy='defer'></script>
+  <script type='text/javascript' id='wc-add-to-cart-js-extra'>
+    /* <![CDATA[ */
+    var wc_add_to_cart_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "https:\/\/wellbeing-athome.com\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
+    /* ]]> */
+  </script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=8.7.0'
+    id='wc-add-to-cart-js' defer data-wp-strategy='defer'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/js/selectWoo/selectWoo.full.min.js?ver=1.0.9-wc.8.7.0'
+    id='selectWoo-js' defer data-wp-strategy='defer'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.8.7.0'
+    id='js-cookie-js' defer data-wp-strategy='defer'></script>
+  <script type='text/javascript' id='woocommerce-js-extra'>
+    /* <![CDATA[ */
+    var woocommerce_params = { "ajax_url": "\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/?wc-ajax=%%endpoint%%" };
+    /* ]]> */
+  </script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=8.7.0'
+    id='woocommerce-js' defer data-wp-strategy='defer'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/plugins/thrive-ovation/tcb-bridge/frontend/js/display-testimonials-tcb.min.js?ver=3.30'
+    id='display-testimonials-tcb-js'></script>
+  <script type='text/javascript'
+    src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme-child/assets/js/custom.js?ver=1.0.0'
+    id='buddyboss-child-js-js'></script>
+  <link rel="https://api.w.org/" href="https://wellbeing-athome.com/wp-json/" />
+  <link rel="alternate" type="application/json" href="https://wellbeing-athome.com/wp-json/wp/v2/pages/1503740" />
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://wellbeing-athome.com/xmlrpc.php?rsd" />
+  <meta name="generator" content="WordPress 6.3.4" />
+  <meta name="generator" content="WooCommerce 8.7.0" />
+  <link rel='shortlink' href='https://wellbeing-athome.com/?p=1503740' />
+  <link rel="alternate" type="application/json+oembed"
+    href="https://wellbeing-athome.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwellbeing-athome.com%2Fmy-account%2F" />
+  <link rel="alternate" type="text/xml+oembed"
+    href="https://wellbeing-athome.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwellbeing-athome.com%2Fmy-account%2F&#038;format=xml" />
+
+  <script>var ajaxurl = 'https://wellbeing-athome.com/wp-admin/admin-ajax.php';</script>
+
+  <style type="text/css" id="tve_global_variables">
+    :root {
+      --tcb-color-0: rgba(106, 102, 127, 0.5);
+      --tcb-color-0-h: 249;
+      --tcb-color-0-s: 10%;
+      --tcb-color-0-l: 44%;
+      --tcb-color-0-a: 0.5;
+      --tcb-color-1: rgb(45, 11, 10);
+      --tcb-color-1-h: 1;
+      --tcb-color-1-s: 63%;
+      --tcb-color-1-l: 10%;
+      --tcb-color-1-a: 1;
+      --tcb-color-2: rgb(160, 195, 152);
+      --tcb-color-2-h: 108;
+      --tcb-color-2-s: 26%;
+      --tcb-color-2-l: 68%;
+      --tcb-color-2-a: 1;
+      --tcb-color-3: rgb(8, 8, 8);
+      --tcb-color-3-h: 0;
+      --tcb-color-3-s: 0%;
+      --tcb-color-3-l: 3%;
+      --tcb-color-3-a: 1;
+      --tcb-background-author-image: url(https://wellbeing-athome.com/wp-content/uploads/avatars/1/5ff338b44e47a-bpfull.jpg);
+      --tcb-background-user-image: url(https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png);
+      --tcb-background-featured-image-thumbnail: url(https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/css/images/featured_image.png);
+    }
+  </style>
+  <meta name="et-api-version" content="v1">
+  <meta name="et-api-origin" content="https://wellbeing-athome.com">
+  <link rel="https://theeventscalendar.com/" href="https://wellbeing-athome.com/wp-json/tribe/tickets/v1/" />
+  <meta name="tec-api-version" content="v1">
+  <meta name="tec-api-origin" content="https://wellbeing-athome.com">
+  <link rel="alternate" href="https://wellbeing-athome.com/wp-json/tribe/events/v1/" />
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+  </script>
+  <style>
+    .no-js img.lazyload {
+      display: none;
+    }
+
+    figure.wp-block-image img.lazyloading {
+      min-width: 150px;
+    }
+
+    .lazyload,
+    .lazyloading {
+      opacity: 0;
+    }
+
+    .lazyloaded {
+      opacity: 1;
+      transition: opacity 400ms;
+      transition-delay: 0ms;
+    }
+  </style>
+  <meta name="framework" content="Redux 4.3.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <style type="text/css">
+    @font-face {
+      font-family: Wellbeing Body Copy Font;
+      src: url(http://wellbeing-athome.com/wp-content/uploads/New_Web_Font_Cuprum_OpenType.pdf) format('woff');
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Wellbeing Header Font;
+      src: url(http://wellbeing-athome.com/wp-content/uploads/StoneSansITC_TT_Bold_TrueType_.pdf) format('woff');
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  <noscript>
+    <style>
+      .woocommerce-product-gallery {
+        opacity: 1 !important;
+      }
+    </style>
+  </noscript>
+
+  <!-- Meta Pixel Code -->
+  <script type='text/javascript'>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }(window,
+      document, 'script', 'https://connect.facebook.net/en_US/fbevents.js?v=next');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <script type='text/javascript'>
+    var url = window.location.origin + '?ob=open-bridge';
+    fbq('set', 'openbridge', '530723697083707', url);
+  </script>
+  <script type='text/javascript'>fbq('init', '530723697083707', {
+      "em": "km4877792@gmail.com",
+      "fn": "ahmed"
+    }, {
+      "agent": "wordpress-6.3.4-3.0.16"
+    })</script>
+  <script type='text/javascript'>
+    fbq('track', 'PageView', []);
+  </script>
+  <!-- Meta Pixel Code -->
+  <noscript>
+    <img height="1" width="1" style="display:none" alt="fbpx"
+      src="https://www.facebook.com/tr?id=530723697083707&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+  <style type="text/css">
+    .recentcomments a {
+      display: inline !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  </style>
+  <style type="text/css">
+    .recentcomments a {
+      display: inline !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  </style>
+  <style id="buddyboss_theme-style">
+    :root {
+      --bb-primary-color: #8ca58c;
+      --bb-primary-color-rgb: 140, 165, 140;
+      --bb-body-background-color: #FAFBFD;
+      --bb-body-background-color-rgb: 250, 251, 253;
+      --bb-content-background-color: #FFFFFF;
+      --bb-content-alternate-background-color: #FBFBFC;
+      --bb-content-border-color: #E7E9EC;
+      --bb-content-border-color-rgb: 231, 233, 236;
+      --bb-cover-image-background-color: #607387;
+      --bb-headings-color: #22353c;
+      --bb-headings-color-rgb: 34, 53, 60;
+      --bb-body-text-color: #5d7281;
+      --bb-body-text-color-rgb: 93, 114, 129;
+      --bb-alternate-text-color: #6a667f;
+      --bb-alternate-text-color-rgb: 106, 102, 127;
+      --bb-primary-button-background-regular: #385DFF;
+      --bb-primary-button-background-hover: #1E42DD;
+      --bb-primary-button-border-regular: #385DFF;
+      --bb-primary-button-border-hover: #1E42DD;
+      --bb-primary-button-text-regular: #ffffff;
+      --bb-primary-button-text-regular-rgb: 255, 255, 255;
+      --bb-primary-button-text-hover: #ffffff;
+      --bb-primary-button-text-hover-rgb: 255, 255, 255;
+      --bb-secondary-button-background-regular: #F2F4F5;
+      --bb-secondary-button-background-hover: #385DFF;
+      --bb-secondary-button-border-regular: #F2F4F5;
+      --bb-secondary-button-border-hover: #385DFF;
+      --bb-secondary-button-text-regular: #1E2132;
+      --bb-secondary-button-text-hover: #FFFFFF;
+      --bb-header-background: #ffffff;
+      --bb-header-alternate-background: #F2F4F5;
+      --bb-header-links: #6a667f;
+      --bb-header-links-hover: #8ca58c;
+      --bb-header-mobile-logo-size: 200px;
+      --bb-header-height: 90px;
+      --bb-sidenav-background: #ffffff;
+      --bb-sidenav-text-regular: #939597;
+      --bb-sidenav-text-hover: #939597;
+      --bb-sidenav-text-active: #ffffff;
+      --bb-sidenav-menu-background-color-regular: #ffffff;
+      --bb-sidenav-menu-background-color-hover: #F2F4F5;
+      --bb-sidenav-menu-background-color-active: #8ca58c;
+      --bb-sidenav-count-text-color-regular: #939597;
+      --bb-sidenav-count-text-color-hover: #ffffff;
+      --bb-sidenav-count-text-color-active: #8ca58c;
+      --bb-sidenav-count-background-color-regular: #F2F4F5;
+      --bb-sidenav-count-background-color-hover: #8ca58c;
+      --bb-sidenav-count-background-color-active: #ffffff;
+      --bb-footer-background: #ffffff;
+      --bb-footer-widget-background: #ffffff;
+      --bb-footer-text-color: #5A5A5A;
+      --bb-footer-menu-link-color-regular: #5A5A5A;
+      --bb-footer-menu-link-color-hover: #385DFF;
+      --bb-footer-menu-link-color-active: #1E2132;
+      --bb-admin-screen-bgr-color: #FAFBFD;
+      --bb-admin-screen-txt-color: #22353c;
+      --bb-login-register-link-color-regular: #5A5A5A;
+      --bb-login-register-link-color-hover: #1E42DD;
+      --bb-login-register-button-background-color-regular: #385DFF;
+      --bb-login-register-button-background-color-hover: #1E42DD;
+      --bb-login-register-button-border-color-regular: #385DFF;
+      --bb-login-register-button-border-color-hover: #1E42DD;
+      --bb-login-register-button-text-color-regular: #FFFFFF;
+      --bb-login-register-button-text-color-hover: #FFFFFF;
+      --bb-label-background-color: #D7DFFF;
+      --bb-label-text-color: #385DFF;
+      --bb-tooltip-background: #22353c;
+      --bb-tooltip-background-rgb: 34, 53, 60;
+      --bb-tooltip-color: #ffffff;
+      --bb-default-notice-color: #007CFF;
+      --bb-default-notice-color-rgb: 0, 124, 255;
+      --bb-success-color: #1CD991;
+      --bb-success-color-rgb: 28, 217, 145;
+      --bb-warning-color: #f7ba45;
+      --bb-warning-color-rgb: 247, 186, 69;
+      --bb-danger-color: #EF3E46;
+      --bb-danger-color-rgb: 239, 62, 70;
+      --bb-login-custom-heading-color: #FFFFFF;
+      --bb-button-radius: 100px;
+      --bb-block-radius: 10px;
+      --bb-option-radius: 5px;
+      --bb-block-radius-inner: 6px;
+      --bb-input-radius: 6px;
+      --bb-label-type-radius: 6px;
+      --bb-checkbox-radius: 5.4px;
+      --bb-primary-button-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-primary-button-border-hover-rgb), 0.1);
+      --bb-secondary-button-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-secondary-button-border-hover-rgb), 0.1);
+      --bb-outline-button-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-content-border-color-rgb), 0.1);
+      --bb-input-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-primary-color-rgb), 0.1);
+      --bb-input-focus-border-color: var(--bb-primary-color);
+      --bb-widget-title-text-transform: none;
+    }
+
+    h1 {
+      line-height: 1.2;
+    }
+
+    h2 {
+      line-height: 1.2;
+    }
+
+    h3 {
+      line-height: 1.4;
+    }
+
+    h4 {
+      line-height: 1.4;
+    }
+
+    h5 {
+      line-height: 1.4;
+    }
+
+    h6 {
+      line-height: 1.4;
+    }
+
+    .bb-style-primary-bgr-color {
+      background-color: #8ca58c;
+    }
+
+    .bb-style-border-radius {
+      border-radius: 100px;
+    }
+
+    #site-logo .site-title img {
+      max-height: inherit;
+    }
+
+    .site-header-container .site-branding {
+      min-width: 175px;
+    }
+
+    #site-logo .site-title .bb-logo img,
+    #site-logo .site-title img.bb-logo,
+    .buddypanel .site-title img {
+      width: 175px;
+    }
+
+    .site-title img.bb-mobile-logo {
+      width: 200px;
+    }
+
+    .site-header-container #site-logo .bb-logo img,
+    .site-header-container #site-logo .site-title img.bb-logo,
+    .site-title img.bb-mobile-logo {
+      max-height: 90px
+    }
+
+    .sticky-header .site-content,
+    body.buddypress.sticky-header .site-content,
+    .bb-buddypanel.sticky-header .site-content,
+    .single-sfwd-quiz.bb-buddypanel.sticky-header .site-content,
+    .single-sfwd-lessons.bb-buddypanel.sticky-header .site-content,
+    .single-sfwd-topic.bb-buddypanel.sticky-header .site-content {
+      padding-top: 90px
+    }
+
+    .site-header .site-header-container,
+    .header-search-wrap,
+    .header-search-wrap input.search-field,
+    .header-search-wrap form.search-form {
+      height: 90px;
+    }
+
+    .sticky-header .bp-feedback.bp-sitewide-notice {
+      top: 90px;
+    }
+
+    @media screen and (max-width:767px) {
+      .bb-mobile-header {
+        height: 90px;
+      }
+
+      #learndash-content .lms-topic-sidebar-wrapper .lms-topic-sidebar-data {
+        height: calc(90vh - 90px);
+      }
+    }
+
+    [data-balloon]:after,
+    [data-bp-tooltip]:after {
+      background-color: rgba(34, 53, 60, 1);
+      box-shadow: none;
+    }
+
+    [data-balloon]:before,
+    [data-bp-tooltip]:before {
+      background: no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba( 34,53,60,1 )%22%20transform%3D%22rotate(0)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");
+      background-size: 100% auto;
+    }
+
+    [data-bp-tooltip][data-bp-tooltip-pos="right"]:before,
+    [data-balloon][data-balloon-pos='right']:before {
+      background: no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba( 34,53,60,1 )%22%20transform%3D%22rotate(90 6 6)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");
+      background-size: 100% auto;
+    }
+
+    [data-bp-tooltip][data-bp-tooltip-pos="left"]:before,
+    [data-balloon][data-balloon-pos='left']:before {
+      background: no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba( 34,53,60,1 )%22%20transform%3D%22rotate(-90 18 18)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");
+      background-size: 100% auto;
+    }
+
+    [data-bp-tooltip][data-bp-tooltip-pos="down-left"]:before,
+    [data-bp-tooltip][data-bp-tooltip-pos="down"]:before,
+    [data-balloon][data-balloon-pos='down']:before {
+      background: no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba( 34,53,60,1 )%22%20transform%3D%22rotate(180 18 6)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");
+      background-size: 100% auto;
+    }
+  </style>
+  <style id="buddyboss_theme-bp-style">
+    #buddypress #header-cover-image.has-default,
+    #buddypress #header-cover-image.has-default .guillotine-window img,
+    .bs-group-cover.has-default a {
+      background-color: #607387;
+    }
+
+    body.buddypress.register.login-split-page .login-split .split-overlay,
+    body.buddypress.activation.login-split-page .login-split .split-overlay {
+      opacity: 0.3;
+    }
+
+    body.buddypress.register .register-section-logo img,
+    body.buddypress.activation .activate-section-logo img {
+      width: 145px;
+    }
+  </style>
+
+  <style id="buddyboss_theme-forums-style">
+    .bbpress .widget_display_forums>ul.bb-sidebar-forums>li a:before {
+      border-color: #63bf00;
+    }
+
+    .bbpress .widget_display_forums>ul.bb-sidebar-forums>li a:before {
+      background-color: rgba(99, 191, 0, 0.5);
+    }
+  </style>
+
+  <style id="buddyboss_theme-custom-style">
+    a.bb-close-panel i {
+      top: 21px;
+    }
+  </style>
+  <style type="text/css" id="wp-custom-css">
+    code {
+      visibility: hidden;
+    }
+
+    .tribe-events .tribe-events-calendar-list .tribe-events-calendar-list__event-wrapper .tribe-events-calendar-list__event-featured-image-wrapper .tribe-events-calendar-list__event-featured-image {
+      object-fit: contain !important;
+    }
+  </style>
+  <style id="buddyboss_theme_options-dynamic-css" title="dynamic-css" class="redux-options-output">
+    .site-header .site-title {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 30px;
+      font-display: swap;
+    }
+
+    body {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 16px;
+      font-display: swap;
+    }
+
+    h1 {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 34px;
+      font-display: swap;
+    }
+
+    h2 {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      font-display: swap;
+    }
+
+    h3 {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      font-display: swap;
+    }
+
+    h4 {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 18px;
+      font-display: swap;
+    }
+
+    h5 {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 16px;
+      font-display: swap;
+    }
+
+    h6 {
+      font-family: Roboto;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 12px;
+      font-display: swap;
+    }
+  </style>
+  <meta name='generator' content='ActiveMember360 (v4.2.3-ap) for WordPress 6.3.4' />
+  <script
+    type='text/javascript'>var ajaxurl = '//wellbeing-athome.com/wp-admin/admin-ajax.php'; var tb_pathToImage = '//wellbeing-athome.com/wp-includes/js/thickbox/loadingAnimation.gif'; var tb_closeImage = '//wellbeing-athome.com/wp-includes/js/thickbox/tb-close.png'; function payf_popup() { tb_show('Notice:', '#TB_inline?height=300&amp;width=400&amp;inlineId=PayfInfoDiv'); }</script>
+  <style>
+    .your-class {
+      color: blue;
+    }
+
+    .single-post .entry-media.entry-img {
+      display: none;
+    }
+
+    .single-tribe_events .tribe-events-event-image {
+      display: none;
+    }
+
+    .ld-breadcrumbs-segments {
+      display: none
+    }
+
+    .tribe-events-single>.tribe_events {
+      z-index: 1;
+    }
+  </style>
+</head>
+
+
+
+{% block content %}
+
+{% endblock content %}
+
+<script type="text/javascript">
+  (function (e, t, o, n, p, r, i) { e.visitorGlobalObjectAlias = n; e[e.visitorGlobalObjectAlias] = e[e.visitorGlobalObjectAlias] || function () { (e[e.visitorGlobalObjectAlias].q = e[e.visitorGlobalObjectAlias].q || []).push(arguments) }; e[e.visitorGlobalObjectAlias].l = (new Date).getTime(); r = t.createElement("script"); r.src = o; r.async = true; i = t.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) })(window, document, "https://diffuser-cdn.app-us1.com/diffuser/diffuser.js", "vgo");
+  vgo('setAccount', '476499877');
+  vgo('setTrackByDefault', true);
+
+  vgo('process');
+</script>
+<script type='text/javascript'>($ => {
+    /**
+     * Displays toast message from storage, it is used when the user is redirected after login
+     */
+    if (window.sessionStorage) {
+      $(window).on('tcb_after_dom_ready', () => {
+        const message = sessionStorage.getItem('tcb_toast_message');
+
+        if (message) {
+          tcbToast(sessionStorage.getItem('tcb_toast_message'), false);
+          sessionStorage.removeItem('tcb_toast_message');
+        }
+      });
+    }
+
+    /**
+     * Displays toast message
+     *
+     * @param {string}   message  - message to display
+     * @param {Boolean}  error    - whether the message is an error or not
+     * @param {Function} callback - callback function to be called after the message is closed
+     */
+    function tcbToast(message, error, callback) {
+      /* Also allow "message" objects */
+      if (typeof message !== 'string') {
+        message = message.message || message.error || message.success;
+      }
+      if (!error) {
+        error = false;
+      }
+      TCB_Front.notificationElement.toggle(message, error ? 'error' : 'success', callback);
+    }
+  })(typeof ThriveGlobal === 'undefined' ? jQuery : ThriveGlobal.$j);
+</script>
+<script>
+  jQuery(document).ready(function () {
+    jQuery('*[data-mbr-eventname]').click(function () {
+      if (jQuery(this).data('mbr-eventname') && jQuery(this).data('mbr-eventvalue')) {
+        jQuery.post(ajaxurl, {
+          'action': 'mbr_ajax_eventlog',
+          'eventname': jQuery(this).data('mbr-eventname'),
+          'eventvalue': jQuery(this).data('mbr-eventvalue')
+        });
+      }
+    });
+
+    jQuery('*[data-mbr-form-eventname]').submit(function () {
+      if (jQuery(this).data('mbr-form-eventname') && jQuery(this).data('mbr-form-eventvalue')) {
+        jQuery.post(ajaxurl, {
+          'action': 'mbr_ajax_eventlog',
+          'eventname': jQuery(this).data('mbr-form-eventname'),
+          'eventvalue': jQuery(this).data('mbr-form-eventvalue')
+        });
+      }
+    });
+  });
+</script>
+<script>
+  (function (body) {
+    'use strict';
+    body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
+  })(document.body);
+</script>
+<!-- Meta Pixel Event Code -->
+<script type='text/javascript'>
+  document.addEventListener('wpcf7mailsent', function (event) {
+    if ("fb_pxl_code" in event.detail.apiResponse) {
+      eval(event.detail.apiResponse.fb_pxl_code);
+    }
+  }, false);
+</script>
+<!-- End Meta Pixel Event Code -->
+<div id='fb-pxl-ajax-code'></div>
+<style type="text/css" id="tve_notification_styles"></style>
+<div class="tvd-toast tve-fe-message" style="display: none">
+  <div class="tve-toast-message tve-success-message">
+    <div class="tve-toast-icon-container">
+      <span class="tve_tick thrv-svg-icon"></span>
+    </div>
+    <div class="tve-toast-message-container"></div>
+  </div>
+</div>
+<script> /* <![CDATA[ */var tribe_l10n_datatables = { "aria": { "sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending" }, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": { "all": "All", "next": "Next", "previous": "Previous" }, "select": { "rows": { "0": "", "_": ": Selected %d rows", "1": ": Selected 1 row" } }, "datepicker": { "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesMin": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done", "today": "Today", "clear": "Clear" }, "registration_prompt": "There is unsaved attendee information. Are you sure you want to continue?" };/* ]]> */ </script>
+<div class="tl-states-root tl-anim-zoom_in">
+  <div class="tl-style" id="tve_tcb2_round-image-1-step" data-state="8">
+    <div class="tve_tcb2_round-image-1-step tve_post_lightbox tve-leads-lightbox">
+      <div style="visibility: hidden; position: fixed; left: -9000px" class="tl-lb-target tve-leads-track-lightbox-8"
+        data-s-state="">
+        <div class="tve_p_lb_overlay" style=""></div>
+        <div data-anim="zoom_in" class="tve_p_lb_content tve-tl-anim tl-anim-zoom_in bSe cnt" style=""
+          data-css="tve-u-3zvs28r6lj3dy">
+          <div class="tve_p_lb_inner" id="tve-p-scroller" style="">
+            <article>
+              <style type="text/css" class="tve_custom_style">
+                @import url("//fonts.googleapis.com/css?family=Noto+Sans:400&subset=latin");
+                @import url("//fonts.googleapis.com/css?family=Nunito+Sans:400,900,800,600,300,&subset=latin");
+                @import url("//fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin");
+                @media (min-width: 300px) {
+                  :not(#tve) [data-css="tve-u-256022c95005d14"] {
+                    font-family: "Noto Sans" !important;
+                    font-weight: 400 !important;
+                    font-size: 14px !important;
+                    color: rgb(153, 153, 153) !important;
+                  }
+
+                  [data-css="tve-u-176022c95005cfc"] strong {
+                    font-weight: 900;
+                  }
+
+                  [data-css="tve-u-116022c95005cf1"]>.tve-cb {
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                  }
+
+                  :not(#tve) [data-css="tve-u-06022c95005cdc"]> :first-child {
+                    color: rgb(159, 159, 159);
+                  }
+
+                  [data-css="tve-u-166022c95005cfa"] {
+                    padding: 0px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-176022c95005cfc"] {
+                    font-weight: 400;
+                    color: rgb(38, 38, 38) !important;
+                    font-family: "Nunito Sans" !important;
+                  }
+
+                  [data-css="tve-u-156022c95005cf9"] {
+                    line-height: 1em !important;
+                  }
+
+                  [data-css="tve-u-156022c95005cf9"] strong {
+                    font-weight: 900;
+                  }
+
+                  [data-css="tve-u-146022c95005cf8"] {
+                    float: none;
+                    max-width: 70%;
+                    padding: 0px !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    margin-bottom: 30px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-156022c95005cf9"] {
+                    font-weight: 400;
+                    color: rgb(255, 171, 0) !important;
+                    font-size: 35px !important;
+                    font-family: "Nunito Sans" !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-226022c95005d08"]:hover input,
+                  :not(#tve) [data-css="tve-u-226022c95005d08"]:hover input::placeholder {
+                    color: rgb(170, 170, 170) !important;
+                  }
+
+                  [data-css="tve-u-126022c95005cf3"] {
+                    border-radius: 19px;
+                    overflow: hidden;
+                    clip-path: url("#clip-left-8o8tzfk1eluu1");
+                    background-color: rgb(255, 255, 255) !important;
+                  }
+
+                  [data-css="tve-u-116022c95005cf1"] {
+                    padding: 30px 30px 20px !important;
+                    margin: 0px !important;
+                  }
+
+                  [data-css="tve-u-136022c95005cf6"] {
+                    min-height: 342px;
+                  }
+
+                  [data-css="tve-u-106022c95005cf0"] {
+                    padding: 0px !important;
+                  }
+
+                  [data-css="tve-u-246022c95005d0e"] strong {
+                    font-weight: 600;
+                  }
+
+                  :not(#tve) [data-css="tve-u-246022c95005d0e"] {
+                    max-width: 100%;
+                    width: 100%;
+                  }
+
+                  [data-css="tve-u-246022c95005d0e"] {
+                    float: none;
+                    --tve-alignment: center;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                  }
+
+                  [data-css="tve-u-86022c95005ceb"] {
+                    min-height: 329px;
+                  }
+
+                  [data-css="tve-u-76022c95005ce7"] {
+                    border-radius: 200px;
+                    overflow: hidden;
+                    background-image: url("https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png") !important;
+                    background-size: cover !important;
+                    background-position: 50% 50% !important;
+                    background-attachment: scroll !important;
+                    background-repeat: no-repeat !important;
+                    --background-image: url("https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png") !important;
+                    --background-size: cover !important;
+                    --background-position: 50% 50% !important;
+                    --background-attachment: scroll !important;
+                    --background-repeat: no-repeat !important;
+                    --tve-applied-background-image: url("https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png") !important;
+                  }
+
+                  [data-css="tve-u-66022c95005ce6"] {
+                    max-width: 329px;
+                    padding: 0px !important;
+                    margin: 0px !important;
+                  }
+
+                  [data-css="tve-u-206022c95005d05"]>.tcb-flex-col>.tcb-col {
+                    min-height: 1px;
+                  }
+
+                  [data-css="tve-u-46022c95005ce3"]>.tcb-flex-col>.tcb-col {
+                    min-height: 1px;
+                    justify-content: center;
+                  }
+
+                  [data-css="tve-u-206022c95005d05"] {
+                    margin-left: 0px;
+                    min-height: inherit;
+                  }
+
+                  [data-css="tve-u-206022c95005d05"]>.tcb-flex-col {
+                    padding-left: 0px;
+                  }
+
+                  [data-css="tve-u-36022c95005ce2"] {
+                    margin-bottom: 10px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-226022c95005d08"]:hover input {
+                    color: rgb(170, 170, 170);
+                    border: 0px solid rgb(229, 229, 229);
+                    border-radius: 50px;
+                    overflow: hidden;
+                    background-color: rgb(236, 236, 236) !important;
+                    background-image: none !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-236022c95005d0c"]> :first-child {
+                    color: rgba(177, 177, 177, 0);
+                  }
+
+                  [data-css="tve-u-26022c95005ce1"] {
+                    min-height: 0px !important;
+                  }
+
+                  [data-css="tve-u-196022c95005d01"] {
+                    border-radius: 0px;
+                    overflow: hidden;
+                    max-width: 504px;
+                    margin-top: 0px !important;
+                    margin-bottom: 15px !important;
+                    padding: 0px !important;
+                    margin-left: 26px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-226022c95005d08"] input {
+                    font-size: 14px;
+                    border-radius: 90px;
+                    overflow: hidden;
+                    font-family: "Open Sans";
+                    font-weight: 400;
+                    line-height: 28px;
+                    border: 0px solid rgb(229, 229, 229);
+                    letter-spacing: 1px;
+                    padding: 10px 20px !important;
+                    margin-bottom: 0px !important;
+                    background-image: none !important;
+                    background-color: rgb(234, 234, 234) !important;
+                    margin-top: 0px !important;
+                    margin-right: 0px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-246022c95005d0e"]:hover button {
+                    background-color: rgb(22, 22, 22) !important;
+                    background-image: none !important;
+                    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 7px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-246022c95005d0e"] button {
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    line-height: 30px;
+                    font-family: "Nunito Sans";
+                    border-radius: 50px;
+                    overflow: hidden;
+                    border: 0px solid rgb(229, 229, 229);
+                    letter-spacing: 3px;
+                    text-transform: none;
+                    font-weight: bold !important;
+                    padding-top: 10px !important;
+                    padding-bottom: 10px !important;
+                    margin-bottom: 0px !important;
+                    background-image: none !important;
+                    margin-top: 0px !important;
+                    margin-left: 0px !important;
+                    background-color: rgb(93, 114, 129) !important;
+                    --background-color: rgb(93, 114, 129) !important;
+                    --tve-applied-background-color: rgb(93, 114, 129) !important;
+                  }
+
+                  [data-css="tve-u-96022c95005cef"] {
+                    max-width: 59.5%;
+                  }
+
+                  [data-css="tve-u-56022c95005ce4"] {
+                    max-width: 40.3%;
+                  }
+
+                  [data-css="tve-u-46022c95005ce3"] {
+                    margin-left: 0px;
+                    min-height: inherit;
+                    padding: 10px !important;
+                  }
+
+                  [data-css="tve-u-46022c95005ce3"]>.tcb-flex-col {
+                    padding-left: 0px;
+                  }
+
+                  [data-css="tve-u-16022c95005cdf"] {
+                    padding: 0px !important;
+                  }
+
+                  [data-css="tve-u-3zvs28r6lj3dy"] {
+                    overflow: hidden;
+                    border: none;
+                    border-radius: 0px !important;
+                    margin-left: 0px !important;
+                    margin-right: 0px !important;
+                    padding: 0px !important;
+                    background-color: rgba(255, 255, 255, 0) !important;
+                    max-width: 901px !important;
+                    box-shadow: none !important;
+                  }
+
+                  [data-css="tve-u-06022c95005cdc"] {
+                    font-size: 14px;
+                    width: 14px;
+                    height: 14px;
+                    color: rgb(177, 211, 127);
+                    border: none;
+                    border-radius: 99px;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: 10;
+                    top: -6px;
+                    right: 6px;
+                    float: none;
+                    background-image: none !important;
+                    padding: 13px !important;
+                    background-color: rgb(255, 255, 255) !important;
+                    margin: 0px auto !important;
+                  }
+
+                  [data-css="tve-u-186022c95005cfe"] .tve_sep {
+                    border-width: 3px !important;
+                    border-color: rgba(66, 66, 66, 0) !important;
+                    width: 100%;
+                  }
+                }
+
+                @media (max-width: 1023px) {
+                  [data-css="tve-u-196022c95005d01"] {
+                    max-width: 100%;
+                  }
+
+                  [data-css="tve-u-86022c95005ceb"] {
+                    min-height: 278px;
+                  }
+
+                  [data-css="tve-u-76022c95005ce7"] {
+                    clip-path: url("#clip-tablet-top-2qv5c4hx0xq98");
+                  }
+
+                  [data-css="tve-u-116022c95005cf1"] {
+                    z-index: 1;
+                    padding-top: 50px !important;
+                  }
+
+                  [data-css="tve-u-66022c95005ce6"] {
+                    z-index: 4;
+                    max-width: 278px;
+                    margin-left: 158px !important;
+                    margin-bottom: -53px !important;
+                  }
+
+                  [data-css="tve-u-126022c95005cf3"] {
+                    clip-path: url("#clip-tablet-left-8o8tzfk1eluu1");
+                  }
+
+                  [data-css="tve-u-3zvs28r6lj3dy"] {
+                    max-width: 614px !important;
+                  }
+
+                  [data-css="tve-u-06022c95005cdc"] {
+                    z-index: 10;
+                    top: 219px;
+                    right: 9px;
+                  }
+                }
+
+                @media (max-width: 767px) {
+                  [data-css="tve-u-3zvs28r6lj3dy"] {
+                    margin-top: 0px !important;
+                  }
+
+                  [data-css="tve-u-176022c95005cfc"] {
+                    line-height: 1.5em !important;
+                  }
+
+                  [data-css="tve-u-156022c95005cf9"] {
+                    line-height: 1.2em !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-176022c95005cfc"] {
+                    font-size: 16px !important;
+                  }
+
+                  [data-css="tve-u-146022c95005cf8"] {
+                    max-width: 100%;
+                    margin-bottom: 18px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-156022c95005cf9"] {
+                    font-size: 26px !important;
+                  }
+
+                  [data-css="tve-u-116022c95005cf1"] {
+                    padding-top: 110px !important;
+                  }
+
+                  [data-css="tve-u-86022c95005ceb"] {
+                    min-height: 200px;
+                  }
+
+                  [data-css="tve-u-66022c95005ce6"] {
+                    max-width: 200px;
+                    margin-bottom: -104px !important;
+                    margin-left: 52px !important;
+                  }
+
+                  [data-css="tve-u-76022c95005ce7"] {
+                    clip-path: url("#clip-mobile-top-2qv5c4hx0xq98");
+                  }
+
+                  [data-css="tve-u-16022c95005cdf"] {
+                    padding-bottom: 20px !important;
+                  }
+
+                  [data-css="tve-u-06022c95005cdc"] {
+                    z-index: 10;
+                    top: 88px;
+                    right: 12px;
+                    font-size: 12px;
+                    width: 12px;
+                    height: 12px;
+                    padding: 10px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-246022c95005d0e"] button {
+                    margin-top: 10px !important;
+                    margin-left: 0px !important;
+                  }
+
+                  [data-css="tve-u-196022c95005d01"] {
+                    max-width: 296px;
+                    margin-top: 0px !important;
+                    padding-top: 0px !important;
+                    margin-right: 0px !important;
+                    margin-left: 0px !important;
+                  }
+                }
+              </style>
+              <div class="tve-leads-conversion-object" data-tl-type="lightbox">
+                <div class="tve_flt">
+                  <div id="tve_editor" class="tve_shortcode_editor">
+                    <div
+                      class="thrv_wrapper thrv_icon tcb-icon-display tve_evt_manager_listen tve_et_click tve_ea_thrive_leads_form_close"
+                      data-css="tve-u-06022c95005cdc"
+                      data-tcb-events="__TCB_EVENT_[{&quot;a&quot;:&quot;thrive_leads_form_close&quot;,&quot;t&quot;:&quot;click&quot;}]_TNEVE_BCT__">
+                      <svg class="tcb-icon" viewBox="0 0 30 32" data-name="closeclose">
+
+                        <path d="M0.655 2.801l1.257-1.257 27.655 27.655-1.257 1.257-27.655-27.655z"></path>
+                        <path d="M28.31 1.543l1.257 1.257-27.655 27.655-1.257-1.257 27.655-27.655z"></path>
+                      </svg>
+                    </div>
+                    <div class="thrv_wrapper thrv-page-section" style="" data-css="tve-u-16022c95005cdf">
+                      <div class="tve-page-section-out"></div>
+                      <div class="tve-page-section-in tve_empty_dropzone" data-css="tve-u-26022c95005ce1">
+                        <div class="thrv_wrapper thrv-columns" style="" data-css="tve-u-36022c95005ce2">
+                          <div class="tcb-flex-row tcb-resized tcb-medium-wrap tcb--cols--2"
+                            data-css="tve-u-46022c95005ce3">
+                            <div class="tcb-flex-col" data-css="tve-u-56022c95005ce4" style="">
+                              <div class="tcb-col tve_empty_dropzone" style="">
+                                <div class="thrv_wrapper thrv_contentbox_shortcode thrv-content-box"
+                                  data-css="tve-u-66022c95005ce6">
+                                  <div class="tve-content-box-background" data-css="tve-u-76022c95005ce7"
+                                    data-clip-id="2qv5c4hx0xq98" style=""><svg width="0" height="0"
+                                      class="tve-decoration-svg">
+                                      <defs>
+                                        <clipPath id="clip-tablet-top-2qv5c4hx0xq98"
+                                          class="decoration-clip clip-path-tablet-top" clipPathUnits="objectBoundingBox"
+                                          data-screen="tablet-" decoration-type="none" data-inverted="true"
+                                          pointer-width="5" pointer-height="5"
+                                          clip-path="url(#clip-tablet-bottom-2qv5c4hx0xq98)">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-tablet-bottom-2qv5c4hx0xq98"
+                                          class="decoration-clip clip-path-tablet-bottom"
+                                          clipPathUnits="objectBoundingBox" data-screen="tablet-"
+                                          decoration-type="pointer" data-inverted="true" pointer-width="10"
+                                          pointer-height="3" style="">
+                                          <polygon points="0 0, 0 1, 0.45 1, 0.5 0.97, 0.55 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-mobile-top-2qv5c4hx0xq98"
+                                          class="decoration-clip clip-path-mobile-top" clipPathUnits="objectBoundingBox"
+                                          data-screen="mobile-" decoration-type="none" data-inverted="true"
+                                          pointer-width="5" pointer-height="5"
+                                          clip-path="url(#clip-mobile-bottom-2qv5c4hx0xq98)">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-mobile-bottom-2qv5c4hx0xq98"
+                                          class="decoration-clip clip-path-mobile-bottom"
+                                          clipPathUnits="objectBoundingBox" data-screen="mobile-"
+                                          decoration-type="pointer" data-inverted="true" pointer-width="10"
+                                          pointer-height="3" style="">
+                                          <polygon points="0 0, 0 1, 0.45 1, 0.5 0.97, 0.55 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                      </defs>
+                                    </svg></div>
+                                  <div class="tve-cb tve_empty_dropzone" data-css="tve-u-86022c95005ceb"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tcb-flex-col" data-css="tve-u-96022c95005cef" style="">
+                              <div class="tcb-col tve_empty_dropzone" style="" data-css="tve-u-106022c95005cf0">
+                                <div class="thrv_wrapper thrv_contentbox_shortcode thrv-content-box"
+                                  data-css="tve-u-116022c95005cf1" data-float="1">
+                                  <div class="tve-content-box-background" data-css="tve-u-126022c95005cf3"
+                                    data-clip-id="8o8tzfk1eluu1"><svg width="0" height="0" class="tve-decoration-svg">
+                                      <defs>
+                                        <clipPath id="clip-left-8o8tzfk1eluu1" class="decoration-clip clip-path-left"
+                                          clipPathUnits="objectBoundingBox" data-screen="" decoration-type="pointer"
+                                          data-inverted="true" pointer-width="8" pointer-height="2">
+                                          <polygon points="0 0, 0 0.46, 0.02 0.5, 0 0.54, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-tablet-left-8o8tzfk1eluu1"
+                                          class="decoration-clip clip-path-tablet-left"
+                                          clipPathUnits="objectBoundingBox" data-screen="tablet-" decoration-type="none"
+                                          data-inverted="true" pointer-width="0" pointer-height="0"
+                                          clip-path="url(#clip-tablet-top-8o8tzfk1eluu1)">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-tablet-top-8o8tzfk1eluu1"
+                                          class="decoration-clip clip-path-tablet-top" clipPathUnits="objectBoundingBox"
+                                          data-screen="tablet-" decoration-type="none" data-inverted="true"
+                                          pointer-width="5" pointer-height="3">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                      </defs>
+                                    </svg></div>
+                                  <div class="tve-cb tve_empty_dropzone" data-css="tve-u-136022c95005cf6">
+                                    <div class="thrv_wrapper thrv_text_element" data-tag="h2"
+                                      data-css="tve-u-146022c95005cf8">
+                                      <h2 data-css="tve-u-156022c95005cf9" style="text-align: center;" class="">
+                                        Reserve Your Place</h2>
+                                    </div>
+                                    <div class="thrv_wrapper thrv_text_element tve_empty_dropzone"
+                                      data-css="tve-u-166022c95005cfa">
+                                      <p data-css="tve-u-176022c95005cfc" style="text-align: center;">Simply enter
+                                        your name and email to reserve your place for our upcoming event. Our free
+                                        online events are hosted within the wellbeing at home community, you'll
+                                        receive your unique link to login and further details on how to access the
+                                        live events.</p>
+                                    </div>
+                                    <div class="thrv_wrapper thrv-divider" data-style-d="tve_sep-1" data-thickness-d="3"
+                                      data-color-d="rgba(66, 66, 66, 0)" data-css="tve-u-186022c95005cfe">
+                                      <hr class="tve_sep tve_sep-1" style="">
+                                    </div>
+                                    <div class="thrv_wrapper thrv_text_element tve-froala fr-box"
+                                      data-css="tve-u-166022c95005cfa">
+                                      <p data-css="tve-u-176022c95005cfc" style="text-align: center;">If you already
+                                        have a login for our Wellbeing at home, there's no need to register again. You
+                                        can head to the members area to access this free event <strong><a
+                                            href="https://wellbeing-athome.com/login/" target="_blank"
+                                            class="tve-froala" style="outline: none;">HERE</a>.&nbsp;</strong>If
+                                        you've forgotten your login details, click on <em>forgot password </em>to
+                                        receive a reminder.</p>
+                                    </div>
+                                    <div class="thrv_wrapper thrv_lead_generation" data-connection="api" style=""
+                                      data-css="tve-u-196022c95005d01" data-settings-id="500152"
+                                      data-templateconfig="{&quot;checkbox&quot;:{&quot;data-columns&quot;:4,&quot;option&quot;:{&quot;data-value&quot;:&quot;default&quot;}},&quot;radio&quot;:{&quot;data-columns&quot;:4,&quot;option&quot;:{&quot;data-value&quot;:&quot;default&quot;}},&quot;select&quot;:{&quot;_class&quot;:&quot;&quot;,&quot;data-show-placeholder&quot;:&quot;1&quot;,&quot;data-style&quot;:&quot;default&quot;,&quot;data-icon&quot;:&quot;style_1&quot;,&quot;_alias&quot;:&quot;dropdown&quot;}}">
+                                      <input type="hidden" class="tve-lg-err-msg"
+                                        value="{&quot;email&quot;:&quot;Email address invalid&quot;,&quot;phone&quot;:&quot;Phone number invalid&quot;,&quot;password&quot;:&quot;Password invalid&quot;,&quot;passwordmismatch&quot;:&quot;Password mismatch error&quot;,&quot;required&quot;:&quot;Required field missing&quot;}">
+                                      <div class="thrv_lead_generation_container tve_clearfix">
+                                        <form action="#" method="post" novalidate="novalidate"
+                                          autocomplete="new-password">
+                                          <div
+                                            class="tve_lead_generated_inputs_container tve_clearfix tve_empty_dropzone">
+                                            <div class="thrv_wrapper thrv-columns">
+                                              <div class="tcb-flex-row tcb--cols--1" data-css="tve-u-206022c95005d05">
+                                                <div class="tcb-flex-col" data-css="tve-u-216022c95005d07" style="">
+                                                  <div class="tcb-col tve_empty_dropzone">
+                                                    <div
+                                                      class="tve_lg_input_container tve_lg_input tve_lg_regular_input tcb-plain-text"
+                                                      data-css="tve-u-226022c95005d08" data-label="tve-lg-176b8668c3c">
+                                                      <input class="tcb-plain-text" name="name" placeholder="First Name"
+                                                        data-field="name" data-required="1" data-validation=""
+                                                        data-placeholder="First Name" data-name="Name" type="text">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="thrv_wrapper thrv-columns">
+                                              <div class="tcb-flex-row v-2 tcb--cols--1">
+                                                <div class="tcb-flex-col">
+                                                  <div class="tcb-col">
+                                                    <div
+                                                      class="tve_lg_input_container tve_lg_input tcb-icon-display tve_empty_dropzone"
+                                                      data-css="tve-u-226022c95005d08" data-tcb_hover_state_parent=""
+                                                      data-label="tve-lg-176b4d79d09">
+                                                      <div class="thrv_wrapper thrv_icon" style=""
+                                                        data-css="tve-u-236022c95005d0c"><svg class="tcb-icon"
+                                                          viewBox="0 0 28 28" data-name="envelope">
+
+                                                          <path
+                                                            d="M28 11.094v12.406c0 1.375-1.125 2.5-2.5 2.5h-23c-1.375 0-2.5-1.125-2.5-2.5v-12.406c0.469 0.516 1 0.969 1.578 1.359 2.594 1.766 5.219 3.531 7.766 5.391 1.313 0.969 2.938 2.156 4.641 2.156h0.031c1.703 0 3.328-1.188 4.641-2.156 2.547-1.844 5.172-3.625 7.781-5.391 0.562-0.391 1.094-0.844 1.563-1.359zM28 6.5c0 1.75-1.297 3.328-2.672 4.281-2.438 1.687-4.891 3.375-7.313 5.078-1.016 0.703-2.734 2.141-4 2.141h-0.031c-1.266 0-2.984-1.437-4-2.141-2.422-1.703-4.875-3.391-7.297-5.078-1.109-0.75-2.688-2.516-2.688-3.938 0-1.531 0.828-2.844 2.5-2.844h23c1.359 0 2.5 1.125 2.5 2.5z">
+                                                          </path>
+                                                        </svg></div>
+                                                      <input type="email" data-field="email" data-required="1"
+                                                        data-validation="email" name="email" placeholder="Email"
+                                                        data-placeholder="Email" class="" style="">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="tve_lg_input_container tve_submit_container tve_lg_submit"
+                                              data-css="tve-u-246022c95005d0e" data-tcb_hover_state_parent="">
+                                              <button type="submit" style="" class="">Sign me up!</button>
+                                            </div>
+                                          </div>
+                                          <input id="_submit_option" type="hidden" name="_submit_option"
+                                            value="state"><input id="__tcb_lg_msg" type="hidden" name="__tcb_lg_msg"
+                                            value="YToyOntzOjU6ImVycm9yIjtzOjY6IkVycm9yISI7czo3OiJzdWNjZXNzIjtzOjA6IiI7fQ=="><input
+                                            id="_sendParams" type="hidden" name="_sendParams" value=""><input
+                                            id="_api_custom_fields" type="hidden" name="_api_custom_fields"
+                                            value="YToxMDp7aTowO2E6Mjp7czoyOiJpZCI7czo0OiJuYW1lIjtzOjExOiJwbGFjZWhvbGRlciI7czo0OiJOYW1lIjt9aToxO2E6Mjp7czoyOiJpZCI7czo1OiJwaG9uZSI7czoxMToicGxhY2Vob2xkZXIiO3M6NToiUGhvbmUiO31pOjI7YToyOntzOjI6ImlkIjtzOjEyOiJtYXBwaW5nX3RleHQiO3M6MTE6InBsYWNlaG9sZGVyIjtzOjQ6IlRleHQiO31pOjM7YToyOntzOjI6ImlkIjtzOjExOiJtYXBwaW5nX3VybCI7czoxMToicGxhY2Vob2xkZXIiO3M6MzoiVVJMIjt9aTo0O2E6Mjp7czoyOiJpZCI7czoxMzoibWFwcGluZ19yYWRpbyI7czoxMToicGxhY2Vob2xkZXIiO3M6NToiUmFkaW8iO31pOjU7YToyOntzOjI6ImlkIjtzOjE0OiJtYXBwaW5nX3NlbGVjdCI7czoxMToicGxhY2Vob2xkZXIiO3M6ODoiRHJvcGRvd24iO31pOjY7YToyOntzOjI6ImlkIjtzOjE2OiJtYXBwaW5nX2NoZWNrYm94IjtzOjExOiJwbGFjZWhvbGRlciI7czo4OiJDaGVja2JveCI7fWk6NzthOjI6e3M6MjoiaWQiO3M6MTY6Im1hcHBpbmdfdGV4dGFyZWEiO3M6MTE6InBsYWNlaG9sZGVyIjtzOjg6IlRleHRhcmVhIjt9aTo4O2E6Mjp7czoyOiJpZCI7czoxMjoibWFwcGluZ19maWxlIjtzOjExOiJwbGFjZWhvbGRlciI7czoxMToiRmlsZSB1cGxvYWQiO31pOjk7YToyOntzOjI6ImlkIjtzOjE0OiJtYXBwaW5nX2hpZGRlbiI7czoxMToicGxhY2Vob2xkZXIiO3M6NjoiSGlkZGVuIjt9fQ=="><input
+                                            id="_back_url" type="hidden" name="_back_url"
+                                            value="https://wellbeing-athome.com/mastering-your-metabolism-to-burn-fat-without-restricting-calories/"><a
+                                            href="javascript:void(0)" style="display: none;"
+                                            class="tve-switch-state-trigger tve_evt_manager_listen tve_et_click"
+                                            data-tcb-events="__TCB_EVENT_[{&quot;t&quot;:&quot;click&quot;,&quot;a&quot;:&quot;tl_state_switch&quot;,&quot;elementType&quot;:&quot;a&quot;,&quot;config&quot;:{&quot;s&quot;:9}}]_TNEVE_BCT__"></a><input
+                                            class="tcb-plain-text" name="mapping_hidden_879" data-field="mapping_hidden"
+                                            data-placeholder="" data-name="Hidden"
+                                            data-mapping="YToxOntzOjE0OiJhY3RpdmVjYW1wYWlnbiI7czoyOiIzMSI7fQ==" value=""
+                                            type="hidden" data-complete-type="source"
+                                            data-complete-value="referrer"><input type="hidden" id="tve_mapping"
+                                            name="tve_mapping"
+                                            value="YToxOntzOjE4OiJtYXBwaW5nX2hpZGRlbl84NzkiO2E6Mjp7czoxNDoiYWN0aXZlY2FtcGFpZ24iO3M6MjoiMzEiO3M6NjoiX2ZpZWxkIjtzOjE0OiJtYXBwaW5nX2hpZGRlbiI7fX0="><input
+                                            type="hidden" id="tve_labels" name="tve_labels"
+                                            value="YTozOntzOjQ6Im5hbWUiO3M6NDoiTmFtZSI7czo1OiJlbWFpbCI7czo1OiJFbWFpbCI7czoxODoibWFwcGluZ19oaWRkZW5fODc5IjtzOjY6IkhpZGRlbiI7fQ==">
+                                        </form>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="thrv_wrapper thrv_text_element tve_empty_dropzone tve-froala fr-box fr-basic"
+                                      data-css="tve-u-166022c95005cfa">
+                                      <p data-css="tve-u-256022c95005d14" style="text-align: center;">On signing up to
+                                        Wellbeing at home you agree to our <span class="thrive-shortcode-content"
+                                          data-attr-id="8" data-extra_key="2" data-option-inline="1"
+                                          data-shortcode="thrive_global_fields"
+                                          data-shortcode-name="[Legal] Privacy Notice"
+                                          data-attr-static-link="{&quot;className&quot;:&quot;tve-froala fr-basic&quot;,&quot;href&quot;:&quot;https://wellbeing-athome.com/privacy-notice/&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;class&quot;:&quot;tve-froala fr-basic&quot;}"><a
+                                            href="https://wellbeing-athome.com/privacy-notice/" target="_blank"
+                                            class="tve-froala fr-basic">Privacy Notice</a></span>. You'll be able to
+                                        unsubscribe at any time.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div><a href="javascript:void(0)" class="tve_p_lb_close" style="display: none" title="Close">x</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:none" class="tl-style" id="tve_tcb2_round-image-1-step" data-state="9">
+    <div class="tve_tcb2_round-image-1-step tve_post_lightbox tve-leads-lightbox">
+      <div style="" class="tl-lb-target tve-leads-track-lightbox-9" data-s-state="">
+        <div class="tve_p_lb_overlay" style=""></div>
+        <div data-anim="zoom_in" class="tve_p_lb_content tve-tl-anim tl-anim-zoom_in bSe cnt" style=""
+          data-css="tve-u-zmxipqbnogku1">
+          <div class="tve_p_lb_inner" id="tve-p-scroller" style="">
+            <article>
+              <style type="text/css" class="tve_custom_style">
+                @import url("//fonts.googleapis.com/css?family=Nunito+Sans:400,900,800,600,300,&subset=latin");
+                @media (min-width: 300px) {
+                  [data-css="tve-u-176011955e5b455"] strong {
+                    font-weight: 900;
+                  }
+
+                  [data-css="tve-u-116011955e5b44d"]>.tve-cb {
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                  }
+
+                  :not(#tve) [data-css="tve-u-06011955e5b43a"]> :first-child {
+                    color: rgb(159, 159, 159);
+                  }
+
+                  [data-css="tve-u-166011955e5b454"] {
+                    padding: 0px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-176011955e5b455"] {
+                    font-weight: 400;
+                    color: rgb(38, 38, 38) !important;
+                    font-family: "Nunito Sans" !important;
+                  }
+
+                  [data-css="tve-u-156011955e5b453"] {
+                    line-height: 1em !important;
+                  }
+
+                  [data-css="tve-u-156011955e5b453"] strong {
+                    font-weight: 900;
+                  }
+
+                  [data-css="tve-u-146011955e5b452"] {
+                    float: none;
+                    max-width: 70%;
+                    padding: 0px !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    margin-bottom: 30px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-156011955e5b453"] {
+                    font-weight: 400;
+                    color: rgb(255, 171, 0) !important;
+                    font-size: 35px !important;
+                    font-family: "Nunito Sans" !important;
+                  }
+
+                  [data-css="tve-u-126011955e5b44e"] {
+                    border-radius: 19px;
+                    overflow: hidden;
+                    clip-path: url("#clip-left-jii289afw83bw");
+                    background-color: rgb(255, 255, 255) !important;
+                  }
+
+                  [data-css="tve-u-116011955e5b44d"] {
+                    padding: 30px 30px 20px !important;
+                    margin: 0px !important;
+                  }
+
+                  [data-css="tve-u-136011955e5b451"] {
+                    min-height: 342px;
+                  }
+
+                  [data-css="tve-u-106011955e5b44b"] {
+                    padding: 0px !important;
+                  }
+
+                  [data-css="tve-u-86011955e5b448"] {
+                    min-height: 329px;
+                  }
+
+                  [data-css="tve-u-76011955e5b445"] {
+                    border-radius: 200px;
+                    overflow: hidden;
+                    background-image: url("https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png") !important;
+                    background-size: cover !important;
+                    background-position: 50% 50% !important;
+                    background-attachment: scroll !important;
+                    background-repeat: no-repeat !important;
+                    --background-image: url("https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png") !important;
+                    --background-size: cover !important;
+                    --background-position: 50% 50% !important;
+                    --background-attachment: scroll !important;
+                    --background-repeat: no-repeat !important;
+                    --tve-applied-background-image: url("https://wellbeing-athome.com/wp-content/uploads/cropped-WAH-LOGO-copy.png") !important;
+                  }
+
+                  [data-css="tve-u-66011955e5b444"] {
+                    max-width: 329px;
+                    padding: 0px !important;
+                    margin: 0px !important;
+                  }
+
+                  [data-css="tve-u-46011955e5b441"]>.tcb-flex-col>.tcb-col {
+                    min-height: 1px;
+                    justify-content: center;
+                  }
+
+                  [data-css="tve-u-36011955e5b440"] {
+                    margin-bottom: 10px !important;
+                  }
+
+                  [data-css="tve-u-26011955e5b43f"] {
+                    min-height: 0px !important;
+                  }
+
+                  [data-css="tve-u-96011955e5b44a"] {
+                    max-width: 59.5%;
+                  }
+
+                  [data-css="tve-u-56011955e5b442"] {
+                    max-width: 40.3%;
+                  }
+
+                  [data-css="tve-u-46011955e5b441"] {
+                    margin-left: 0px;
+                    min-height: inherit;
+                    padding: 10px !important;
+                  }
+
+                  [data-css="tve-u-46011955e5b441"]>.tcb-flex-col {
+                    padding-left: 0px;
+                  }
+
+                  [data-css="tve-u-16011955e5b43d"] {
+                    padding: 0px !important;
+                  }
+
+                  [data-css="tve-u-zmxipqbnogku1"] {
+                    overflow: hidden;
+                    border: none;
+                    border-radius: 0px !important;
+                    margin-left: 0px !important;
+                    margin-right: 0px !important;
+                    padding: 0px !important;
+                    background-color: rgba(255, 255, 255, 0) !important;
+                    max-width: 901px !important;
+                    box-shadow: none !important;
+                  }
+
+                  [data-css="tve-u-06011955e5b43a"] {
+                    font-size: 14px;
+                    width: 14px;
+                    height: 14px;
+                    color: rgb(177, 211, 127);
+                    border: none;
+                    border-radius: 99px;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: 10;
+                    top: -6px;
+                    right: 6px;
+                    float: none;
+                    background-image: none !important;
+                    padding: 13px !important;
+                    background-color: rgb(255, 255, 255) !important;
+                    margin: 0px auto !important;
+                  }
+                }
+
+                @media (max-width: 1023px) {
+                  [data-css="tve-u-86011955e5b448"] {
+                    min-height: 278px;
+                  }
+
+                  [data-css="tve-u-76011955e5b445"] {
+                    clip-path: url("#clip-tablet-top-iov46sbsza5pb");
+                  }
+
+                  [data-css="tve-u-116011955e5b44d"] {
+                    z-index: 1;
+                    padding-top: 50px !important;
+                  }
+
+                  [data-css="tve-u-66011955e5b444"] {
+                    z-index: 4;
+                    max-width: 278px;
+                    margin-left: 158px !important;
+                    margin-bottom: -53px !important;
+                  }
+
+                  [data-css="tve-u-126011955e5b44e"] {
+                    clip-path: url("#clip-tablet-left-jii289afw83bw");
+                  }
+
+                  [data-css="tve-u-zmxipqbnogku1"] {
+                    max-width: 614px !important;
+                  }
+
+                  [data-css="tve-u-06011955e5b43a"] {
+                    z-index: 10;
+                    top: 219px;
+                    right: 9px;
+                  }
+                }
+
+                @media (max-width: 767px) {
+                  [data-css="tve-u-zmxipqbnogku1"] {
+                    margin-top: 0px !important;
+                  }
+
+                  [data-css="tve-u-176011955e5b455"] {
+                    line-height: 1.5em !important;
+                  }
+
+                  [data-css="tve-u-156011955e5b453"] {
+                    line-height: 1.2em !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-176011955e5b455"] {
+                    font-size: 16px !important;
+                  }
+
+                  [data-css="tve-u-146011955e5b452"] {
+                    max-width: 100%;
+                    margin-bottom: 18px !important;
+                  }
+
+                  :not(#tve) [data-css="tve-u-156011955e5b453"] {
+                    font-size: 26px !important;
+                  }
+
+                  [data-css="tve-u-116011955e5b44d"] {
+                    padding-top: 110px !important;
+                  }
+
+                  [data-css="tve-u-86011955e5b448"] {
+                    min-height: 200px;
+                  }
+
+                  [data-css="tve-u-66011955e5b444"] {
+                    max-width: 200px;
+                    margin-bottom: -104px !important;
+                    margin-left: 52px !important;
+                  }
+
+                  [data-css="tve-u-76011955e5b445"] {
+                    clip-path: url("#clip-mobile-top-iov46sbsza5pb");
+                  }
+
+                  [data-css="tve-u-16011955e5b43d"] {
+                    padding-bottom: 20px !important;
+                  }
+
+                  [data-css="tve-u-06011955e5b43a"] {
+                    z-index: 10;
+                    top: 88px;
+                    right: 12px;
+                    font-size: 12px;
+                    width: 12px;
+                    height: 12px;
+                    padding: 10px !important;
+                  }
+                }
+              </style>
+              <div class="tve-leads-conversion-object" data-tl-type="lightbox">
+                <div class="tve_flt">
+                  <div id="tve_editor" class="tve_shortcode_editor">
+                    <div
+                      class="thrv_wrapper thrv_icon tcb-icon-display tve_evt_manager_listen tve_et_click tve_ea_thrive_leads_form_close"
+                      data-css="tve-u-06011955e5b43a"
+                      data-tcb-events="__TCB_EVENT_[{&quot;a&quot;:&quot;thrive_leads_form_close&quot;,&quot;t&quot;:&quot;click&quot;}]_TNEVE_BCT__">
+                      <svg class="tcb-icon" viewBox="0 0 30 32" data-name="closeclose">
+
+                        <path d="M0.655 2.801l1.257-1.257 27.655 27.655-1.257 1.257-27.655-27.655z"></path>
+                        <path d="M28.31 1.543l1.257 1.257-27.655 27.655-1.257-1.257 27.655-27.655z"></path>
+                      </svg>
+                    </div>
+                    <div class="thrv_wrapper thrv-page-section" style="" data-css="tve-u-16011955e5b43d">
+                      <div class="tve-page-section-out"></div>
+                      <div class="tve-page-section-in tve_empty_dropzone" data-css="tve-u-26011955e5b43f">
+                        <div class="thrv_wrapper thrv-columns" style="" data-css="tve-u-36011955e5b440">
+                          <div class="tcb-flex-row tcb-resized tcb-medium-wrap tcb--cols--2"
+                            data-css="tve-u-46011955e5b441">
+                            <div class="tcb-flex-col" data-css="tve-u-56011955e5b442" style="">
+                              <div class="tcb-col tve_empty_dropzone" style="">
+                                <div class="thrv_wrapper thrv_contentbox_shortcode thrv-content-box"
+                                  data-css="tve-u-66011955e5b444">
+                                  <div class="tve-content-box-background" data-css="tve-u-76011955e5b445"
+                                    data-clip-id="iov46sbsza5pb" style=""><svg width="0" height="0"
+                                      class="tve-decoration-svg">
+                                      <defs>
+                                        <clipPath id="clip-tablet-top-iov46sbsza5pb"
+                                          class="decoration-clip clip-path-tablet-top" clipPathUnits="objectBoundingBox"
+                                          data-screen="tablet-" decoration-type="none" data-inverted="true"
+                                          pointer-width="5" pointer-height="5"
+                                          clip-path="url(#clip-tablet-bottom-iov46sbsza5pb)">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-tablet-bottom-iov46sbsza5pb"
+                                          class="decoration-clip clip-path-tablet-bottom"
+                                          clipPathUnits="objectBoundingBox" data-screen="tablet-"
+                                          decoration-type="pointer" data-inverted="true" pointer-width="10"
+                                          pointer-height="3" style="">
+                                          <polygon points="0 0, 0 1, 0.45 1, 0.5 0.97, 0.55 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-mobile-top-iov46sbsza5pb"
+                                          class="decoration-clip clip-path-mobile-top" clipPathUnits="objectBoundingBox"
+                                          data-screen="mobile-" decoration-type="none" data-inverted="true"
+                                          pointer-width="5" pointer-height="5"
+                                          clip-path="url(#clip-mobile-bottom-iov46sbsza5pb)">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-mobile-bottom-iov46sbsza5pb"
+                                          class="decoration-clip clip-path-mobile-bottom"
+                                          clipPathUnits="objectBoundingBox" data-screen="mobile-"
+                                          decoration-type="pointer" data-inverted="true" pointer-width="10"
+                                          pointer-height="3" style="">
+                                          <polygon points="0 0, 0 1, 0.45 1, 0.5 0.97, 0.55 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                      </defs>
+                                    </svg></div>
+                                  <div class="tve-cb tve_empty_dropzone" data-css="tve-u-86011955e5b448"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tcb-flex-col" data-css="tve-u-96011955e5b44a" style="">
+                              <div class="tcb-col tve_empty_dropzone" style="" data-css="tve-u-106011955e5b44b">
+                                <div class="thrv_wrapper thrv_contentbox_shortcode thrv-content-box"
+                                  data-css="tve-u-116011955e5b44d" data-float="1">
+                                  <div class="tve-content-box-background" data-css="tve-u-126011955e5b44e"
+                                    data-clip-id="jii289afw83bw"><svg width="0" height="0" class="tve-decoration-svg">
+                                      <defs>
+                                        <clipPath id="clip-left-jii289afw83bw" class="decoration-clip clip-path-left"
+                                          clipPathUnits="objectBoundingBox" data-screen="" decoration-type="pointer"
+                                          data-inverted="true" pointer-width="8" pointer-height="2">
+                                          <polygon points="0 0, 0 0.46, 0.02 0.5, 0 0.54, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-tablet-left-jii289afw83bw"
+                                          class="decoration-clip clip-path-tablet-left"
+                                          clipPathUnits="objectBoundingBox" data-screen="tablet-" decoration-type="none"
+                                          data-inverted="true" pointer-width="0" pointer-height="0"
+                                          clip-path="url(#clip-tablet-top-jii289afw83bw)">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                        <clipPath id="clip-tablet-top-jii289afw83bw"
+                                          class="decoration-clip clip-path-tablet-top" clipPathUnits="objectBoundingBox"
+                                          data-screen="tablet-" decoration-type="none" data-inverted="true"
+                                          pointer-width="5" pointer-height="3">
+                                          <polygon points="0 0, 0 1, 1 1, 1 0"></polygon>
+                                        </clipPath>
+                                      </defs>
+                                    </svg></div>
+                                  <div class="tve-cb tve_empty_dropzone" data-css="tve-u-136011955e5b451">
+                                    <div class="thrv_wrapper thrv_text_element" data-tag="h2"
+                                      data-css="tve-u-146011955e5b452">
+                                      <h2 data-css="tve-u-156011955e5b453" style="text-align: center;" class="">
+                                        Congratulations!</h2>
+                                    </div>
+                                    <div class="thrv_wrapper thrv_text_element tve_empty_dropzone"
+                                      data-css="tve-u-166011955e5b454">
+                                      <p data-css="tve-u-176011955e5b455" style="text-align: center;">Your place for
+                                        our upcoming event is reserved and an email with your login details for our
+                                        wellbeing at home community will arrive in your inbox.</p>
+                                      <p data-css="tve-u-176011955e5b455" style="text-align: center;"><span
+                                          data-css="tve-u-186011955e5b458">The email can take up to 15 minutes to come
+                                          through, please check your junk or spam folder if for any reason you don't
+                                          receive this.</span></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div><a href="javascript:void(0)" class="tve_p_lb_close" style="display: none" title="Close">x</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type='text/javascript'>
+  (function () {
+    var c = document.body.className;
+    c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+    document.body.className = c;
+  })();
+</script>
+<script type="text/javascript">window.TVE_Event_Manager_Registered_Callbacks = window.TVE_Event_Manager_Registered_Callbacks || {}; window.TVE_Event_Manager_Registered_Callbacks.thrive_leads_form_close = function (t, a, c) { TL_Front.close_form(this, t, a, c); return false; }; window.TVE_Event_Manager_Registered_Callbacks.tl_state_switch = function (t, a, c) {
+    var current = ThriveGlobal.$j(this).parents('.tl-style').first();
+    var container = current.parent().find('[data-state="' + c.s + '"]');
+    if (!container.length && current.data('parentStateEl')) {
+      var parent = current.data('parentStateEl').parent();
+      parent.children().hide();
+      container = parent.find('[data-state="' + c.s + '"]');
+    }
+    if (!container.length) { return false; }
+    current.hide();
+    container.show().parent().trigger('switchstate', [container, current]);
+    return false;
+  };;</script>
+<script type='text/javascript' id='thickbox-js-extra'>
+  /* <![CDATA[ */
+  var thickboxL10n = { "next": "Next >", "prev": "< Prev", "image": "Image", "of": "of", "close": "Close", "noiframes": "This feature requires inline frames. You have iframes disabled or your browser does not support them.", "loadingAnimation": "https:\/\/wellbeing-athome.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif" };
+  /* ]]> */
+</script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105'
+  id='thickbox-js'></script>
+<script type='text/javascript' id='jquery-cookie-js-extra'>
+  /* <![CDATA[ */
+  var TribeTicketsPlus = { "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "save_attendee_info_nonce": "e16044620a" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/event-tickets-plus/vendor/jquery.cookie/jquery.cookie.js?ver=5.10.0'
+  id='jquery-cookie-js' data-wp-strategy='defer'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/event-tickets-plus/src/resources/js/attendees-list.min.js?ver=5.10.0'
+  id='event-tickets-plus-attendees-list-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/event-tickets-plus/vendor/jquery.deparam/jquery.deparam.js?ver=5.10.0'
+  id='jquery-deparam-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/event-tickets-plus/src/resources/js/meta.min.js?ver=5.10.0'
+  id='event-tickets-plus-meta-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/event-tickets/src/resources/js/rsvp.min.js?ver=5.9.0'
+  id='event-tickets-tickets-rsvp-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/event-tickets/src/resources/js/ticket-details.min.js?ver=5.9.0'
+  id='event-tickets-details-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/isInViewport.min.js?ver=2.4.00'
+  id='isInViewport-js'></script>
+<script
+  src='https://wellbeing-athome.com/wp-content/plugins/the-events-calendar/common/src/resources/js/underscore-before.js'></script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/underscore.min.js?ver=1.13.4'
+  id='underscore-js'></script>
+<script
+  src='https://wellbeing-athome.com/wp-content/plugins/the-events-calendar/common/src/resources/js/underscore-after.js'></script>
+<script type='text/javascript' id='wp-util-js-extra'>
+  /* <![CDATA[ */
+  var _wpUtilSettings = { "ajax": { "url": "\/wp-admin\/admin-ajax.php" } };
+  /* ]]> */
+</script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/wp-util.min.js?ver=6.3.4'
+  id='wp-util-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-includes/js/dist/i18n.min.js?ver=7701b0c3857f914212ef' id='wp-i18n-js'></script>
+<script id="wp-i18n-js-after" type="text/javascript">
+  wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+</script>
+<script type='text/javascript' id='bp-nouveau-js-extra'>
+  /* <![CDATA[ */
+  var BP_Nouveau = { "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "only_admin_notice": "As you are the only organizer of this group, you cannot leave it. You can either delete the group or promote another member to be an organizer first and then leave the group.", "is_friend_confirm": "Are you sure you want to remove your connection with this member?", "confirm": "Are you sure?", "confirm_delete_set": "Are you sure you want to delete this set? This cannot be undone.", "show_x_comments": "View previous comments", "unsaved_changes": "Your profile has unsaved changes. If you leave the page, the changes will be lost.", "object_nav_parent": "#buddypress", "anchorPlaceholderText": "Paste or type a link", "empty_field": "New Field", "close": "Close", "objects": ["activity", "members", "groups", "blogs", "xprofile", "friends", "media", "document", "video", "messages", "notifications", "search", "group_members", "group_requests", "group_subgroups"], "nonces": { "activity": "0426c2ca75", "members": "6b4d4517a8", "groups": "728c34224c", "blogs": "c97da08286", "xprofile": "66b209ced2", "friends": "6e6fc3ab15", "media": "072a0fb3a0", "document": "7c75d47367", "video": "b6eac051c8", "messages": "f7ad9e0e17", "notifications": "87a592f013", "search": "115e25b011" }, "forums": { "params": { "bb_current_user_id": 9715, "link_preview": true }, "nonces": { "post_topic_reply_draft": "a4f09a8492" }, "strings": { "discardButton": "Discard Draft" }, "draft": [] }, "nonce": { "bp_moderation_content_nonce": "e810515399" }, "current": { "message_user_id": 9715 }, "archived_threads": [], "activity": { "params": { "user_id": 9715, "object": "user", "backcompat": false, "post_nonce": "6d84844192", "post_draft_nonce": "abb2df8dc0", "excluded_hosts": [], "user_can_post": true, "is_activity_edit": false, "displayed_user_id": 0, "errors": { "empty_post_update": "Sorry, Your update cannot be empty.", "post_fail": "An error occurred while saving your post.", "media_fail": "To change the media type, remove existing media from your post." }, "avatar_url": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "avatar_width": 150, "avatar_height": 150, "user_display_name": "Ahmed", "user_domain": "https:\/\/wellbeing-athome.com\/members\/ahmed-2\/", "avatar_alt": "Profile photo of Ahmed", "autoload": true, "link_preview": true, "objects": { "profile": { "text": "Post in: Profile", "autocomplete_placeholder": "", "priority": 5 } }, "draft_activity": "", "access_control_settings": { "can_create_activity": true, "can_create_activity_media": true, "can_create_activity_document": true } }, "strings": { "whatsnewPlaceholder": "Share what's on your mind, Ahmed...", "whatsnewLabel": "Post what&#039;s new", "whatsnewpostinLabel": "Post in", "postUpdateButton": "Post", "updatePostButton": "Update Post", "cancelButton": "Cancel", "commentLabel": "%d Comment", "commentsLabel": "%d Comments", "loadingMore": "Loading...", "discardButton": "Discard Draft" } }, "group_messages": { "page": 1, "type_message": "Type message", "group_no_member": "There are no other members in this group. Please add some members before sending a message.", "group_no_member_pro": "You are not allowed to send private messages to any member of this group.", "loading": "Loading members. Please wait.", "remove_recipient": "Remove Member", "add_recipient": "Add Member", "no_content": "Please add some content to your message.", "no_recipient": "Please add at least one recipient.", "select_default_text": "All Group Members", "select_default_value": "all", "no_member": "No members were found. Try another filter.", "invites_form_all": "This message will be delivered to all members of this group you can message.", "invites_form_separate": "Select group members to message by clicking the + button next to each member. Once you've made a selection, click \"Send Message\" to create a new group message.", "invites_form_reset": "Group invitations cleared. Please use one of the available tabs to select members to invite.", "invites_sending": "Sending group invitations. Please wait.", "removeUserInvite": "Cancel invitation %s", "feedback_select_all": "This message will be delivered to all members of this group you can message.", "feedback_individual": "Select individual recipients by clicking the + button next to each member.", "group_id": 0, "is_group_create": false, "nonces": { "unmessage": "94347acbbc", "send_messages": "ca9eac9887", "retrieve_group_members": "0dab5b773c", "send_messages_users": "0dde706473" } }, "media": { "max_upload_size": 32, "profile_media": true, "profile_album": true, "group_media": true, "group_album": true, "messages_media": false, "messages_media_active": false, "dropzone_media_message": "<strong>Add Photos<\/strong> Or drag and drop", "media_select_error": "This file type is not supported for photo uploads.", "empty_media_type": "Empty media file will not be uploaded.", "invalid_media_type": "Unable to upload the file", "media_size_error_header": "File too large ", "media_size_error_description": "This file type is too large.", "dictFileTooBig": "File size is too big ({{filesize}} MB). Max file size: {{maxFilesize}} MB.", "cover_photo_size_error_header": "Unable to reposition the image ", "cover_photo_size_error_description": "To reposition your cover photo, please upload a larger image and then try again.", "maxFiles": 10, "is_media_directory": "no", "create_album_error_title": "Please enter title of album", "current_album": 0, "current_type": "", "move_to_id_popup": 9715, "media_dict_file_exceeded": "You are allowed to upload only 10 photos at a time.", "can_manage_media": true, "create_album_title": "Create Album", "dictCancelUploadConfirmation": "Are you sure you want to cancel this upload?", "connection_lost_error": "Connection lost with the server.", "emoji": { "profile": true, "groups": true, "messages": true, "forums": true, "document": false }, "emoji_filter_url": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/emojifilter\/", "gif": { "profile": false, "groups": false, "messages": false, "forums": false, "document": false }, "gif_api_key": "", "i18n_strings": { "select": "Select", "unselect": "Unselect", "selectall": "Select All", "unselectall": "Unselect All", "no_photos_found": "Sorry, no photos were found", "upload": "Upload", "uploading": "Uploading", "upload_status": "%1$d out of %2$d uploaded", "album_delete_confirm": "Are you sure you want to delete this album? Photos in this album will also be deleted.", "album_delete_error": "There was a problem deleting the album.", "media_delete_confirm": "Are you sure you want to delete this media?", "folder_delete_confirm": "Are you sure you want to delete this folder? Documents in this folder will also be deleted?", "document_delete_confirm": "Are you sure you want to delete this document?", "folder_delete_error": "There was a problem deleting the folder.", "folder_move_error": "Please select destination folder." }, "profile_document": false, "group_document": false, "messages_document": false, "messages_document_active": false, "document_type": "application\/x-abiword,text\/xml,application\/x-ace-compressed,application\/postscript,application\/pdf,application\/vnd.android.package-archive,application\/java-archive,text\/css,text\/plain,text\/csv,application\/msword,application\/vnd.ms-word.document.macroenabled.12,application\/vnd.openxmlformats-officedocument.wordprocessingml.document,application\/vnd.ms-word.template.macroenabled.12,image\/x-eps,image\/gif,application\/x-gzip,application\/gzip,text\/html,image\/x-icon,text\/calendar,application\/octet-stream,image\/jpeg,application\/javascript,audio\/mpeg,application\/vnd.oasis.opendocument.spreadsheet,application\/vnd.oasis.opendocument.text,image\/png,application\/vnd.ms-powerpoint.template.macroenabled.12,application\/vnd.openxmlformats-officedocument.presentationml.template,application\/vnd.openxmlformats-officedocument.presentationml.presentation,application\/vnd.ms-powerpoint,application\/vnd.openxmlformats-officedocument.presentationml.slideshow,application\/vnd.ms-powerpoint.presentation.macroenabled.12,image\/vnd.adobe.photoshop,application\/x-rar-compressed,application\/x-rar,application\/rss+xml,application\/rtf,application\/x-sqlite3,image\/svg+xml,application\/x-tar,image\/tiff,text\/x-vcard,text\/vcard,audio\/x-wav,application\/vnd.ms-excel.sheet.binary.macroenabled.12,application\/vnd.ms-excel,application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application\/vnd.ms-excel.sheet.macroenabled.12,application\/vnd.ms-excel.template.macroenabled.12,application\/vnd.openxmlformats-officedocument.spreadsheetml.template,text\/yaml,application\/zip,application\/x-7z-compressed,video\/mp4,video\/webm,video\/ogg,video\/quicktime,.abw,.ace,.ai,.apk,.css,.csv,.doc,.docm,.docx,.dotm,.dotx,.eps,.gif,.gz,.gzip,.htm,.html,.ico,.ics,.ipa,.jar,.jpeg,.jpg,.js,.mp3,.ods,.odt,.pdf,.png,.potm,.potx,.pps,.ppsx,.ppt,.pptm,.pptx,.psd,.rar,.rss,.rtf,.sketch,.svg,.tar,.tiff,.txt,.vcf,.wav,.xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.xml,.yaml,.zip,.7z,.mp4,.webm,.ogg,.mov", "empty_document_type": "Empty documents will not be uploaded.", "current_folder": 0, "current_user_id": 9715, "current_group_id": 0, "target_text": "Documents", "create_folder_error_title": "Please enter title of folder", "invalid_file_type": "Unable to upload the file", "document_select_error": "Please upload only the following file types: <br \/><div class=\"bb-allowed-file-types\">.abw, .ace, .ai, .apk, .css, .csv, .doc, .docm, .docx, .dotm, .dotx, .eps, .gif, .gz, .gzip, .htm, .html, .ico, .ics, .ipa, .jar, .jpeg, .jpg, .js, .mp3, .ods, .odt, .pdf, .png, .potm, .potx, .pps, .ppsx, .ppt, .pptm, .pptx, .psd, .rar, .rss, .rtf, .sketch, .svg, .tar, .tiff, .txt, .vcf, .wav, .xlam, .xls, .xlsb, .xlsm, .xlsx, .xltm, .xltx, .xml, .yaml, .zip, .7z, .mp4, .webm, .ogg, .mov<\/div>", "dropzone_document_message": "<strong>Add Files<\/strong> Or drag and drop", "is_document_directory": "no", "document_preview_error": "Sorry! something went wrong we are not able to preview.", "move_to_folder": "Move folder to...", "move_to_file": "Move document to...", "copy_to_clip_board_text": "Copied to Clipboard", "download_button": "Download", "document_size_error_header": "File too large ", "document_size_error_description": "This file type is too large.", "sidebar_download_text": "Download", "sidebar_view_text": "View", "create_folder": "Create Folder", "document_dict_file_exceeded": "You are allowed to upload only 10 documents at a time.", "can_manage_document": true }, "video": { "max_upload_size": 128, "video_type": "video\/mp4,video\/webm,video\/ogg,video\/quicktime,.mp4,.webm,.ogg,.mov", "profile_video": false, "profile_album": true, "group_video": false, "group_album": true, "messages_video": false, "messages_video_active": false, "dropzone_video_message": "<strong>Add Videos<\/strong> Or drag and drop", "dropzone_video_thumbnail_message": "Upload thumbnail", "video_select_error": "This file type is not supported for video uploads.", "empty_video_type": "Empty video file will not be uploaded.", "invalid_video_type": "Unable to upload the file", "video_size_error_header": "File too large ", "video_size_error_description": "This file type is too large.", "dictFileTooBig": "File is too large ({{filesize}} MB). Max filesize: {{maxFilesize}} MB.", "maxFiles": 10, "is_video_directory": "no", "create_album_error_title": "Please enter title of album", "cover_video_size_error_header": "Unable to reposition the image ", "cover_video_size_error_description": "To reposition your cover video, please upload a larger image and then try again.", "current_album": 0, "current_type": "", "move_to_id_popup": 9715, "video_dict_file_exceeded": "You are allowed to upload only 10 videos at a time.", "thumb_dict_file_exceeded": "You are allowed to upload only 1 thumb at a time.", "dictInvalidFileType": "Please upload only the following file types: <br \/><div class=\"bb-allowed-file-types\">video\/mp4, video\/webm, video\/ogg, video\/quicktime, .mp4, .webm, .ogg, .mov<\/div>", "is_ffpmeg_installed": false, "generating_thumb": "Generating thumbnail\u2026", "dictCancelUploadConfirmation": "Are you sure you want to cancel this upload?", "i18n_strings": { "select": "Select", "unselect": "Unselect", "selectall": "Select All", "unselectall": "Unselect All", "no_videos_found": "Sorry, no videos were found", "upload": "Upload", "upload_thumb": "Change Thumbnail", "uploading": "Uploading", "upload_status": "%1$d out of %2$d uploaded", "album_delete_confirm": "Are you sure you want to delete this album? Videos in this album will also be deleted.", "album_delete_error": "There was a problem deleting the album.", "video_delete_confirm": "Are you sure you want to delete this video?", "video_enlarge_text": "Enlarge", "video_fullscreen_text": "Full screen", "video_play_text": "Play", "video_pause_text": "Pause", "video_uploaded_text": "Uploaded", "video_volume_text": "Volume", "video_miniplayer_text": "Miniplayer", "video_speed_text": "Speed", "video_skip_back_text": "Step Back (5)", "video_skip_forward_text": "Step Forward (5)", "video_picture_in_text": "This video is playing in the miniplayer." } }, "document": { "dictInvalidFileType": "Please upload only the following file types: <br \/><div class=\"bb-allowed-file-types\">.abw, .ace, .ai, .apk, .css, .csv, .doc, .docm, .docx, .dotm, .dotx, .eps, .gif, .gz, .gzip, .htm, .html, .ico, .ics, .ipa, .jar, .jpeg, .jpg, .js, .mp3, .ods, .odt, .pdf, .png, .potm, .potx, .pps, .ppsx, .ppt, .pptm, .pptx, .psd, .rar, .rss, .rtf, .sketch, .svg, .tar, .tiff, .txt, .vcf, .wav, .xlam, .xls, .xlsb, .xlsm, .xlsx, .xltm, .xltx, .xml, .yaml, .zip, .7z, .mp4, .webm, .ogg, .mov<\/div>", "max_upload_size": 32, "maxFiles": 10, "mp3_preview_extension": "mp3,wav,ogg" } };
+  var BB_Nouveau_Presence = { "heartbeat_enabled": "1", "presence_interval": "60", "presence_default_interval": "60", "presence_time_span": "20", "idle_inactive_span": "180", "rest_nonce": "786c7e4f51", "native_presence": "1", "native_presence_url": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/bb-core-native-presence.php", "presence_rest_url": "https:\/\/wellbeing-athome.com\/wp-json\/buddyboss\/v1\/members\/presence" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-nouveau.min.js?ver=2.4.00'
+  id='bp-nouveau-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/jquery.guillotine.min.js?ver=2.4.00'
+  id='guillotine-js-js'></script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/comment-reply.min.js?ver=6.3.4'
+  id='comment-reply-js'></script>
+<script type='text/javascript' id='heartbeat-js-extra'>
+  /* <![CDATA[ */
+  var heartbeatSettings = { "ajaxurl": "\/wp-admin\/admin-ajax.php", "nonce": "3a7a7a1cfd" };
+  /* ]]> */
+</script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/heartbeat.min.js?ver=6.3.4'
+  id='heartbeat-js'></script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2'
+  id='jquery-ui-core-js'></script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/jquery/ui/menu.min.js?ver=1.13.2'
+  id='jquery-ui-menu-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-includes/js/dist/dom-ready.min.js?ver=392bdd43726760d1f3ca'
+  id='wp-dom-ready-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-includes/js/dist/a11y.min.js?ver=7032343a947cfccf5608' id='wp-a11y-js'></script>
+<script type='text/javascript' id='jquery-ui-autocomplete-js-extra'>
+  /* <![CDATA[ */
+  var uiAutocompleteL10n = { "noResults": "No results found.", "oneResult": "1 result found. Use up and down arrow keys to navigate.", "manyResults": "%d results found. Use up and down arrow keys to navigate.", "itemSelected": "Item selected." };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.13.2'
+  id='jquery-ui-autocomplete-js'></script>
+<script type='text/javascript' id='bp-nouveau-search-js-extra'>
+  /* <![CDATA[ */
+  var BP_SEARCH = { "nonce": "d8e9e0de73", "action": "bp_search_ajax", "debug": "1", "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "loading_msg": "Loading suggestions...", "enable_ajax_search": "1", "per_page": "5", "autocomplete_selector": ".header-search-wrap .search-form", "form_selector": ".widget_search .search-form", "forums_autocomplete": "1" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-search.min.js?ver=2.4.00'
+  id='bp-nouveau-search-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/draggabilly.min.js?ver=2.3.90'
+  id='draggabilly-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/plugins/bbp-scrubber.min.js?ver=2.3.90'
+  id='buddyboss-theme-bbp-scrubber-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery.caret.min.js?ver=2.4.00'
+  id='jquery-caret-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery.atwho.min.js?ver=2.4.00'
+  id='jquery-atwho-js'></script>
+<script type='text/javascript' id='bp-mentions-js-extra'>
+  /* <![CDATA[ */
+  var BP_Mentions_Options = { "selectors": [".bp-suggestions", "#comments form textarea", ".wp-editor-area", ".bbp-the-content"], "insert_tpl": "@${ID}", "display_tpl": "<li data-value=\"@${ID}\"><img src=\"${image}\" \/><span class=\"username\">@${ID}<\/span><small>${name}<\/small><\/li>", "extra_options": [] };
+  var BP_Suggestions = { "members": [{ "ID": "Nicky", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Nicky Hymas", "user_id": 2792 }, { "ID": "marta", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Marta", "user_id": 9706 }, { "ID": "steph", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Steph", "user_id": 9591 }, { "ID": "ahmed", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Ahmed", "user_id": 9707 }, { "ID": "wilma", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Wilma", "user_id": 9702 }, { "ID": "sheila", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Sheila Coombes", "user_id": 9700 }, { "ID": "susan", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Susan Castleman", "user_id": 9698 }, { "ID": "maria-laura", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "MARIA LAURA DOLADO", "user_id": 9696 }, { "ID": "brigitte", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Brigitte", "user_id": 9695 }, { "ID": "katarina", "image": "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-buddyboss-50.png", "name": "Katarina", "user_id": 9694 }], "friends": [] };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/mentions.min.js?ver=2.4.00'
+  id='bp-mentions-js'></script>
+<script type='text/javascript' src='//wellbeing-athome.com/wp-content/plugins/thrive-leads/js/frontend.min.js?ver=3.28'
+  id='tve_leads_frontend-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/acf-dynamic-elements.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_acf-dynamic-elements-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/audio.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_audio-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/carousel-libs.min.js?ver=3.30'
+  id='carousel-libs-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/carousel.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_carousel-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/contact-form-compat.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_contact-form-compat-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/content-reveal.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_content-reveal-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/countdown.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_countdown-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/conditional-display.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_conditional-display-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/search-form.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_search-form-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/dropdown.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_dropdown-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/divider.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_divider-js'></script>
+<script type='text/javascript' src='https://wellbeing-athome.com/wp-includes/js/plupload/plupload.min.js?ver=2.1.9'
+  id='plupload-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/file-upload.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_file-upload-js'></script>
+<script type='text/javascript' src='https://accounts.google.com/gsi/client?ver=3.30' id='google-client-js'></script>
+<script type='text/javascript' src='https://apis.google.com/js/api.js?ver=3.30' id='google-api-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/avatar-picker.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_avatar-picker-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/fill-counter.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_fill-counter-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/number-counter.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_number-counter-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/image-gallery-libs.min.js?ver=3.30'
+  id='image-gallery-libs-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/image-gallery.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_image-gallery-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/lead-generation.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_lead-generation-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/login.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_login-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/menu.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_menu-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/number-counter-compat.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_number-counter-compat-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/post-grid-compat.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_post-grid-compat-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/pagination.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_pagination-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/post-list-filter.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_post-list-filter-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/pricing-table.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_pricing-table-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/progress-bar.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_progress-bar-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/social-share.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_social-share-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/table.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_table-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/tabs.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_tabs-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/timer.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_timer-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/toc.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_toc-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/toggle.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_toggle-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/twitter.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_twitter-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/user-profile.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_user-profile-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/video.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_video-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/google-api.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_google-api-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/facebook-api.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_facebook-api-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/modules/modal.min.js?v=3.30&#038;ver=3.30'
+  id='tve_frontend_modal-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/woo.min.js?ver=3.30'
+  id='tve_woo-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=8.7.0'
+  id='sourcebuster-js-js'></script>
+<script type='text/javascript' id='wc-order-attribution-js-extra'>
+  /* <![CDATA[ */
+  var wc_order_attribution = { "params": { "lifetime": 1.0e-5, "session": 30, "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "prefix": "wc_order_attribution_", "allowTracking": true }, "fields": { "source_type": "current.typ", "referrer": "current_add.rf", "utm_campaign": "current.cmp", "utm_source": "current.src", "utm_medium": "current.mdm", "utm_content": "current.cnt", "utm_id": "current.id", "utm_term": "current.trm", "session_entry": "current_add.ep", "session_start_time": "current_add.fd", "session_pages": "session.pgs", "session_count": "udata.vst", "user_agent": "udata.uag" } };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=8.7.0'
+  id='wc-order-attribution-js'></script>
+<script type='text/javascript' id='mbr_ac_tracking_code-js-extra'>
+  /* <![CDATA[ */
+  var mbr_activecampaign_tracking = { "actid": "476499877", "email": "km4877792@gmail.com" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/activemember360/modules/activecampaign-tracking/assets/js/tracking.js?ver=6.3.4'
+  id='mbr_ac_tracking_code-js'></script>
+<script type='text/javascript' id='ppcp-smart-button-js-extra'>
+  /* <![CDATA[ */
+  var PayPalCommerceGateway = { "url": "https:\/\/www.paypal.com\/sdk\/js?client-id=AaQcljLk3_Ms_JBePqrW3EW0OVgF_Fjypet1zoADD2ETAvnXsHo7D4-zjmXUaSR_-VaX581ryWZjqOV5&currency=GBP&integration-date=2024-04-03&components=buttons,funding-eligibility&vault=false&commit=false&intent=capture&disable-funding=card&enable-funding=venmo,paylater", "url_params": { "client-id": "AaQcljLk3_Ms_JBePqrW3EW0OVgF_Fjypet1zoADD2ETAvnXsHo7D4-zjmXUaSR_-VaX581ryWZjqOV5", "currency": "GBP", "integration-date": "2024-04-03", "components": "buttons,funding-eligibility", "vault": "false", "commit": "false", "intent": "capture", "disable-funding": "card", "enable-funding": "venmo,paylater" }, "script_attributes": { "data-partner-attribution-id": "Woo_PPCP" }, "client_id": "AaQcljLk3_Ms_JBePqrW3EW0OVgF_Fjypet1zoADD2ETAvnXsHo7D4-zjmXUaSR_-VaX581ryWZjqOV5", "currency": "GBP", "data_client_id": { "set_attribute": false, "endpoint": "\/?wc-ajax=ppc-data-client-id", "nonce": "aadd3b8941", "user": 9715, "has_subscriptions": false, "paypal_subscriptions_enabled": false }, "redirect": "https:\/\/wellbeing-athome.com\/checkout\/", "context": "mini-cart", "ajax": { "simulate_cart": { "endpoint": "\/?wc-ajax=ppc-simulate-cart", "nonce": "b8df684074" }, "change_cart": { "endpoint": "\/?wc-ajax=ppc-change-cart", "nonce": "27ae23fc3a" }, "create_order": { "endpoint": "\/?wc-ajax=ppc-create-order", "nonce": "eac562541d" }, "approve_order": { "endpoint": "\/?wc-ajax=ppc-approve-order", "nonce": "541f3d5782" }, "approve_subscription": { "endpoint": "\/?wc-ajax=ppc-approve-subscription", "nonce": "ccb53fff02" }, "vault_paypal": { "endpoint": "\/?wc-ajax=ppc-vault-paypal", "nonce": "bff692cd75" }, "save_checkout_form": { "endpoint": "\/?wc-ajax=ppc-save-checkout-form", "nonce": "c7644ba004" }, "validate_checkout": { "endpoint": "\/?wc-ajax=ppc-validate-checkout", "nonce": "26ae77f18f" }, "cart_script_params": { "endpoint": "\/?wc-ajax=ppc-cart-script-params" } }, "cart_contains_subscription": "", "subscription_plan_id": "", "variable_paypal_subscription_variations": [], "subscription_product_allowed": "", "locations_with_subscription_product": { "product": false, "payorder": false, "cart": false }, "enforce_vault": "", "can_save_vault_token": "", "is_free_trial_cart": "", "vaulted_paypal_email": "", "bn_codes": { "checkout": "Woo_PPCP", "cart": "Woo_PPCP", "mini-cart": "Woo_PPCP", "product": "Woo_PPCP" }, "payer": { "email_address": "km4877792@gmail.com", "name": { "given_name": "", "surname": "" }, "address": { "country_code": "GB" } }, "button": { "wrapper": "#ppc-button-ppcp-gateway", "is_disabled": false, "mini_cart_wrapper": "#ppc-button-minicart", "is_mini_cart_disabled": false, "cancel_wrapper": "#ppcp-cancel", "mini_cart_style": { "layout": "vertical", "color": "gold", "shape": "rect", "label": "paypal", "tagline": false, "height": 35 }, "style": { "layout": "vertical", "color": "gold", "shape": "rect", "label": "paypal", "tagline": false } }, "separate_buttons": { "card": { "id": "ppcp-card-button-gateway", "wrapper": "#ppc-button-ppcp-card-button-gateway", "style": { "shape": "rect", "color": "black", "layout": "horizontal" } } }, "hosted_fields": { "wrapper": "#ppcp-hosted-fields", "labels": { "credit_card_number": "", "cvv": "", "mm_yy": "MM\/YY", "fields_empty": "Card payment details are missing. Please fill in all required fields.", "fields_not_valid": "Unfortunately, your credit card details are not valid.", "card_not_supported": "Unfortunately, we do not support your credit card.", "cardholder_name_required": "Cardholder's first and last name are required, please fill the checkout form required fields." }, "valid_cards": ["mastercard", "visa", "amex", "american-express", "master-card"], "contingency": "SCA_WHEN_REQUIRED" }, "messages": [], "labels": { "error": { "generic": "Something went wrong. Please try again or choose another payment source.", "required": { "generic": "Required form fields are not filled.", "field": "%s is a required field.", "elements": { "terms": "Please read and accept the terms and conditions to proceed with your order." } } }, "billing_field": "Billing %s", "shipping_field": "Shipping %s" }, "simulate_cart": { "enabled": true, "throttling": 5000 }, "order_id": "0", "single_product_buttons_enabled": "1", "mini_cart_buttons_enabled": "1", "basic_checkout_validation_enabled": "", "early_checkout_validation_enabled": "1", "funding_sources_without_redirect": ["paypal", "paylater", "venmo", "card"], "user": { "is_logged": true } };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/woocommerce-paypal-payments/modules/ppcp-button/assets/js/button.js?ver=2.6.1'
+  id='ppcp-smart-button-js'></script>
+<script type='text/javascript' id='tve-dash-frontend-js-extra'>
+  /* <![CDATA[ */
+  var tve_dash_front = { "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "force_ajax_send": "1", "is_crawler": "", "recaptcha": [], "post_id": "1503740" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/thrive-visual-editor/thrive-dashboard/js/dist/frontend.min.js?ver=3.43'
+  id='tve-dash-frontend-js'></script>
+<script type='text/javascript' id='event-tickets-rsvp-js-extra'>
+  /* <![CDATA[ */
+  var tribe_tickets_rsvp_strings = { "attendee": "Attendee %1$s" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/event-tickets/src/resources/js/rsvp.min.js?ver=5.9.0'
+  id='event-tickets-rsvp-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/magnific-popup.js?ver=2.4.00'
+  id='bp-nouveau-magnific-popup-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform-pro/assets/js/vendor/jquery.mask.js?ver=5.0.4'
+  id='bp-zoom-mask-js-js'></script>
+<script type='text/javascript' id='bp-zoom-js-js-extra'>
+  /* <![CDATA[ */
+  var bp_zoom_vars = { "ajax_url": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "home_url": "https:\/\/wellbeing-athome.com\/my-account", "is_single_meeting": "", "is_single_webinar": "", "group_id": "", "group_meetings_url": "", "group_meetings_past_url": "", "group_webinars_url": "", "group_webinar_past_url": "", "bp_staple": "Mk12MmtJUzRSbEdMNDdLRVZwaF9ZUQ==", "meeting_delete_nonce": "8782630266", "meeting_confirm_msg": "Are you sure you want to delete this meeting?", "webinar_delete_nonce": "2aa8ef31c0", "webinar_confirm_msg": "Are you sure you want to delete this webinar?", "user": { "name": "Ahmed", "email": "km4877792@gmail.com" }, "scripts": ["https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/react.production.min.js", "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/react-dom.production.min.js", "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/redux.min.js", "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/redux-thunk.min.js", "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/lodash.min.js", "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/jquery.min.js", "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/zoom-meeting-2.6.0.min.js"], "styles": ["https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/bootstrap.css", "https:\/\/wellbeing-athome.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/react-select.css"], "strings": { "day": "day", "month": "month", "week": "week" }, "lang": "en-US" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/zoom/assets/js/bp-zoom.min.js?ver=2.3.90'
+  id='bp-zoom-js-js'></script>
+<script type='text/javascript' id='bb-countdown-js-js-extra'>
+  /* <![CDATA[ */
+  var bb_countdown_vars = { "daysStr": "Days", "hoursStr": "Hours", "minutesStr": "Minutes", "secondsStr": "Seconds" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/buddyboss-platform-pro/assets/js/bb-countdown.min.js?ver=1.0.1'
+  id='bb-countdown-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/menu.js?ver=2.3.90'
+  id='boss-menu-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/fitvids.js?ver=2.3.90'
+  id='boss-fitvids-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/slick.min.js?ver=2.3.90'
+  id='boss-slick-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/panelslider.min.js?ver=2.3.90'
+  id='boss-panelslider-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/sticky-kit.js?ver=2.3.90'
+  id='boss-sticky-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/jssocials.min.js?ver=2.3.90'
+  id='boss-jssocials-js-js'></script>
+<script type='text/javascript' id='buddyboss-theme-main-js-js-extra'>
+  /* <![CDATA[ */
+  var bs_data = { "jm_ajax": "https:\/\/wellbeing-athome.com\/jm-ajax\/", "ajaxurl": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "show_notifications": "1", "show_messages": "1", "facebook_label": "Share on Facebook", "twitter_label": "Tweet", "translation": { "comment_posted": "Your comment has been posted.", "comment_btn_loading": "Please Wait...", "choose_a_file_label": "Choose a file", "email_validation": "Please enter a valid email address." }, "gamipress_badge_label": "Badge" };
+  /* ]]> */
+</script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/main.min.js?ver=2.3.90'
+  id='buddyboss-theme-main-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/validate.min.js?ver=2.3.90'
+  id='boss-validate-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/select2.full.min.js?ver=2.3.90'
+  id='select2-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/progressbar.min.js?ver=2.3.90'
+  id='progressbar-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/vendors/mousewheel.min.js?ver=2.3.90'
+  id='mousewheel-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/plugins/bb-woocommerce.min.js?ver=2.3.90'
+  id='buddyboss-theme-woocommerce-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/themes/buddyboss-theme/assets/js/plugins/bb-tec.min.js?ver=2.3.90'
+  id='buddyboss-theme-tec-js-js'></script>
+<script type='text/javascript'
+  src='https://wellbeing-athome.com/wp-content/plugins/wp-smushit/app/assets/js/smush-lazy-load.min.js?ver=3.15.5'
+  id='smush-lazy-load-js'></script>
+<script
+  type="text/javascript">var tcb_current_post_lists = JSON.parse('[]'); var tcb_post_lists = tcb_post_lists ? [...tcb_post_lists, ...tcb_current_post_lists] : tcb_current_post_lists;</script>
+<script
+  type="text/javascript">/*<![CDATA[*/if (!window.TL_Const) { var TL_Const = { "security": "bd2bc36f35", "ajax_url": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "forms": { "lightbox": { "_key": "8", "form_name": "free events - subscribe", "trigger": "click", "trigger_config": { "c": "reserve-my-place-button", "i": "rmp-button" }, "form_type_id": 500150, "main_group_id": 500149, "main_group_name": "subscribe - free event", "active_test_id": "", "active_test_data": [] } }, "action_conversion": "tve_leads_ajax_conversion", "action_impression": "tve_leads_ajax_impression", "ajax_load": 0, "main_group_id": 500149, "display_options": { "allowed_post_types": [], "flag_url_match": null }, "custom_post_data": [], "current_screen": { "screen_type": 3, "screen_id": 1503740 }, "ignored_fields": ["email", "_captcha_size", "_captcha_theme", "_captcha_type", "_submit_option", "_use_captcha", "g-recaptcha-response", "__tcb_lg_fc", "__tcb_lg_msg", "_state", "_form_type", "_error_message_option", "_back_url", "_submit_option", "url", "_asset_group", "_asset_option", "mailchimp_optin", "tcb_token", "tve_labels", "tve_mapping", "_api_custom_fields", "_sendParams", "_autofill"] }; } else { window.TL_Front && TL_Front.extendConst && TL_Front.extendConst({ "security": "bd2bc36f35", "ajax_url": "https:\/\/wellbeing-athome.com\/wp-admin\/admin-ajax.php", "forms": { "lightbox": { "_key": "8", "form_name": "free events - subscribe", "trigger": "click", "trigger_config": { "c": "reserve-my-place-button", "i": "rmp-button" }, "form_type_id": 500150, "main_group_id": 500149, "main_group_name": "subscribe - free event", "active_test_id": "", "active_test_data": [] } }, "action_conversion": "tve_leads_ajax_conversion", "action_impression": "tve_leads_ajax_impression", "ajax_load": 0, "main_group_id": 500149, "display_options": { "allowed_post_types": [], "flag_url_match": null }, "custom_post_data": [], "current_screen": { "screen_type": 3, "screen_id": 1503740 }, "ignored_fields": ["email", "_captcha_size", "_captcha_theme", "_captcha_type", "_submit_option", "_use_captcha", "g-recaptcha-response", "__tcb_lg_fc", "__tcb_lg_msg", "_state", "_form_type", "_error_message_option", "_back_url", "_submit_option", "url", "_asset_group", "_asset_option", "mailchimp_optin", "tcb_token", "tve_labels", "tve_mapping", "_api_custom_fields", "_sendParams", "_autofill"] }) } /*]]> */</script>
+<script
+  type="text/javascript">var TL_Front = TL_Front || {}; TL_Front.impressions_data = TL_Front.impressions_data || {}; TL_Front.impressions_data.lightbox = { "group_id": 500149, "form_type_id": 500150, "variation_key": "8", "active_test_id": 0, "output_js": true };</script>
+<script type="text/javascript">
+  (function ($) {
+    $(function () {
+      var event_data = { "form_id": "tve-leads-track-lightbox-8", "form_type": "lightbox" },
+        _selector = "#rmp-button,.reserve-my-place-button";
+      event_data.source = 'click';
+      event_data.first = true;
+      $('body').on('click', _selector, function (event) {
+        event_data.TargetEvent = event;
+        $(TL_Front).trigger('showform.thriveleads', event_data);
+      });
+    });
+  })
+    (ThriveGlobal.$j);
+</script><!-- WooCommerce JavaScript -->
+<script type="text/javascript">
+  jQuery(function ($) {
+    jQuery('form.checkout').on('change', 'input[name=payment_method]', function () {
+      setTimeout(function () {
+        jQuery(document.body).trigger('update_checkout');
+      }, 1000);
+    })
+  });
+</script>
+<script>jQuery(document).ready(function ($) {
+    $("h2.site-title > a").attr("href", "https://wellbeing-athome.com/member-home/");
+  });</script>
+</body>
+
+</html>

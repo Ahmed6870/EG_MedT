@@ -1,0 +1,528 @@
+{% extends 'base4.html' %}
+
+{% load static %}
+{% block content %}
+
+<head>
+  <link rel="preload" href="{% static 'assets/plugins/bootstrap/bootstrap-rtl.min.css' %}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="{% static 'assets/fonts/cairo/cairo-font.css' %}" rel="preload" />
+  <link rel="stylesheet" href="{% static 'assets/plugins/animate/animate.min.css' %}" media="all" />
+  <link rel="preload" href="{% static 'assets/css/style-rtl.css' %}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+
+</head>
+
+
+
+
+<div class="wrapper">
+
+  <section class="py-8">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-md-10">
+
+          <form name="registerationform" class="registerationform" id="registerationform" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-12 emailexisterror" style="display: none;color:red;">
+                <p>
+                  هذا البريد الألكترونى قد تم استخدامه سابقا, برجاء أدخال بريد ألكترونى أخر
+                </p>
+              </div>
+              <div class="col-lg-12 registerationerror" style="display: none; color: red;">
+                <p>
+                  حدث خطأ ما, برجاء التواصل مع فريق الدعم أو المحاولة فى وقت أخر
+                </p>
+              </div>
+
+              <div class="col-lg-12 col-md-12">
+                <div class="form-outline mb-4">
+                  {{form.email}}
+                </div>
+              </div>
+
+              <div class="col-lg-12 col-md-12" style="padding-bottom: 14px;">
+                <div class="form-outline mb-8">
+                  {{form.username}} </div>
+              </div>
+
+              <div class="col-lg-6 col-md-6">
+                <div class="form-outline mb-4">
+                  {{form.phone}} </div>
+              </div>
+
+              <div class="col-lg-6 col-md-6" dir="ltr">
+                <div class="form-outline mb-4">
+                  {{form.country}}
+                </div>
+              </div>
+
+
+
+              <!-- <div class="col-lg-6 col-md-6">
+                <div class="form-outline mb-4">
+                  <input type="text" class="form-control" id="formsignupnationality" name="formsignupnationality"
+                    placeholder="الجنسية" />
+
+                </div>
+              </div> -->
+
+              <div class="col-lg-6 col-md-6">
+                <div class="form-outline mb-4">
+                  <span toggle="#formsignuppassword" class="toggle-password svg eye" id="eyeicon"></span>
+                  {{form.password1}}
+                </div>
+              </div>
+              <script>
+                let eyeicon = document.getElementById("eyeicon");
+                let password = document.getElementById("password");
+                eyeicon.onclick = function () {
+                  if (password.type == "password") {
+                    password.type = "text";
+                  } else {
+                    password.type = "password";
+                  }
+                }
+              </script>
+
+              <div class="col-lg-6 col-md-6">
+                <div class="form-outline mb-4">
+                  <span toggle="#formsignuprepassword" class="toggle-password svg eye" id="eyeicon"> </span>
+
+                  {{form.password2}}
+                </div>
+              </div>
+
+              <!-- <div class="col-12">
+                <div class="form-outline form-check mb-4">
+                  <input type="checkbox" class="form-check-input" id="agree" name="agree" />
+                  <label class="form-check-label" for="formsignupterms"> موافق على <a href="/terms" class="link-cus"
+                      target="_blank">الشروط والأحكام</a></label>
+                </div>
+              </div> -->
+              {% if messages %}
+              {% for message in messages %}
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 min-height-0">
+                    <div class="alert-success alert fade in" style="opacity: 1;" dir="rtl">
+                      {{ message }}
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              {% endif %}
+
+
+              <div class="col-12">
+                <div class="d-grid">
+                  <button type="submit" id="btnregister" class="btn-05">تسجيل</button>
+                </div>
+              </div>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-12 text-center">
+
+              لدي حساب على الموقع <a href="{% url 'userauths:user_login' %}" class="link-cus">دخول</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+  jQuery.validator.addMethod("notEqual", function (value, element, param) {
+    return this.optional(element) || value != param;
+  }, "Please specify a different (non-default) value");
+
+
+  jQuery.validator.addMethod("ArrivalgreaterThanToday",
+    function (value, element) {
+
+      var now = new Date();
+      if (value == '' || value == undefined || value == null) {
+        return true;
+      }
+
+      now.setHours(now.getHours() + 24)
+      if (new Date(value) <= now) {
+        return false;
+      }
+      return true;
+    }, 'Arrival Date Must be greater than current time by 24 Hours');
+
+  $("#contform").validate({
+    rules: {
+      firstname: { required: true },
+      lastname: { required: true },
+      phone: { required: true, number: true },
+      email: {
+        required: true,
+        email: true
+
+      },
+      message: {
+        required: true,
+        minlength: 5
+      }
+    },
+    messages: {
+      firstname: { required: "برجاء أدخال الأسم الأول" },
+      lastname: { required: "برجاء أدخال الأسم الأخير" },
+      phone: { required: "برجاء أدخال رقم الهاتف", number: "التليفون غير صحيح" },
+      email: { required: "برجاء ادخال بريد الكترونى صحيح", email: "برجاء ادخال بريد الكترونى صحيح" },
+      message: { required: "برجاء ادخال الرساله", minlength: "برجاء ادخال الرساله" }
+
+    },
+    errorElement: "em",
+    errorPlacement: function (error, element) {
+      error.addClass("help-block");
+      if (element.prop("type") === "checkbox") {
+        error.insertAfter(element.parent("label"));
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-error").removeClass("has-success");
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-success").removeClass("has-error");
+    }
+  });
+
+  MedTripFinder.SendEmail(1, "Contact Us");
+
+  $("#formoffers").validate({
+    rules: {
+      formpackagesfirstname: { required: true },
+      formpackageslastname: { required: true },
+      formpackagesphone: { required: true },
+      formpackagescountry: { required: true },
+      formpackagesnationality: { required: true },
+      formoffersdate: { required: true },
+      agree: { required: true },
+      formpackagesemail: {
+        required: true,
+        email: true
+      },
+      message: {
+        required: true,
+        minlength: 5
+      },
+      formpackagesphone: {
+        required: true,
+        number: true
+      }
+    },
+    messages: {
+      formpackagesfirstname: { required: "برجاء ادخال الاسم" },
+      formpackageslastname: { required: "برجاء ادخال الاسم" },
+      formpackagesemail: { required: "برجاء ادخال بريد الكترونى صحيح", email: "برجاء ادخال بريد الكترونى صحيح" },
+      formpackagesphone: { required: "الأدخال غير صحيح", number: "التليفون غير صحيح" },
+      formpackagescountry: { required: "الأدخال غير صحيح" },
+      formpackagesnationality: { required: "الأدخال غير صحيح" },
+      formoffersdate: { required: "برجاء أدخال تاريخ الوصول" },
+      message: { required: "برجاء ادخال الرساله", minlength: "برجاء ادخال الرساله" },
+      agree: { required: "لابد أن توافق على جميع الشروط و الأحكام قبل تسجيل الدخول" }
+
+    },
+    errorElement: "em",
+    errorPlacement: function (error, element) {
+      error.addClass("help-block");
+      if (element.prop("type") === "checkbox") {
+        // error.insertAfter( element.parent( "label" ) );
+        error.insertAfter(element);
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-error").removeClass("has-success").removeClass("has-success");
+      $(element).parents(".form-label").removeClass("active");
+
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-success").removeClass("has-error");
+    }
+  });
+  $("#formpackages").validate({
+    rules: {
+      formpackagesfirstname: { required: true },
+      formpackageslastname: { required: true },
+      formpackagesphone: { required: true },
+      formpackagescountry: { required: true },
+      formpackagesnationality: { required: true },
+      formoffersdate: { required: true },
+      agree: { required: true },
+      formpackagesemail: {
+        required: true,
+        email: true
+      },
+      message: {
+        required: true,
+        minlength: 5
+      },
+      formpackagesphone: {
+        required: true,
+        number: true
+      }
+    },
+    messages: {
+      formpackagesfirstname: { required: "برجاء ادخال الاسم" },
+      formpackageslastname: { required: "برجاء ادخال الاسم" },
+      formpackagesemail: { required: "برجاء ادخال بريد الكترونى صحيح", email: "برجاء ادخال بريد الكترونى صحيح" },
+      formpackagesphone: { required: "الأدخال غير صحيح", number: "التليفون غير صحيح" },
+      formpackagescountry: { required: "الأدخال غير صحيح" },
+      formpackagesnationality: { required: "الأدخال غير صحيح" },
+      formoffersdate: { required: "برجاء أدخال تاريخ الوصول" },
+      message: { required: "برجاء ادخال الرساله", minlength: "برجاء ادخال الرساله" },
+      agree: { required: "لابد من الموافقة على جميع الشروط والأحكام" }
+
+    },
+    errorElement: "em",
+    errorPlacement: function (error, element) {
+      error.addClass("help-block");
+      if (element.prop("type") === "checkbox") {
+        error.insertAfter(element);
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-error").removeClass("has-success").removeClass("has-success");
+      $(element).parents(".form-label").removeClass("active");
+
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-success").removeClass("has-error");
+    }
+  });
+
+  MedTripFinder.BookPackages(1, "Book Packages");
+
+  $("#formbook").validate({
+    rules: {
+      formbookterms: { required: true },
+
+    },
+    messages: {
+      formbookterms: { required: "لابد أن توافق على جميع الشروط و الأحكام قبل تسجيل الدخول" },
+
+    },
+    errorElement: "em",
+    errorPlacement: function (error, element) {
+      error.addClass("help-block");
+      if (element.prop("type") === "checkbox") {
+        error.insertAfter(element);
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-error").removeClass("has-success").removeClass("has-success");
+      $(element).parents(".form-label").removeClass("active");
+
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).parents(".form-outline").addClass("has-success").removeClass("has-error");
+    }
+  });
+</script>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $(".signinform").validate({
+      rules: {
+        email: {
+          required: true,
+          email: true,
+          /*placeholder:true*/
+        },
+        password: {
+          required: true,
+          /* placeholder:true*/
+        }
+      },
+      messages: {
+        email: { required: "برجاء ادخال بريد الكترونى صحيح", email: "برجاء ادخال بريد الكترونى صحيح" },
+        password: { required: "برجاء أدخال كلمة المرور" }
+
+      },
+      errorElement: "em",
+      errorPlacement: function (error, element) {
+        error.addClass("help-block");
+        if (element.prop("type") === "checkbox") {
+          error.insertAfter(element.parent("label"));
+        } else {
+          error.insertAfter(element);
+        }
+      },
+      highlight: function (element, errorClass, validClass) {
+        $(element).parents(".form-outline").addClass("has-error").removeClass("has-success");
+      },
+      unhighlight: function (element, errorClass, validClass) {
+        $(element).parents(".form-outline").addClass("has-success").removeClass("has-error");
+      }
+    });
+    MedTripFinder.SignIn();
+  });
+</script>
+
+
+
+<script>
+  $(document).ready(function () {
+    try {
+      if ($('ul').is('#certificates')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#search')) {
+
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 8);
+      }
+      if ($('ul').is('#gallery')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 12);
+      }
+      if ($('ul').is('#news')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#nonsurgerialservices')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#patientguide')) {
+
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#packages')) {
+
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+
+      if ($('ul').is('#successstories')) {
+
+
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6, Twenty);
+      }
+      if ($('ul').is('#surgicalservices')) {
+
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#operations')) {
+
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+
+      }
+      if ($('ul').is('#faqs')) {
+
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#testiominals')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#offers')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#doctorvideos')) {
+        pagination.init("hiddenbootpage", "activebootpage", videostotalitems, 6);
+        pagination.init("doctorreview", "activebootpage", doctorreview, "bootpagereview", "pagination-customreview", 6);
+        pagination.init("hiddenbootpage", "activebootpage", doctoropertions, "bootpageoperation", "pagination-customoperation", 6);
+        pagination.init("hiddenbootpage", "activebootpage", doctorsuccessstoriestotalitems, "bootpagesuccess", "pagination-customsuccess", 6, Twenty);
+
+      }
+
+      if ($('ul').is('#videos')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 8);
+      }
+      if ($('ul').is('#devices')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      if ($('ul').is('#offers')) {
+        pagination.init("hiddenbootpage", "activebootpage", totalitems, 6);
+      }
+      function Twenty() {
+        $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({ default_offset_pct: 0.7 });
+        $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({ default_offset_pct: 0.3, orientation: 'vertical' });
+      }
+    }
+    catch (e) {
+    }
+  });
+
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    MedTripFinder.PayNow();
+    $(".btn_search").click(function (event) {
+      if ($(".rd-navbar   -search-form-input").val() == 'بحث...') {
+        return false;
+      }
+      event.preventDefault();
+      window.location.href = "../../search/" + $(".rd-navbar-search-form-input").val();
+    }
+    );
+
+    $(".rd-navbar-search-form-input").keypress(function (e) {
+      if (e.keyCode == 13) {
+        e.preventDefault();
+        if ($(".rd-navbar-search-form-input").val() == 'بحث...') {
+          return false;
+        }
+        window.location.href = "../../search/" + $(".rd-navbar-search-form-input").val();
+      }
+    }
+    );
+
+  });
+
+</script>
+
+
+<!-- #Page Content End -->
+
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    var date = "";
+    var time = "";
+    $("#formbookday").change(function () {
+
+      var date = $("#formbookday").val();
+      $(".datevalue").val(date + " " + time);
+    });
+
+    $("#formbooktime").change(function () {
+
+      var time = $("#formbooktime").val();
+      $(".datevalue").val(date + " " + time);
+    })
+  });
+</script>
+{% endblock content %}

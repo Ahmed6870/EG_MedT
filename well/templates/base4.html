@@ -1,0 +1,802 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <!-- Active Campaign Tracking Code -->
+  <script type="text/javascript">
+    (function (e, t, o, n, p, r, i) {
+      e.visitorGlobalObjectAlias = n;
+      e[e.visitorGlobalObjectAlias] =
+        e[e.visitorGlobalObjectAlias] ||
+        function () {
+          (e[e.visitorGlobalObjectAlias].q =
+            e[e.visitorGlobalObjectAlias].q || []).push(arguments);
+        };
+      e[e.visitorGlobalObjectAlias].l = new Date().getTime();
+      r = t.createElement("script");
+      r.src = o;
+      r.async = true;
+      i = t.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(r, i);
+    })(
+      window,
+      document,
+      "https://diffuser-cdn.app-us1.com/diffuser/diffuser.js",
+      "vgo"
+    );
+    vgo("setAccount", "476499877");
+    vgo("setTrackByDefault", true);
+    vgo("process");
+  </script>
+  <!-- End Active Campaign Tracking Code -->
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js",
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-NZSRJ5Z");
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js"
+    );
+    fbq("init", "530723697083707");
+    fbq("track", "PageView");
+  </script>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=530723697083707&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <!-- Hotjar Tracking Code -->
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj =
+        h.hj ||
+        function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+      h._hjSettings = { hjid: 1354413, hjsv: 6 };
+      a = o.getElementsByTagName("head")[0];
+      r = o.createElement("script");
+      r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="author" content="Webased info@webased.nl" />
+  <meta name="copyright" content="&copy; Egypt MedT 2024" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Cuprum|Source+Sans+Pro:400,700" rel="stylesheet" />
+  <meta name="csrf-param" content="_csrf" />
+  <meta name="csrf-token"
+    content="_b027bEEXD4GYnqJEUXRgbdmYqnsPDUBA9GMYJVgMICYx1e91kEYe2c0C-VyA7bVgS9XkMELUlhsi9MXpj9Wxg==" />
+  <title>{{pagetitle}}</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logo.png' %}" />
+  <meta name="google-site-verification" content="A0aPvzWCb2YTfQKwiFLRGW-gY5MSpiCyBmjC9iCiguo" />
+  <meta name="facebook-domain-verification" content="o733r5olm0b55k6ku9bmzz9p4ncpfp" />
+  <meta name="apple-mobile-web-app-title" content="Egypt MedT" />
+  <meta name="application-name" content="Egypt MedT" />
+  <meta name="theme-color" content="#94ae8b" />
+
+  <meta name="description" content="Spa holidays, fitness holidays, detox retreats by EG-MedT" />
+  <link href="{% static 'assets/f52130ab/css/bootstrap.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/ee08ebc9/css/bootstrap-popover-x.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c6f149db/css/select2.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c16da81e/css/select2-addl.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c16da81e/css/select2-default.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/6c2190a8/css/kv-widgets.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/f33418a0/css/bootstrap-datepicker3.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/f33418a0/css/datepicker-kv.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/40bc5cf4/slick.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/40bc5cf4/slick-theme.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/f6bebe91/css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/site.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c16da81e/css/select2-krajee.min.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/woocommerce-defult.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type1-fashion.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type10-medical.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type11-model.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type12-attorney.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type13-architecture.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type14-fitness.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type16-photography.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type17-restaurant.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type20-yoga.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type21-styleshop.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type4-hosting.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/woocommerce/type8-insurance.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+  <link href="{% static 'assets/c061b1e6/css/swiper.min.css' %}" rel="stylesheet" />
+  <!-- CSS only -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Include Bootstrap and Bootstrap-Select CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css"
+    rel="stylesheet">
+
+  <!-- Include jQuery and Bootstrap Bundle (includes Popper) JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Include Bootstrap-Select JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG-G9JU20ReNnfLuRb7Oljl3rn7vKvuok&amp;language=en"></script>
+
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZSRJ5Z" height="0" width="0"
+      style="display: none; visibility: hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Start nav -->
+
+  <div class="wrap">
+    <div class="container-fluid bg-green">
+      <div class="container" style="margin-left: 192px;">
+        <div class="rowss">
+          <div class="col-xs-6 col-sm-3 margin-header-top">
+            <div class="inline-block" style="margin-right: -60px;">
+              <img id="header-logo-image" src="{% static 'images/logo.png' %}"
+                alt="Egypt MedT, The Egypt MedT Experts" />
+            </div>
+          </div>
+
+          <div class="col-xs-6 hidden-sm hidden-md hidden-lg margin-header-top">
+            <div class="mobile-nav float-right white-text" id="top-nav-mobile">
+              <a id="top-nav-mobile-link" href="#" class="icon">
+                <i class="fa fa-bars"></i>
+              </a>
+            </div>
+            <div class="white-text float-right" id="top-search-mobile">
+              <a href="#" class="icon"><i class="navigation-icon header-search-hotel-link fa fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid bg-purple">
+      <div class="container">
+        <div id="header-mobile-menu" class="row slide_up">
+          <div class="col-xs-12">
+            <div class="top-menu-item white-text">
+              <a href="{% url 'index' %}">الصفحة الرئيسية</a>
+            </div>
+            <div class="top-menu-item white-text">
+              <a href="{% url 'destinations' %}">الأماكن</a>
+            </div>
+            <div class="top-menu-item white-text">
+              <a href="{% url 'offers' %}">الباقات و العروض</a>
+            </div>
+            <div class="top-menu-item white-text">
+              <a href="{% url 'contact' %}">تواصل معنا</a>
+            </div>
+            <div class="top-menu-item white-text">
+              <a href="{% static 'about-us' %}">معلومات عنا</a>
+            </div>
+          </div>
+        </div>
+        <div class="rowss">
+
+          <div class="hidden-xs col-sm-12">
+            <div id="top-menu-bar">
+              <div class="top-menu-item white-text">
+                <a href="{% url 'index' %}">الصفحة الرئيسية</a>
+              </div>
+              <div class="top-menu-item white-text">
+                <a href="{% url 'destinations' %}">الأماكن</a>
+              </div>
+              <div class="top-menu-item white-text">
+              <a href="{% url 'offers' %}">الباقات و العروض</a>
+              </div>
+              <div class="top-menu-item white-text">
+                <a href="{% url 'contact' %}">تواصل معنا</a>
+              </div>
+              <div class="top-menu-item white-text">
+                <a href="{% static 'about-us' %}">معلومات عنا</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="rowss">
+      <div class="col-xs-12 min-height-0"></div>
+    </div>
+  </div>
+  <!-- End nav -->
+
+  {% block content %} {% endblock content %}
+
+  <!-- Start footer -->
+  <div class="wrap">
+    <div class="container-fluid bg-green white-text">
+      <div class="container">
+        <div class="row footer-links">
+          <div class="col-xs-6 col-sm-3">
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" style="margin-right: 40px;"
+                width="220px" alt=""></a>
+
+            <div class="footer-chapter white-text">
+              <div class="rs_col-sm-4 wpb_column vc_column_container vc_col-sm-3">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
+                    <h2 style="
+                          color: #ffffff;
+                          text-align:center;
+                          font-family: Artifika;
+                          font-weight: 400;
+                          font-style: normal;
+                        " class="vc_custom_heading">
+                      E M T
+                    </h2>
+                    <div class="wpb_text_column wpb_content_element vc_custom_1597567540859">
+                      <div class="wpb_wrapper">
+                        <p>
+                          نساعدك لإيجاد أفضل العروض و أنسب الأسعار للسياحة العلاجية في مصر
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 col-sm-3">
+            <div class="footer-chapter white-text">
+              <b>الأماكن</b><br />
+              {% for tt in data %}
+              {% if forloop.counter <= 5 %} <a href="{% url tt.location %}">{{tt.name}}<br /></a>
+                {% endif %}
+                {% endfor %}
+            </div>
+          </div>
+
+
+
+          <div class="col-xs-6 col-sm-3">
+            <div class="footer-chapter white-text">
+              <b> الباقات و العروض</b><br />
+              <a href="/hotel/102/kamalaya-wellness-sanctuary">Kamalaya Wellness Sanctuary</a><br />
+            </div>
+
+            <div class="footer-chapter white-text">
+              <b>معلومات عنا</b><br />
+              <a href="/contact">تواصل معنا</a><br />
+              <a href="/meet-the-team">من نحن</a><br />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="container-fluid bg-darkgreen">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 footer-first-row text-center light-blue-text">
+            <a class="link-footer" href="/about-us">معلومات عنا </a>
+            <a class="link-footer" href="/terms-and-conditions">الشروط والأحكام</a>
+            <a class="link-footer" href="/privacy-policy">سياسة الخصوصية</a>
+          </div>
+          <div class="col-xs-12 footer-last-row text-center">
+            &copy; EG-MedT 2024
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer-mobile-button" class="hidden-lg hidden-sm hidden-md bg-green white-text bold-text title-font">
+    <div id="footer-mobile-call-button" class="footer-button">
+      <i class="fa fa-phone"></i> تواصل معنا
+    </div>
+    <div id="footer-whatsapp-button" class="footer-button">
+      <i class="fa fa-whatsapp"></i> واتساب
+    </div>
+  </div>
+
+
+  <!-- End footer -->
+
+  <div id="modalNewsletterEvent" class="fade modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a class="close-link" data-dismiss="modal" aria-hidden="true">لا أريد</a>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="row">
+                <div class="col-xs-12 text-center margin-bottom-20">
+                  <h2 class="black-text newsletter_popup_title">
+                    Sign up here to attend our Complimentary Wellbeing at Home
+                    Live online sessions with top Experts, Doctors and
+                    Practitioners
+                  </h2>
+                </div>
+                <div class="col-xs-12 text-center">
+                  <div class="row">
+                    <form id="form_subscribe_newsletter_9" action="/site/newsletter" method="post">
+                      <input type="hidden" name="_csrf"
+                        value="_b027bEEXD4GYnqJEUXRgbdmYqnsPDUBA9GMYJVgMICYx1e91kEYe2c0C-VyA7bVgS9XkMELUlhsi9MXpj9Wxg==" />
+                      <div class="hidden-xs col-sm-2 text-right">
+                        <i class="darkgrey-text fa fa-envelope-o fa-2x"></i>
+                      </div>
+                      <div class="input-field-newsletter col-xs-7">
+                        <input type="text" id="Newsletter_email_address_9" class="search-input-mainpage-newsletter"
+                          name="Newsletter[email_address]" value="" placeholder="your e-mail address" />
+                      </div>
+                      <div id="emailaddress" class="col-xs-5 col-sm-3 text-left">
+                        <div class="search-btn">
+                          <button type="submit" val="9" class="btn btn-signup btn-white">
+                            SIGN UP
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 text-center" id="newsletter_subscribe_result_9" style="display: none"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'assets/28576a83/jquery.js' %}"></script>
+  <script src="{% static 'assets/27b0ff0e/yii.js' %}"></script>
+  <script src="{% static 'assets/f52130ab/js/bootstrap.js' %}"></script>
+  <script src="{% static 'assets/ee08ebc9/js/bootstrap-popover-x.min.js' %}"></script>
+  <script src="{% static 'assets/c6f149db/js/select2.full.min.js' %}"></script>
+  <script src="{% static 'assets/c16da81e/js/select2-krajee.min.js' %}"></script>
+  <script src="{% static 'assets/6c2190a8/js/kv-widgets.min.js' %}"></script>
+  <script src="{% static 'assets/f33418a0/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'assets/f33418a0/js/datepicker-kv.min.js' %}"></script>
+  <script src="{% static 'assets/27b0ff0e/yii.activeForm.js' %}"></script>
+  <script src="{% static 'assets/40bc5cf4/slick.min.js' %}"></script>
+  <script src="{% static 'assets/27b0ff0e/yii.validation.js' %}"></script>
+  <script src="{% static 'assets/c061b1e6/js/swiper.min.js' %}"></script>
+
+  <script>
+    jQuery(function ($) {
+      var swiper1 = new Swiper(".swiper-container", {
+        direction: "horizontal",
+        speed: 3000,
+        autoplay: true,
+        effect: "fade",
+        loop: true,
+      });
+      jQuery && jQuery.pjax && (jQuery.pjax.defaults.maxCacheLength = 0);
+      if (jQuery("#searchbar-theme-1").data("select2")) {
+        jQuery("#searchbar-theme-1").select2("destroy");
+      }
+      jQuery
+        .when(jQuery("#searchbar-theme-1").select2(select2_dddbc607))
+        .done(initS2Loading("searchbar-theme-1", "s2options_7ebc6538"));
+      jQuery("#searchbar-theme-1").on("change", setSelectedThemes);
+
+      if (jQuery("#searchbar-destinations-1").data("select2")) {
+        jQuery("#searchbar-destinations-1").select2("destroy");
+      }
+      jQuery
+        .when(jQuery("#searchbar-destinations-1").select2(select2_dddbc607))
+        .done(
+          initS2Loading("searchbar-destinations-1", "s2options_7ebc6538")
+        );
+      jQuery("#searchbar-destinations-1").on("change", setSelectedCountries);
+
+      jQuery.fn.kvDatepicker.dates = {};
+      if (jQuery("#Search_date_from_raw_1").data("kvDatepicker")) {
+        jQuery("#Search_date_from_raw_1").kvDatepicker("destroy");
+      }
+      jQuery("#Search_date_from_raw_1").kvDatepicker(kvDatepicker_862ca7f7);
+      jQuery("#Search_date_from_raw_1").on("clearDate", function (ev) {
+        $(".Search_date_from").val("");
+        updateSessionData();
+      });
+      jQuery("#Search_date_from_raw_1").on(
+        "changeDate",
+        function (ev, picker) {
+          if (ev.date) {
+            var minDate = new Date(ev.date.valueOf());
+            $(".Search_date_until_raw").kvDatepicker("setStartDate", minDate);
+          } else {
+            $(".Search_date_until_raw").kvDatepicker(
+              "setStartDate",
+              "18/03/2024"
+            );
+          }
+          $(".Search_date_from").val(ev.format(0, "yyyy-mm-dd"));
+          $(".Search_date_from_raw").val($(this).val());
+          updateSessionData();
+        }
+      );
+
+      if (jQuery("#Search_date_until_raw_1").data("kvDatepicker")) {
+        jQuery("#Search_date_until_raw_1").kvDatepicker("destroy");
+      }
+      jQuery("#Search_date_until_raw_1").kvDatepicker(kvDatepicker_862ca7f7);
+      jQuery("#Search_date_until_raw_1").on("clearDate", function (ev) {
+        $(".Search_date_until").val("").change();
+        updateSessionData();
+      });
+      jQuery("#Search_date_until_raw_1").on(
+        "changeDate",
+        function (ev, picker) {
+          if (ev.date) {
+            var maxDate = new Date(ev.date.valueOf());
+            $(".Search_date_from_raw").kvDatepicker("setEndDate", maxDate);
+          } else {
+            $(".Search_date_from_raw").kvDatepicker("setEndDate", null);
+          }
+          $(".Search_date_until").val(ev.format(0, "yyyy-mm-dd"));
+          $(".Search_date_until_raw").val($(this).val());
+          updateSessionData();
+        }
+      );
+
+      jQuery("#mainpage-search-form_1").yiiActiveForm([], []);
+      jQuery("#form_subscribe_newsletter_1").yiiActiveForm([], []);
+      jQuery("#modalOpeningHours").modal({ show: false });
+      if (jQuery("#selected_hotel_id").data("select2")) {
+        jQuery("#selected_hotel_id").select2("destroy");
+      }
+      jQuery
+        .when(jQuery("#selected_hotel_id").select2(select2_61f85299))
+        .done(initS2Loading("selected_hotel_id", "s2options_d6851687"));
+      jQuery("#selected_hotel_id").on("select2:select", function () {
+        goToHotel(this.value);
+      });
+
+      jQuery("#modalSearchHotel").modal({ show: false });
+      jQuery("#form_subscribe_newsletter_9").yiiActiveForm([], []);
+      jQuery("#modalNewsletterEvent").modal({
+        show: false,
+        backdrop: "static",
+        keyboard: false,
+      });
+    });
+  </script>
+  <script>
+    jQuery(window).on("load", function () {
+      $(".mainpage-blog-block").on("click", gotoPage);
+      $(".mainpage-hotel-of-the-month-block").on("click", gotoPage);
+      $(".category-block").on("click", gotoPage);
+      $(".country-block").on("click", gotoPage);
+
+      $(".intro-search-btn").on("click", showMobileSearchMenu);
+      $(".intro-update-date-btn").on("click", refreshPage);
+      $(".intro-edit-search-btn").on("click", goToEditState);
+      $(".edit_nr_of_persons").on("keyup", function () {
+        var new_number = $(this).val();
+        $(".Search_nr_of_persons").val(new_number);
+        $(".edit_nr_of_persons").val(new_number);
+        updateSessionData();
+      });
+      $(".intro-search-btn-desktop").on("click", submitSearch);
+
+      $("#why-wbe-icons-view-more-btn").on("click", gotoPage);
+
+      $(".text-why-wbe-icon").on("click", toggleText);
+
+      $(document).on(
+        "beforeSubmit",
+        "#form_subscribe_newsletter_1",
+        function () {
+          $.ajax({
+            url: "/site/ajax-subscribe-newsletter",
+            type: "POST",
+            data: { email: $("#Newsletter_email_address_1").val() },
+            dataType: "json",
+            success: function (result) {
+              if (result.message.length > 0) {
+                $("#newsletter_subscribe_result_1").html(result.message);
+                $("#newsletter_subscribe_result_1").slideDown();
+                if (result.status == 400 || result.status == "subscribed") {
+                  if ($("#modalNewsletterEvent").data("bs.modal").isShown) {
+                    setTimeout(function () {
+                      $("#modalNewsletterEvent").modal("hide");
+                    }, 2000);
+                  }
+                }
+              }
+            },
+          });
+          return false; // Cancel form submitting.
+        }
+      );
+
+      $("#modalNewsletterEvent").on("shown.bs.modal", function () {
+        $("#Newsletter_email_address_1").focus();
+      });
+
+      $(".offer-hotel-block").on("click", function (e) {
+        e.preventDefault(); //stop the browser from following
+        window.location.href = $(this).attr("ref");
+      });
+
+      $("#social-icon-facebook").on("click", function () {
+        window.open(
+          "https://www.facebook.com/Wellbeing-Escapes-120617274622/",
+          "_blank"
+        );
+      });
+      $("#social-icon-twitter").on("click", function () {
+        window.open("https://twitter.com/WellbeingEscps", "_blank");
+      });
+      $("#social-icon-instagram").on("click", function () {
+        window.open("https://www.instagram.com/wellbeingescapes/", "_blank");
+      });
+      //$('#social-icon-pinterest').on('click', function() {
+      //	window.open('https://www.instagram.com/wellbeingescapes/','_blank');
+      //});
+      $("#social-icon-linkedin").on("click", function () {
+        window.open(
+          "https://www.linkedin.com/company/wellbeing-escapes-ltd",
+          "_blank"
+        );
+      });
+
+      $("#header-logo-image").on("click", function () {
+        window.location.assign("/");
+      });
+      $("#top-nav-mobile-link").on("click", showMobileMenu);
+
+      $(".opening-hour-line").on("click", "", function () {
+        if (!$("#modalOpeningHours").data("bs.modal").isShown) {
+          $("#modalOpeningHours").modal("show");
+        }
+      });
+
+      $(".header-search-hotel-link").on("click", function () {
+        if (!$("#modalSearchHotel").data("bs.modal").isShown) {
+          $("#modalSearchHotel").modal("show");
+        }
+      });
+
+      $('a[href^="#an-"]').on("click", function () {
+        $("html, body").animate(
+          {
+            scrollTop: $(
+              '[id="' + $.attr(this, "href").substr(1) + '"]'
+            ).offset().top,
+          },
+          500
+        );
+        return false;
+      });
+
+      $.fn.modal.Constructor.prototype.enforceFocus =
+        function () { }; /* Fix to get focus on select2 dropdown box in select country modal */
+
+      $(".click-to-feefo-image").on("click", gotoStandardFeefoPage);
+      $("#footer-mobile-call-button").on("click", function () {
+        window.location.assign("tel:+0201141054687");
+      });
+      $("#footer-whatsapp-button").on("click", function () {
+        window.open("https://wa.me/+0201141054687", "_blank");
+      });
+      $("#whatsapp-link-desktop").on("click", function () {
+        window.open("https://wa.me/+0201141054687", "_blank");
+      });
+
+      if (!hasNewsletterCookie()) {
+        setTimeout(function () {
+          if (!$("#modalNewsletterEvent").data("bs.modal").isShown) {
+            $("#modalNewsletterEvent").modal("show");
+            $("#Newsletter_email_address_9").focus();
+          }
+          setNewsletterCookie();
+        }, 8000);
+      }
+      setReferenceCookie();
+
+      $(document).on(
+        "beforeSubmit",
+        "#form_subscribe_newsletter_9",
+        function () {
+          $.ajax({
+            url: "/site/ajax-subscribe-newsletter",
+            type: "POST",
+            data: { email: $("#Newsletter_email_address_9").val() },
+            dataType: "json",
+            success: function (result) {
+              if (result.message.length > 0) {
+                $("#newsletter_subscribe_result_9").html(result.message);
+                $("#newsletter_subscribe_result_9").slideDown();
+                if (result.status == 400 || result.status == "subscribed") {
+                  if ($("#modalNewsletterEvent").data("bs.modal").isShown) {
+                    setTimeout(function () {
+                      $("#modalNewsletterEvent").modal("hide");
+                    }, 2000);
+                  }
+                }
+              }
+            },
+          });
+          return false; // Cancel form submitting.
+        }
+      );
+
+      $("#modalNewsletterEvent").on("shown.bs.modal", function () {
+        $("#Newsletter_email_address_9").focus();
+      });
+    });
+  </script>
+  <script>jQuery(function ($) {
+      jQuery('#modalOpeningHours').modal({ "show": false });
+      jQuery && jQuery.pjax && (jQuery.pjax.defaults.maxCacheLength = 0);
+      if (jQuery('#selected_hotel_id').data('select2')) { jQuery('#selected_hotel_id').select2('destroy'); }
+      jQuery.when(jQuery('#selected_hotel_id').select2(select2_61f85299)).done(initS2Loading('selected_hotel_id', 's2options_d6851687'));
+      jQuery('#selected_hotel_id').on('select2:select', function () { goToHotel(this.value); });
+
+      jQuery('#modalSearchHotel').modal({ "show": false });
+      jQuery('#form_subscribe_newsletter_9').yiiActiveForm([], []);
+      jQuery('#modalNewsletterEvent').modal({ "show": false, "backdrop": "static", "keyboard": false });
+    });</script>
+  <script>jQuery(window).on('load', function () {
+
+      $('.category-index-block').on('click', gotoPage);
+
+
+      $('#why-wbe-icons-view-more-btn').on('click', gotoPage);
+
+
+      $('#social-icon-facebook').on('click', function () {
+        window.open('https://www.facebook.com/Wellbeing-Escapes-120617274622/', '_blank');
+      });
+      $('#social-icon-twitter').on('click', function () {
+        window.open('https://twitter.com/WellbeingEscps', '_blank');
+      });
+      $('#social-icon-instagram').on('click', function () {
+        window.open('https://www.instagram.com/wellbeingescapes/', '_blank');
+      });
+      //$('#social-icon-pinterest').on('click', function() {
+      //	window.open('https://www.instagram.com/wellbeingescapes/','_blank');
+      //});
+      $('#social-icon-linkedin').on('click', function () {
+        window.open('https://www.linkedin.com/company/wellbeing-escapes-ltd', '_blank');
+      });
+
+
+
+      $('#header-logo-image').on('click', function () {
+        window.location.assign('/');
+      });
+      $('#top-nav-mobile-link').on('click', showMobileMenu);
+
+      $('.opening-hour-line').on('click', '', function () {
+        if (!$('#modalOpeningHours').data('bs.modal').isShown) {
+          $('#modalOpeningHours').modal('show');
+        }
+      });
+
+      $('.header-search-hotel-link').on('click', function () {
+        if (!$('#modalSearchHotel').data('bs.modal').isShown) {
+          $('#modalSearchHotel').modal('show');
+        }
+      });
+
+      $('a[href^="#an-"]').on('click', function () {
+        $('html, body').animate({
+          scrollTop: $('[id="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+        }, 500);
+        return false;
+      });
+
+      $.fn.modal.Constructor.prototype.enforceFocus = function () { }; /* Fix to get focus on select2 dropdown box in select country modal */
+
+      $('.click-to-feefo-image').on('click', gotoStandardFeefoPage);
+      $('#footer-mobile-call-button').on('click', function () {
+        window.location.assign('tel:+0201141054687');
+      });
+      $('#footer-whatsapp-button').on('click', function () {
+        window.open('https://wa.me/+0201141054687', '_blank');
+      });
+      $('#whatsapp-link-desktop').on('click', function () {
+        window.open('https://wa.me/+0201141054687', '_blank');
+      });
+
+      if (!hasNewsletterCookie()) {
+        setTimeout(function () {
+          if (!$('#modalNewsletterEvent').data('bs.modal').isShown) {
+            $('#modalNewsletterEvent').modal('show');
+            $('#Newsletter_email_address_9').focus();
+          }
+          setNewsletterCookie();
+        }, 8000);
+      }
+      setReferenceCookie();
+
+
+      $(document).on('beforeSubmit', '#form_subscribe_newsletter_9', function () {
+        $.ajax({
+          url: '/site/ajax-subscribe-newsletter',
+          type: 'POST',
+          data: { email: $('#Newsletter_email_address_9').val() },
+          dataType: 'json',
+          success: function (result) {
+            if (result.message.length > 0) {
+              $('#newsletter_subscribe_result_9').html(result.message);
+              $('#newsletter_subscribe_result_9').slideDown();
+              if (result.status == 400 || result.status == 'subscribed') {
+                if ($('#modalNewsletterEvent').data('bs.modal').isShown) {
+                  setTimeout(function () {
+                    $('#modalNewsletterEvent').modal('hide')
+                  }, 2000);
+                }
+              }
+            }
+          }
+        });
+        return false; // Cancel form submitting.
+      });
+
+      $('#modalNewsletterEvent').on('shown.bs.modal', function () {
+        $('#Newsletter_email_address_9').focus();
+      })
+
+    });</script>
+
+
+  <div id="footer-desktop-whatsapp-button" class="hidden-xs">
+    <img id="whatsapp-link-desktop" src="{% static 'images/whatsapp_logo_2.png' %}" alt="Whatsapp" title="Whatsapp" />
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1275 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <!-- Active Campaign Tracking Code -->
+  <script type="text/javascript">
+    (function (e, t, o, n, p, r, i) { e.visitorGlobalObjectAlias = n; e[e.visitorGlobalObjectAlias] = e[e.visitorGlobalObjectAlias] || function () { (e[e.visitorGlobalObjectAlias].q = e[e.visitorGlobalObjectAlias].q || []).push(arguments) }; e[e.visitorGlobalObjectAlias].l = (new Date).getTime(); r = t.createElement("script"); r.src = o; r.async = true; i = t.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) })(window, document, "https://diffuser-cdn.app-us1.com/diffuser/diffuser.js", "vgo");
+    vgo('setAccount', '476499877');
+    vgo('setTrackByDefault', true);
+    vgo('process');
+  </script>
+  <!-- End Active Campaign Tracking Code -->
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NZSRJ5Z');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '530723697083707');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=530723697083707&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <!-- Hotjar Tracking Code -->
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 1354413, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="author" content="Webased info@webased.nl" />
+  <meta name="copyright" content="&copy; Egypt MedT 2024" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Cuprum|Source+Sans+Pro:400,700" rel="stylesheet">
+  <meta name="csrf-param" content="_csrf">
+  <meta name="csrf-token"
+    content="iIWaDHQgR6xXsw87AItDsQ3vhEA9mLaW6d4EAD5vsZrhsq54PXEd8zPeWXk2pi38SZf-M3ro_vur7TVRE0KJ7w==">
+  <title>Siwa | EG-MedT</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/logo.png' %}">
+  <meta name="google-site-verification" content="A0aPvzWCb2YTfQKwiFLRGW-gY5MSpiCyBmjC9iCiguo" />
+  <meta name="facebook-domain-verification" content="o733r5olm0b55k6ku9bmzz9p4ncpfp" />
+  <meta name="apple-mobile-web-app-title" content="Egypt MedT" />
+  <meta name="application-name" content="Egypt MedT" />
+  <meta name="theme-color" content="#94ae8b">
+
+  <link href="{% static 'assets/f52130ab/css/bootstrap.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c6f149db/css/select2.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c16da81e/css/select2-addl.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c16da81e/css/select2-default.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/6c2190a8/css/kv-widgets.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/f33418a0/css/bootstrap-datepicker3.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/f33418a0/css/datepicker-kv.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/40bc5cf4/slick.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/40bc5cf4/slick-theme.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/60799d84/css/star-rating.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/60799d84/themes/krajee-svg/theme.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/f6bebe91/css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/site.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/c16da81e/css/select2-krajee.min.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+  <script>
+    function showMobileSearchMenu() {
+      var key = $(this).attr('key');
+      $('#main-searchbar-mobile-div_' + key).hide();
+      $('#main-searchbar_' + key).removeClass('hidden-xs');
+    }
+
+    function refreshPage() {
+      location.reload();
+      return false;
+    }
+
+    function updateSessionData() {
+      $.ajax({
+        url: '/site/ajax-set-session-search',
+        type: 'POST',
+        data: { categories: $('#Search_categories_1').val(), countries: $('#Search_countries_1').val(), date_from: $('#Search_date_from_1').val(), date_until: $('#Search_date_until_1').val(), nr_of_persons: $('#Search_nr_of_persons_1').val(), category_string: $('#theme_string_1').val(), country_string: $('#country_string_1').val() },
+        success: function () {
+        },
+        error: function () {
+          alert('ERROR: something went wrong saving search items to session');
+        }
+      });
+    }
+
+    var any_word_length = 'Any'.length;
+
+    function goToEditState() {
+      var followup_nr = $(this).attr('followup_nr');
+      $('.search-interpunction').hide();
+      $('.searchbar-theme_txt').hide();
+      $('.searchbar-destinations_txt').hide();
+      $('.Search_date_from_raw_txt').hide();
+      $('.Search_date_until_raw_txt').hide();
+      $('.edit_nr_of_persons_txt').hide();
+      $('.searchbar-select-box').removeClass('searchbar-select-hide-on-load');
+      $('.Search_date_from_raw').show();
+      $('.Search_date_until_raw').show();
+      $('.edit_nr_of_persons').show();
+      $('.intro-update-date-btn').show();
+      $('.intro-edit-search-btn').hide();
+      $('.intro-search-btn-desktop').show();
+      return false;
+    }
+
+    function setSelectedCountries() {
+      var key = '1';
+      var selected_ids = new Array();
+      $.each($(this).val(), function (key, value) {
+        selected_ids.push('l' + value);
+      });
+      $('.Search_countries').val(selected_ids.join('-'));
+      var selected_names = new Array();
+      var values = $(this).select2('data');
+      $.each(values, function (key, value) {
+        selected_names.push(value.text);
+      });
+      if (selected_names) {
+        var namesstring = selected_names.join(', ');
+        $('.country_string').val(namesstring);
+        $('.searchbar-destinations_txt').html(namesstring);
+      } else {
+        $('.searchbar-destinations_txt').html('Any');
+      }
+      updateSessionData();
+    }
+
+    function setSelectedThemes() {
+      var key = '1';
+      var selected_ids = new Array();
+      $.each($(this).val(), function (key, value) {
+        selected_ids.push('t' + value);
+      });
+      $('.Search_categories').val(selected_ids.join('-'));
+      var selected_names = new Array();
+      var values = $(this).select2('data');
+      $.each(values, function (key, value) {
+        selected_names.push(value.text);
+      });
+      if (selected_names) {
+        var namesstring = selected_names.join(', ');
+        $('.theme_string').val(namesstring);
+        $('.searchbar-theme_txt').html(namesstring);
+      } else {
+        $('.searchbar-theme_txt').html('Any');
+      }
+      updateSessionData();
+    }
+
+    function submitSearch() {
+      var key = '1';
+      var themes = $('#Search_categories_' + key).val();
+      var filters = new Array();
+      if ($('#Search_countries_' + key).val()) {
+        filters.push($('#Search_countries_' + key).val());
+      }
+      if ($('#Search_categories_' + key).val()) {
+        filters.push($('#Search_categories_' + key).val());
+      }
+      window.location.assign('/all-hotels/' + filters.join('-'));
+      return false;
+    }
+
+    var s2options_7ebc6538 = { "themeCss": ".select2-container--default", "sizeCss": "", "doReset": true, "doToggle": false, "doOrder": false };
+    window.select2_dddbc607 = { "maximumInputLength": 4, "allowClear": true, "width": "180px", "theme": "default", "minimumResultsForSearch": Infinity, "placeholder": "Any", "language": "en" };
+
+    window.kvDatepicker_47e250b0 = { "autoclose": true, "format": "dd\/mm\/yyyy", "clearBtn": true, "todayHighlight": true, "disableTouchKeyboard": true, "startDate": "08\/03\/2024" };
+
+
+
+    var path = window.location.pathname;
+    var currentFilter = 'l33';
+    var currentFilterArray = new Array();
+    if (currentFilter == '' || currentFilter == 'all-hotels' || currentFilter == 'alle-hotels') {
+      currentFilter = '';
+    } else {
+      currentFilterArray = currentFilter.split('-');
+    }
+
+    var baseURL = '/all-hotels';
+
+    function showLoadingOverlay() {
+      $('#overlay_loading').show();
+      $('#overlay_loading').addClass('transparented');
+    }
+
+    function hideLoadingOverlay() {
+      $('#filter_result').css({ opacity: 0 });
+      $('#overlay_loading').removeClass('transparented');
+      $('#overlay_loading').hide();
+      $('#filter_result').css({ opacity: 1 });
+    }
+
+    function resetSearch() {
+      //	currentFilterArray = new Array();
+      //	updateResults();
+      window.location.assign('/all-hotels');
+    }
+
+    function updateResults() {
+      $('#hotel-filterpage-header').slideUp(400);
+      showLoadingOverlay();
+      var currentFilterString = currentFilterArray.join('-');
+      $.ajax({
+        url: '/hotel/ajax-get-results',
+        type: 'POST',
+        data: { filters: currentFilterString },
+        dataType: 'json',
+        success: function (result) {
+          $('#filter_result').html(result);
+          hideLoadingOverlay();
+        },
+        error: function (result) {
+          alert('Something went wrong when handling the request, please contact customer service for assistance.');
+          hideLoadingOverlay();
+        },
+      });
+      var urlArguments = '/' + currentFilterString;
+      window.history.pushState('null', 'null', baseURL + urlArguments);			// Push new URL to address bar
+      return false;
+    }
+
+    function goToHotel() {
+      var hotelid = $(this).val();
+      window.location.href = $('#link-to-hotel-' + hotelid).attr('href');
+    }
+
+    function toggleSearchPrice() {
+      for (i = 1; i < 6; i++) {
+        var delete_id = 'p' + i;
+        if ($.inArray(delete_id, currentFilterArray) > -1) {
+          currentFilterArray.splice($.inArray(delete_id, currentFilterArray), 1);
+        }
+      }
+      if ($(this).val()) {
+        var itemid = 'p' + $(this).val();
+        if ($.inArray(itemid, currentFilterArray) == -1) {
+          currentFilterArray.push(itemid);
+        }
+      }
+      updateResults();
+      return false;
+    }
+
+    function toggleSearchItem() {
+      var firstchar = $(this).attr('firstchar');
+      var deletedFilterIndexesArray = new Array();
+      $.each(currentFilterArray, function (index, id) {
+        if (id.substring(0, 1) == firstchar) {
+          deletedFilterIndexesArray.push(index);
+        }
+      });
+      $.each(deletedFilterIndexesArray, function (index, deleted_index) {
+        currentFilterArray.splice(deleted_index, 1);
+      });
+
+      $.each($(this).val(), function (index, id) {
+        var itemid = firstchar + id;
+        if ($.inArray(itemid, currentFilterArray) == -1) {
+          currentFilterArray.push(itemid);
+        }
+      });
+      updateResults();
+      return false;
+    }
+
+
+    window.select2_35a071dd = { "theme": "default", "width": "100%", "minimumResultsForSearch": Infinity, "placeholder": "كل الأماكن", "language": "ar" };
+
+    window.select2_fce86103 = { "theme": "default", "width": "100%", "minimumResultsForSearch": Infinity, "placeholder": "كل الأماكن", "language": "ar" };
+
+    window.select2_e18b4df5 = { "allowClear": true, "theme": "default", "width": "100%", "minimumResultsForSearch": Infinity, "placeholder": "متوسط السعر", "language": "ar" };
+
+    window.select2_9d42577f = { "theme": "default", "width": "100%", "minimumResultsForSearch": Infinity, "placeholder": "جميع أنواع الأمراض", "language": "ar" };
+
+    window.select2_c7d782a5 = { "theme": "default", "width": "100%", "placeholder": "جميع أنواع الرعاية", "language": "ar" };
+
+
+    function goToUrl() {
+      window.open($(this).attr('urlto'), '_blank');
+    }
+
+    window.rating_0e371bec = { "readonly": true, "size": "xs", "stars": 5, "min": 0, "max": 5, "step": 0.1, "theme": "krajee-svg", "filledStar": "\u003Cspan class=\u0022krajee-icon krajee-icon-star\u0022\u003E\u003C\/span\u003E", "emptyStar": "\u003Cspan class=\u0022krajee-icon krajee-icon-star\u0022\u003E\u003C\/span\u003E", "showClear": false, "showCaption": false, "language": "en" };
+
+
+
+
+
+    function showMobileMenu() {
+      var menu_id = $('#header-mobile-menu');
+      if (menu_id.hasClass('slide_up')) {
+        $('#header-mobile-menu').removeClass('slide_up').addClass('slide_down');
+        $('#top-nav-mobile-link').html('<i class="fa fa-times"></i>');
+      } else {
+        $('#header-mobile-menu').removeClass('slide_down').addClass('slide_up');
+        $('#top-nav-mobile-link').html('<i class="fa fa-bars"></i>');
+      }
+    }
+
+    function goToHotel(id) {
+      $.ajax({
+        url: '/site/ajax-go-to-hotel',
+        type: 'POST',
+        data: { hotel_id: id },
+        dataType: 'json',
+        success: function (hotel) {
+          window.location.assign(hotel['url']);
+        }
+      });
+    }
+
+    function gotoStandardFeefoPage() {
+      window.open('https://www.feefo.com/en-GB/reviews/wellbeing-escapes?displayFeedbackType=BOTH&timeFrame=YEAR', '_blank');
+    }
+
+    function hasNewsletterCookie() {
+      var name = 'newsletter-popup-dismissed=';
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return false;
+    }
+
+    function setNewsletterCookie() {
+      var d = new Date();
+      d.setTime(d.getTime() + (8640000000)); // 100 days (100*24*60*60*1000) in milliseconds
+      document.cookie = 'newsletter-popup-dismissed=yes;expires=' + d.toUTCString() + ';path=/';
+    }
+
+    //function hasReferenceCookie()
+    //{
+    //	var name = 'first-visit-reference=';
+    //	var decodedCookie = decodeURIComponent(document.cookie);
+    //	var ca = decodedCookie.split(';');
+    //	for(var i = 0; i <ca.length; i++) {
+    //	    var c = ca[i];
+    //		while (c.charAt(0) == ' ') {
+    //			c = c.substring(1);
+    //		}
+    //		if (c.indexOf(name) == 0) {
+    //			return c.substring(name.length, c.length);
+    //		}
+    //	}
+    //	return false;
+    //}
+
+    function setReferenceCookie() {
+      var gclid = 0;
+      var utm_source = 0;
+      var utm_medium = 0;
+      if (gclid || utm_source == 'ActiveCampaign') {
+        var d = new Date();
+        d.setTime(d.getTime() + (5184000000)); // 60 days (60*24*60*60*1000) in milliseconds
+        if (gclid) {
+          document.cookie = 'first-visit-reference=Google Ads;expires=' + d.toUTCString() + ';path=/';
+          document.cookie = 'first-visit-gclid=' + gclid + ';expires=' + d.toUTCString() + ';path=/';
+          document.cookie = 'first-visit-utm-medium=' + utm_medium + ';expires=' + d.toUTCString() + ';path=/';
+          document.cookie = 'first-visit-url=' + window.location.href + ';expires=' + d.toUTCString() + ';path=/';
+        } else if (utm_source == 'ActiveCampaign') {
+          document.cookie = 'first-visit-reference=ActiveCampaign;expires=' + d.toUTCString() + ';path=/';
+          document.cookie = 'first-visit-gclid=' + gclid + ';expires=' + d.toUTCString() + ';path=/';
+          document.cookie = 'first-visit-utm-medium=' + utm_medium + ';expires=' + d.toUTCString() + ';path=/';
+          document.cookie = 'first-visit-url=' + window.location.href + ';expires=' + d.toUTCString() + ';path=/';
+        }
+      }
+    }
+
+
+    var s2options_d6851687 = { "themeCss": ".select2-container--krajee", "sizeCss": "", "doReset": true, "doToggle": false, "doOrder": false };
+    window.select2_61f85299 = { "allowClear": false, "theme": "krajee", "width": "100%", "placeholder": "Select and jump to a hotel directly ... ", "language": "en" };
+  </script>
+
+</head>
+
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZSRJ5Z" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  {% include 'parts/nav.html' %}
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 min-height-0">
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div id="index-hotels-packages">
+      <div class="container">
+
+        <div id="hotel-filterpage-header" class="row">
+          <div class="col-xs-12 col-sm-offset-1 col-sm-10 text-center">
+            <h1 class="hotel-filterpage-title">{{des.name}}</h1>
+            <div class="hotel-filterpage-text text-left">
+              <p dir="rtl">{{ des.information }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="main-searchbar_1" class="hidden-xs container-fluid bg-purple">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 white-text">
+                  <div id="mainpage-searchbar">
+                    <form id="mainpage-search-form_1" action="/site/#" method="post">
+                      <input type="hidden" name="_csrf"
+                        value="w9J4LyYTLRW4bCTH4zAYIj0NGzMYMPfmQsIA1iT8GyyslSJobCd_WdItQ4yCAkpRdUV-ZVUdsJM4mkauXLRhZg==" /><input
+                        type="hidden" id="theme_string_1" class="theme_string" name="theme_string" value="Any" /><input
+                        type="hidden" id="country_string_1" class="country_string" name="country_string"
+                        value="Any" /><input type="hidden" id="Search_categories_1" class="Search_categories"
+                        name="Search[categories]" value="" /><input type="hidden" id="Search_countries_1"
+                        class="Search_countries" name="Search[countries]" value="" /><input type="hidden"
+                        id="Search_date_from_1" class="Search_date_from" name="Search[date_from]" value="" /><input
+                        type="hidden" id="Search_date_until_1" class="Search_date_until" name="Search[date_until]"
+                        value="" /><input type="hidden" id="Search_nr_of_persons_1" class="Search_nr_of_persons"
+                        name="Search[nr_of_persons]" value="2" />
+                      <div class="mainpage-searchbar-column mainpage-searchbar-auto-column">
+                        <span id="searchbar-theme_lbl_1"
+                          class="searchbar-theme_lbl searchbar-label float-right first-label-from-right">نوع
+                          المرض<span class="search-interpunction" style="display: none">:</span></span>
+                        <div id="searchbar-theme_txt_1" class="searchbar-theme_txt search-input-size-big float-left"
+                          style="display: none">
+                          Any
+                        </div>
+                        <select id="searchbar-theme-1" class="searchbar-select-box searchbar-theme form-control"
+                          name="themes_1[]" multiple size="4" key="1" data-s2-options="s2options_7ebc6538"
+                          data-krajee-select2="select2_dddbc607">
+                          <option value="11">الروماتيزم</option>
+                          <option value="12">عرق النسا</option>
+                          <option value="13">التهابات الجلدية</option>
+                          <option value="14">الإرتشاح المفصلي</option>
+                          <option value="15">التورم</option>
+                          <option value="17">الروماتويد</option>
+                          <option value="19">الصدفية</option>
+                          <option value="20">الضعف و الوهن</option>
+                          <option value="21">ألم الظهر</option>
+                          <option value="22">ألم المفاصل</option>
+                        </select>
+                      </div>
+                      <div id="intro-search-bar-destinations"
+                        class="mainpage-searchbar-column mainpage-searchbar-auto-column">
+                        <span id="searchbar-destinations_lbl_1"
+                          class="searchbar-destinations_lbl searchbar-label float-right">الأماكن<span
+                            class="search-interpunction" style="display: none">:</span></span>
+                        <div id="searchbar-destinations_txt_1"
+                          class="searchbar-destinations_txt search-input-size-big float-left" style="display: none">
+                          Any
+                        </div>
+                        <select id="searchbar-destinations-1"
+                          class="searchbar-select-box searchbar-destinations form-control" name="countries_1[]" multiple
+                          size="4" key="1" data-s2-options="s2options_7ebc6538" data-krajee-select2="select2_dddbc607">
+                          <option value="55"></option>
+                          <option value="41"></option>
+                          <option value="92"></option>
+                          <option value="69"></option>
+                          <option value="82"></option>
+                          <option value="61"></option>
+                          <option value="62"></option>
+                          <option value="96"></option>
+                          <option value="52"></option>
+                          <option value="70"></option>
+                          <option value="57"></option>
+                          <option value="36"></option>
+                        </select>
+                      </div>
+                      <div class="clearfix hidden-sm hidden-md hidden-lg"></div>
+
+                      <div class="mainpage-searchbar-column mainpage-searchbar-auto-column">
+                        <span class="searchbar-label">عددالأفراد<span class="search-interpunction"
+                            style="display: none">:</span></span>
+                        <input type="text" id="edit_nr_of_persons_1"
+                          class="edit_nr_of_persons searchbar-text-field-like-button search-input-size-small"
+                          name="Search[nr_of_persons_1]" value="2" style="" />
+                        <div id="edit_nr_of_persons_txt_1" class="edit_nr_of_persons_txt search-input-size-small"
+                          style="display: none">
+                          2
+                        </div>
+                      </div>
+
+                      <div
+                        class="mainpage-searchbar-column mainpage-searchbar-button-column mainpage-searchbar-auto-column">
+                        <div class="search-btn">
+                          <button id="intro-update-date-btn_1" class="btn btn-search btn-purple intro-update-date-btn">
+                            تعديل
+                          </button>
+                          <button id="intro-edit-search-btn_1" class="btn btn-search btn-purple intro-edit-search-btn"
+                            style="display: none">
+                            EDIT SEARCH
+                          </button>
+                          <button key="1" id="intro-search-btn-desktop_1"
+                            class="btn btn-search btn-purple intro-search-btn-desktop" style="">
+                            بحث
+                          </button>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="main-searchbar-mobile-div_1" class="hidden-sm hidden-md hidden-lg container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="text-center btn-mainpage">
+              <a key="1" class="btn btn-fullscreen btn-white intro-search-btn">ابحث عن رحلتك </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container margin-top-20">
+        <div class="row">
+          <div class="col-xs-12 col-md-3 margin-bottom-30" id="filtertab">
+
+            <!-- Selector checkboxes -->
+            <!-- <div id="intro-search-bar-theme">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="filter-border-purple margin-bottom-20   ">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="clearfix bg-purple white-text filter-title-header">
+                          <div class="float-right title-font">
+                            التصفية بـ </div>
+                          <div class="float-left">
+                            <button id="filter-reset-btn" class="btn btn-search btn-purple intro-edit-search-btn">إعادة
+                              ضبط</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="padding-10">
+                      <div class="row margin-top-10">
+                        <div class="col-xs-12 bold-text">
+                          المكان </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="kv-plugin-loading loading-FilterForm_continents">
+                            &nbsp;</div><select id="FilterForm_continents" class="form-control" name="continents[]"
+                            multiple size="4" firstchar="c" data-s2-options="s2options_7ebc6538"
+                            data-krajee-select2="select2_35a071dd" style="width: 1px; height: 1px; visibility: hidden;">
+                            <option value="4">Europe</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row margin-top-10">
+                        <div class="col-xs-12">
+                          <div class="kv-plugin-loading loading-FilterForm_countries">
+                            &nbsp;</div><select id="FilterForm_countries" class="form-control" name="countries[]"
+                            multiple size="4" firstchar="l" data-s2-options="s2options_7ebc6538"
+                            data-krajee-select2="select2_fce86103" style="width: 1px; height: 1px; visibility: hidden;">
+                            <option value="55">Austria</option>
+                            <option value="41">Bali (Indonesia)</option>
+                            <option value="92">Bhutan</option>
+                            <option value="69">Caribbean </option>
+                            <option value="82">Croatia</option>
+                            <option value="61">Cyprus</option>
+                            <option value="62">France</option>
+                            <option value="96">Germany</option>
+                            <option value="52">Greece</option>
+                            <option value="70">Ibiza (Spain)</option>
+                            <option value="57">India</option>
+                            <option value="36">Italy</option>
+                            <option value="53">Madeira (Portugal)</option>
+                            <option value="42">Maldives</option>
+                            <option value="56">Mauritius</option>
+                            <option value="85">Mexico </option>
+                            <option value="60">Morocco</option>
+                            <option value="89">Mozambique</option>
+                            <option value="44">Portugal</option>
+                            <option value="47">Slovenia</option>
+                            <option value="43">Spain</option>
+                            <option value="40">Sri Lanka</option>
+                            <option value="72">Switzerland</option>
+                            <option value="86">Tenerife (Spain)</option>
+                            <option value="33" selected>Siwa</option>
+                            <option value="97">The Middle East</option>
+                            <option value="35">Turkey</option>
+                            <option value="84">United Kingdom </option>
+                            <option value="68">Vietnam</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row margin-top-20">
+                        <div class="col-xs-12 bold-text">
+                          متوسط السعر </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="kv-plugin-loading loading-FilterForm_pricerange">
+                            &nbsp;</div><select id="FilterForm_pricerange" class="form-control" name="pricerange"
+                            data-s2-options="s2options_7ebc6538" data-krajee-select2="select2_e18b4df5"
+                            style="width: 1px; height: 1px; visibility: hidden;">
+                            <option value="">متوسط السعر</option>
+                            <option value="1">£</option>
+                            <option value="2">£ £</option>
+                            <option value="3">£ £ £</option>
+                            <option value="4">£ £ £ £</option>
+                            <option value="5">£ £ £ £ £</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row margin-top-20">
+                        <div class="col-xs-12 bold-text">
+                          نوع المرض </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="kv-plugin-loading loading-FilterForm_holidaytypes">
+                            &nbsp;</div><select id="FilterForm_Diseasestypes" class="form-control" name="holidaytypes[]"
+                            multiple size="4" firstchar="t" data-s2-options="s2options_7ebc6538"
+                            data-krajee-select2="select2_9d42577f" style="width: 1px; height: 1px; visibility: hidden;">
+                            <option value="20">ألم المفاصل</option>
+                            <option value="20">ألم الظهر</option>
+                            <option value="20">عرق النسا</option>
+                            <option value="20">التهابات الجلدية</option>
+                            <option value="20">الإرتشاح المفصلي</option>
+                            <option value="20">التورم</option>
+                            <option value="20">الروماتويد</option>
+                            <option value="20">الصدفية</option>
+                            <option value="20">الضعف و الوهن</option>
+                            <option value="20">الروماتيزم</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row margin-top-20">
+                        <div class="col-xs-12 bold-text">
+                          نوع الرعاية </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="kv-plugin-loading loading-FilterForm_hotels">&nbsp;
+                          </div><select id="FilterForm_hotels" class="form-control" name="hotels[]"
+                            data-s2-options="s2options_7ebc6538" data-krajee-select2="select2_c7d782a5"
+                            style="width: 1px; height: 1px; visibility: hidden;">
+                            <option value="">تقوية الأعصاب</option>
+                            <option value="">الإسترخاء</option>
+                            <option value="">الدفن في الرمال</option>
+                            <option value="">المياة المعدنية</option>
+                            <option value="">الأبار و العيون</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="col-xs-12 col-md-9" style="position:relative">
+            <div id="filter_result">
+
+              <div class="row border-blue no-gutters hotel-div margin-bottom-20">
+
+
+                <div class="filter-hotel-box-border-black">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-5">
+                      <div class="filter-slidebox-hotel">
+                        <div id="w0" class="slider-for">
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/99177e32f4b58d22ad8f455383b0699.jpg' %}" alt=""
+                              title=""></div>
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/1dc30796380f6aeac5e7368d25ac84d.jpg' %}" alt=""
+                              title=""></div>
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/976774c6f3e437a08e3d38d10cb2082.jpg' %}" alt=""
+                              title=""></div>
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/871c8bcc0fa2f416b1f29db42def740.jpg' %}" alt=""
+                              title=""></div>
+                        </div>
+                      </div>
+                      <div class="hidden-xs">
+                        إذا كنت تبحث عن فرص للاستجمام والترفيه، فستجد هنا
+                        حمّام سباحة خارجي وحمّام سباحة داخلي. في الفندق، ستجد سماتٍ إضافية منها
+                        اتصال لاسلكي مجاني بالإنترنت وخدمات لحفلات الزفاف
+                        وتلفاز في المنطقة المشتركة.
+                        استمتع بوجبة في مطعم الفندق أو بتناول المأكولات الخفيفة في الكافيتيريا.
+                        كما يتم تأمين خدمة الغرف على مدار 24 ساعة.
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-7">
+                      <div class="favorite-right-block">
+                        <div class="row">
+                          <div class="col-xs-8">
+                            <h2 class="smaller margin-0">{{R2.name}}</h2>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 filter-hotel-little-bigger">واحة سيوة , غرب
+                            مصر</div>
+                          <div class="col-xs-12 filter-hotel-little-smaller margin-top-20">
+                          </div>
+                          <div class="col-xs-12 hidden-sm hidden-md hidden-lg margin-top-20 margin-bottom-10">
+                            إذا كنت تبحث عن فرص للاستجمام والترفيه، فستجد هنا
+                            حمّام سباحة خارجي وحمّام سباحة داخلي. في الفندق، ستجد سماتٍ إضافية منها
+                            اتصال لاسلكي مجاني بالإنترنت وخدمات لحفلات الزفاف
+                            وتلفاز في المنطقة المشتركة.
+                            استمتع بوجبة في مطعم الفندق أو بتناول المأكولات الخفيفة في الكافيتيريا.
+                            كما يتم تأمين خدمة الغرف على مدار 24 ساعة. استمتع
+                            بتناول شرابك المفضل في البار/الاستراحة. يتم تقديم فطور من الأطباق
+                            المحلية مجانًا يوميًا من 7 صباحاً إلى 9 صباحاً.
+                            تضم وسائل الرائحة المميزة مكتب استقبال مفتوح 24 ساعة وفريق عمل يجيد
+                            التحدث بعدة لغات وخدمة تخزين الأمتعة. يتم توفير
+                            حافلة للتوصيل من وإلى المطار مجانا (متوفرة على مدار 24 ساعة).
+                            اشعر وكأنك في منزلك عند الإقامة في واحدة من 10 غرفة/غرف ضيافة مكيفة.
+                            تتاح لك اتصال لاسلكي بالإنترنت مجانًا لتبقى على
+                            اتصال دائمًا. تضم الحمامات حوض استحمام بنظام ضخ المياه ومستلزمات مجانية
+                            للعناية الشخصية. تضم وسائل الراحة مراوح وتتوفر
+                            خدمة تدبير الغرف يوميًا. </div>
+                          <div class="col-xs-12 col-sm-8 margin-top-10">
+                            <div class="filter-hotel-little-bigger" dir="rtl">مميزات المكان:
+                            </div>
+                            <div
+                              class="show-package-widget-wellbeing wbe-format-custom-text filter-hotel-little-smaller">
+                              <ul dir="rtl">
+                                <li><b>يقع الفندق بالقرب من:</b></li>
+                                <li><span style="background-color: initial;">يتم عرض
+                                    المسافات وفقا لأقرب 0,1 كيلومتر.
+                                  </span></li>
+                                <li><span style="background-color: initial;">
+                                    <p>جبل الموتى - ٠٫٦ كم
+                                    <p>ميدان سيوة المركزي - ١٫٤ كم
+                                    <p>واحة سيوة - ٣٫٢ كم
+                                    <p>جزيرة فاتناس - ٥٫٤ كم
+                                    <p>كولد سبرينغ - ٥٫٦ كم
+                                  </span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-4 margin-top-10 text-right">
+                            <a id="link-to-hotel-536" class="btn btn-wbe-yellow btn-package-view-and-book"
+                              href="{% url 'Dream_Lodge_Siwa' %}"><i class="fa fa-caret-left"></i>عرض
+                              التفاصيل</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row border-blue no-gutters hotel-div margin-bottom-20">
+
+
+                <div class="filter-hotel-box-border-black">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-5">
+                      <div class="filter-slidebox-hotel">
+                        <div id="w1" class="slider-for">
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/f7a577d0c74455561ff495724315818.jpg' %}"
+                              alt="Mangosteen Resort &amp; Ayurveda Spa" title="Mangosteen Resort &amp; Ayurveda Spa">
+                          </div>
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/5317785095ad85c6dd2598a40b4493c.jpg' %}"
+                              alt="Mangosteen Resort &amp; Ayurveda Spa" title="Mangosteen Resort &amp; Ayurveda Spa">
+                          </div>
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/a32ad71b48a9831d73e2fac248455ab.jpg' %}"
+                              alt="Mangosteen Resort &amp; Ayurveda Spa" title="Mangosteen Resort &amp; Ayurveda Spa">
+                          </div>
+                          <div class="hotel-main-image"><img
+                              src="{% static 'images/hotel/740x370/ff9b1fe3b991bbe1528d87b3c03bebb.jpg' %}"
+                              alt="Mangosteen Resort &amp; Ayurveda Spa" title="Mangosteen Resort &amp; Ayurveda Spa">
+                          </div><img src="{% static 'images/hotel/740x370/a32ad71b48a9831d73e2fac248455a.jpg' %}"
+                            alt="">
+                        </div>
+                      </div>
+                      <div class="hidden-xs" dir="rtl">
+                        يقع منتجع Siwa Shali في الصحراء الكبرى الخلابة بواحة سيوة، ويوفر منطقة
+                        مسبح ذات مناظر طبيعية التي تنتشر في جميع أنحاء
+                        المنتجع ومنازل تقليدية على طراز واحة سيوة وحوض استحمام ينابيع ساخن
+                        للعلاج. تتميز الغرف والأجنحة في Siwa Shali بديكور على
+                        الطراز البربري. </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-7">
+                      <div class="favorite-right-block">
+                        <div class="row">
+                          <div class="col-xs-8">
+                            <h2 class="smaller margin-0">{{R1.name}} </h2>
+                          </div>
+                        </div>
+                        <div class="row" dir="rtl">
+                          <div class="col-xs-12 filter-hotel-little-bigger">واحة سيوة , غرب
+                            مصر</div>
+                          <div class="col-xs-12 filter-hotel-little-smaller margin-top-20">
+                          </div>
+                          <div class="col-xs-12 hidden-sm hidden-md hidden-lg margin-top-20 margin-bottom-10">
+                            يقع منتجع Siwa Shali في الصحراء الكبرى الخلابة بواحة سيوة، ويوفر
+                            منطقة مسبح ذات مناظر طبيعية التي تنتشر في جميع أنحاء
+                            المنتجع ومنازل تقليدية على طراز واحة سيوة وحوض استحمام ينابيع
+                            ساخن للعلاج. تتميز الغرف والأجنحة في Siwa Shali بديكور على
+                            الطراز البربري. </div>
+                          <div class="col-xs-12 col-sm-8 margin-top-10">
+                            <div class="filter-hotel-little-bigger"><b>الشروط و الخدمات</b>
+                            </div>
+                            <div
+                              class="show-package-widget-wellbeing wbe-format-custom-text filter-hotel-little-smaller">
+                              <ul>
+                                <li>
+                                  <p>الوصول بدءًا من: 14:00</p>
+                                  <p>المغادرة حتى: 12:00</p>
+                                  <p>ساحة إنتظار السيارات</p>
+                                  <p>لا يسمح بدخول الحيوانات الأليفة</p>
+                                  <p>مكتب استقبال على مدار 24 ساعة</p>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-4 margin-top-10 text-left">
+                            <a id="link-to-hotel-358" class="btn btn-wbe-yellow btn-package-view-and-book"
+                              href="{% url 'Siwa_Shali_Resort' %}">عرض التفاصيل<i
+                                class="fa fa-caret-left"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row border-blue no-gutters hotel-div margin-bottom-20">
+                <div class="col-xs-12 text-center">
+
+                  <div id="EmailContactModal" class="modal-wide modal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <div class="modal-title bold-text" style="float:right">
+                            احصل على إرشادات للقضاء في المنتجع الصحي بمفردك.
+                          </div>
+                        </div>
+                        <div class="modal-body">
+                          <form id="contact-email-form" action="/site/email-contact" method="post">
+                            <input type="hidden" name="_csrf"
+                              value="iIWaDHQgR6xXsw87AItDsQ3vhEA9mLaW6d4EAD5vsZrhsq54PXEd8zPeWXk2pi38SZf-M3ro_vur7TVRE0KJ7w==">
+                            <div class="form-group field-contactemailform-ref">
+
+                              <input type="hidden" id="contactemailform-ref" class="form-control"
+                                name="ContactEmailForm[ref]"
+                                value="https://www.wellbeingescapes.com/all-hotels/thailand-l33">
+
+                              <p class="help-block help-block-error"></p>
+                            </div>
+                            <div class="form-group field-contactemailform-success_page">
+
+                              <input type="hidden" id="contactemailform-success_page" class="form-control"
+                                name="ContactEmailForm[success_page]" value="/hotel/thank-you">
+
+                              <p class="help-block help-block-error"></p>
+                            </div>
+                            <div class="text-left">
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="form-group field-contactemailform-name">
+                                    <label class="control-label" for="contactemailform-name">الإسم بالكامل</label>
+                                    <input type="text" id="contactemailform-name" class="form-control"
+                                      name="ContactEmailForm[name]" maxlength="32">
+
+                                    <p class="help-block help-block-error"></p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="form-group field-contactemailform-telephone">
+                                    <label class="control-label" for="contactemailform-telephone">رقم هاتفك</label>
+                                    <input type="text" id="contactemailform-telephone" class="form-control"
+                                      name="ContactEmailForm[telephone]" maxlength="32">
+
+                                    <p class="help-block help-block-error"></p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="form-group field-contactemailform-email required">
+                                    <label class="control-label" for="contactemailform-email">البريد الإلكتروني</label>
+                                    <input type="text" id="contactemailform-email" class="form-control"
+                                      name="ContactEmailForm[email]" maxlength="255" aria-required="true">
+
+                                    <p class="help-block help-block-error"></p>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                              <div class="row">
+                                <div class="col-xs-12 margin-top-10 text-right">
+                                  <button type="button" id="contact-email-form-submit-btn"
+                                    class="btn btn-wbe-yellow btn-package-view-and-book"><i
+                                      class="fa fa-caret-right"></i>تقديم</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <a class="btn btn-wbe-yellow btn-package-view-and-book" href="javascript:void(0);" data-toggle="modal"
+                    data-target="#EmailContactModal">تواصل معنا <br><i class="fa fa-caret-left"></i> للحصول علي
+                    الإرشادات</a>
+                </div>
+              </div>
+
+
+
+            </div>
+            <div id="overlay_loading" class="text-center" style="display:none">
+              <br><br><br>
+              <img src="/images/loading.gif" alt="Loading new filtered data ...">
+            </div>
+            <!-- <div class="border-blue padding-20 margin-bottom-20 text-center">
+              <div class="blue-text" dir="rtl">
+                لم يتم العثور على ما كنت تبحث عنه؟ من فضلك اتصل بالرقم +20 01141054678 لمزيد من المعلومات!</div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modalNewsletterEvent" class="fade modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a class="close-link" data-dismiss="modal" aria-hidden="true">لا شكراً</a>
+
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12">
+
+              <div class="row">
+                <div class="col-xs-12 text-center margin-bottom-20">
+                  <h2 class="black-text newsletter_popup_title">قم بالتسجيل هنا للإستمتاع بخدماتنا المميزة</h2>
+                </div>
+                <div class="col-xs-12 text-center">
+                  <div class="row">
+                    <form id="form_subscribe_newsletter_9" action="/site/newsletter" method="post">
+                      <input type="hidden" name="_csrf"
+                        value="iIWaDHQgR6xXsw87AItDsQ3vhEA9mLaW6d4EAD5vsZrhsq54PXEd8zPeWXk2pi38SZf-M3ro_vur7TVRE0KJ7w==">
+                      <div class="hidden-xs col-sm-2 text-right">
+                        <i class="darkgrey-text fa fa-envelope-o fa-2x"></i>
+                      </div>
+                      <div class="input-field-newsletter col-xs-7">
+                        <input type="text" id="Newsletter_email_address_9" class="search-input-mainpage-newsletter"
+                          name="Newsletter[email_address]" value="" placeholder="your e-mail address">
+                      </div>
+                      <div id="emailaddress" class="col-xs-5 col-sm-3 text-left">
+                        <div class="search-btn">
+                          <button type="submit" val="9" class="btn btn-signup btn-white">التسجيل</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 text-center" id="newsletter_subscribe_result_9" style="display:none"> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'assets/28576a83/jquery.js' %}"></script>
+  <script src="{% static 'assets/27b0ff0e/yii.js' %}"></script>
+  <script src="{% static 'assets/c6f149db/js/select2.full.min.js' %}"></script>
+  <script src="{% static 'assets/c16da81e/js/select2-krajee.min.js' %}"></script>
+  <script src="{% static 'assets/6c2190a8/js/kv-widgets.min.js' %}"></script>
+  <script src="{% static 'assets/f33418a0/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'assets/f33418a0/js/datepicker-kv.min.js' %}"></script>
+  <script src="{% static 'assets/27b0ff0e/yii.activeForm.js' %}"></script>
+  <script src="{% static 'assets/40bc5cf4/slick.min.js' %}"></script>
+  <script src="{% static 'assets/60799d84/js/star-rating.min.js' %}"></script>
+  <script src="{% static 'assets/60799d84/themes/krajee-svg/theme.min.js' %}"></script>
+  <script src="{% static 'assets/27b0ff0e/yii.validation.js' %}"></script>
+  <script src="{% static 'assets/f52130ab/js/bootstrap.js' %}"></script>
+  <script src="{% static 'assets/40bc5cf4/slick.min.js' %}"></script>
+  <script>jQuery(function ($) {
+      jQuery && jQuery.pjax && (jQuery.pjax.defaults.maxCacheLength = 0);
+      if (jQuery('#searchbar-theme-1').data('select2')) { jQuery('#searchbar-theme-1').select2('destroy'); }
+      jQuery.when(jQuery('#searchbar-theme-1').select2(select2_dddbc607)).done(initS2Loading('searchbar-theme-1', 's2options_7ebc6538'));
+      jQuery('#searchbar-theme-1').on('change', setSelectedThemes);
+
+      if (jQuery('#searchbar-destinations-1').data('select2')) { jQuery('#searchbar-destinations-1').select2('destroy'); }
+      jQuery.when(jQuery('#searchbar-destinations-1').select2(select2_dddbc607)).done(initS2Loading('searchbar-destinations-1', 's2options_7ebc6538'));
+      jQuery('#searchbar-destinations-1').on('change', setSelectedCountries);
+
+      jQuery.fn.kvDatepicker.dates = {};
+      if (jQuery('#Search_date_from_raw_1').data('kvDatepicker')) { jQuery('#Search_date_from_raw_1').kvDatepicker('destroy'); }
+      jQuery('#Search_date_from_raw_1').kvDatepicker(kvDatepicker_47e250b0);
+      jQuery('#Search_date_from_raw_1').on('clearDate', function (ev) {
+        $('.Search_date_from').val('');
+        updateSessionData();
+      });
+      jQuery('#Search_date_from_raw_1').on('changeDate', function (ev, picker) {
+        if (ev.date) {
+          var minDate = new Date(ev.date.valueOf());
+          $('.Search_date_until_raw').kvDatepicker('setStartDate', minDate);
+        } else {
+          $('.Search_date_until_raw').kvDatepicker('setStartDate', '08/03/2024');
+        }
+        $('.Search_date_from').val(ev.format(0, 'yyyy-mm-dd'));
+        $('.Search_date_from_raw').val($(this).val());
+        updateSessionData();
+      });
+
+      if (jQuery('#Search_date_until_raw_1').data('kvDatepicker')) { jQuery('#Search_date_until_raw_1').kvDatepicker('destroy'); }
+      jQuery('#Search_date_until_raw_1').kvDatepicker(kvDatepicker_47e250b0);
+      jQuery('#Search_date_until_raw_1').on('clearDate', function (ev) {
+        $('.Search_date_until').val('').change();
+        updateSessionData();
+      });
+      jQuery('#Search_date_until_raw_1').on('changeDate', function (ev, picker) {
+        if (ev.date) {
+          var maxDate = new Date(ev.date.valueOf());
+          $('.Search_date_from_raw').kvDatepicker('setEndDate', maxDate);
+        } else {
+          $('.Search_date_from_raw').kvDatepicker('setEndDate', null);
+        }
+        $('.Search_date_until').val(ev.format(0, 'yyyy-mm-dd'));
+        $('.Search_date_until_raw').val($(this).val());
+        updateSessionData();
+      });
+
+      jQuery('#mainpage-search-form_1').yiiActiveForm([], []);
+      if (jQuery('#FilterForm_continents').data('select2')) { jQuery('#FilterForm_continents').select2('destroy'); }
+      jQuery.when(jQuery('#FilterForm_continents').select2(select2_35a071dd)).done(initS2Loading('FilterForm_continents', 's2options_7ebc6538'));
+      jQuery('#FilterForm_continents').on('change', toggleSearchItem);
+
+      if (jQuery('#FilterForm_countries').data('select2')) { jQuery('#FilterForm_countries').select2('destroy'); }
+      jQuery.when(jQuery('#FilterForm_countries').select2(select2_fce86103)).done(initS2Loading('FilterForm_countries', 's2options_7ebc6538'));
+      jQuery('#FilterForm_countries').on('change', toggleSearchItem);
+
+      if (jQuery('#FilterForm_pricerange').data('select2')) { jQuery('#FilterForm_pricerange').select2('destroy'); }
+      jQuery.when(jQuery('#FilterForm_pricerange').select2(select2_e18b4df5)).done(initS2Loading('FilterForm_pricerange', 's2options_7ebc6538'));
+      jQuery('#FilterForm_pricerange').on('change', toggleSearchPrice);
+
+      if (jQuery('#FilterForm_Diseasestypes').data('select2')) { jQuery('#FilterForm_Diseasestypes').select2('destroy'); }
+      jQuery.when(jQuery('#FilterForm_Diseasestypes').select2(select2_9d42577f)).done(initS2Loading('FilterForm_Diseasestypes', 's2options_7ebc6538'));
+      jQuery('#FilterForm_Diseasestypes').on('change', toggleSearchItem);
+
+      initS2Order('FilterForm_hotels', [null]);
+      if (jQuery('#FilterForm_hotels').data('select2')) { jQuery('#FilterForm_hotels').select2('destroy'); }
+      jQuery.when(jQuery('#FilterForm_hotels').select2(select2_c7d782a5)).done(initS2Loading('FilterForm_hotels', 's2options_7ebc6538'));
+      jQuery('#FilterForm_hotels').on('change', goToHotel);
+
+      ;
+      jQuery('#w0').slick({ "id": "slick-1", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      ;
+      jQuery('#w1').slick({ "id": "slick-2", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      if (jQuery('#w2').data('rating')) { jQuery('#w2').rating('destroy'); }
+      jQuery('#w2').rating(rating_0e371bec);
+
+      jQuery('#contact-email-form').yiiActiveForm([{ "id": "contactemailform-ref", "name": "ref", "container": ".field-contactemailform-ref", "input": "#contactemailform-ref", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.string(value, messages, { "message": "Ref must be a string.", "max": 1024, "tooLong": "Ref should contain at most 1,024 characters.", "skipOnEmpty": 1 }); } }, { "id": "contactemailform-success_page", "name": "success_page", "container": ".field-contactemailform-success_page", "input": "#contactemailform-success_page", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.string(value, messages, { "message": "Success Page must be a string.", "max": 255, "tooLong": "Success Page should contain at most 255 characters.", "skipOnEmpty": 1 }); } }, { "id": "contactemailform-name", "name": "name", "container": ".field-contactemailform-name", "input": "#contactemailform-name", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.string(value, messages, { "message": "Your name must be a string.", "max": 32, "tooLong": "Your name should contain at most 32 characters.", "skipOnEmpty": 1 }); } }, { "id": "contactemailform-telephone", "name": "telephone", "container": ".field-contactemailform-telephone", "input": "#contactemailform-telephone", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.string(value, messages, { "message": "Your telephone number must be a string.", "max": 32, "tooLong": "Your telephone number should contain at most 32 characters.", "skipOnEmpty": 1 }); } }, { "id": "contactemailform-email", "name": "email", "container": ".field-contactemailform-email", "input": "#contactemailform-email", "error": ".help-block.help-block-error", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.required(value, messages, { "message": "Your email address cannot be blank." }); yii.validation.email(value, messages, { "pattern": /^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/, "fullPattern": /^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/, "allowName": false, "message": "Your email address is not a valid email address.", "enableIDN": false, "skipOnEmpty": 1 }); yii.validation.string(value, messages, { "message": "Your email address must be a string.", "max": 255, "tooLong": "Your email address should contain at most 255 characters.", "skipOnEmpty": 1 }); } }], []);
+      jQuery('#EmailContactModal').modal({ "show": false });
+      ;
+      jQuery('#w3').slick({ "id": "slick-3", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      if (jQuery('#w4').data('rating')) { jQuery('#w4').rating('destroy'); }
+      jQuery('#w4').rating(rating_0e371bec);
+
+      ;
+      jQuery('#w5').slick({ "id": "slick-4", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      if (jQuery('#w6').data('rating')) { jQuery('#w6').rating('destroy'); }
+      jQuery('#w6').rating(rating_0e371bec);
+
+      ;
+      jQuery('#w7').slick({ "id": "slick-5", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      if (jQuery('#w8').data('rating')) { jQuery('#w8').rating('destroy'); }
+      jQuery('#w8').rating(rating_0e371bec);
+
+      ;
+      jQuery('#w9').slick({ "id": "slick-6", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      if (jQuery('#w10').data('rating')) { jQuery('#w10').rating('destroy'); }
+      jQuery('#w10').rating(rating_0e371bec);
+
+      ;
+      jQuery('#w11').slick({ "id": "slick-7", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      ;
+      jQuery('#w12').slick({ "id": "slick-8", "slidesToShow": 1, "slidesToScroll": 1, "lazyLoad": "ondemand", "centerMode": false, "variableWidth": false, "adaptiveHeight": false, "arrows": true, "dots": false, "infinite": true, "prevArrow": "<button type=\"button\" class=\"slick-prev wbe-filter-slideshow-arrow\" title=\"Slide previous images\">Previous</button>", "nextArrow": "<button type=\"button\" class=\"slick-next wbe-filter-slideshow-arrow\" title=\"Slide next images\">Next</button>" });
+      if (jQuery('#w13').data('rating')) { jQuery('#w13').rating('destroy'); }
+      jQuery('#w13').rating(rating_0e371bec);
+
+      jQuery('#modalOpeningHours').modal({ "show": false });
+      if (jQuery('#selected_hotel_id').data('select2')) { jQuery('#selected_hotel_id').select2('destroy'); }
+      jQuery.when(jQuery('#selected_hotel_id').select2(select2_61f85299)).done(initS2Loading('selected_hotel_id', 's2options_d6851687'));
+      jQuery('#selected_hotel_id').on('select2:select', function () { goToHotel(this.value); });
+
+      jQuery('#modalSearchHotel').modal({ "show": false });
+      jQuery('#form_subscribe_newsletter_9').yiiActiveForm([], []);
+      jQuery('#modalNewsletterEvent').modal({ "show": false, "backdrop": "static", "keyboard": false });
+    });</script>
+  <script>jQuery(window).on('load', function () {
+
+      $('.intro-search-btn').on('click', showMobileSearchMenu);
+      $('.intro-update-date-btn').on('click', refreshPage);
+      $('.intro-edit-search-btn').on('click', goToEditState);
+      $('.edit_nr_of_persons').on('keyup', function () {
+        var new_number = $(this).val();
+        $('.Search_nr_of_persons').val(new_number);
+        $('.edit_nr_of_persons').val(new_number);
+        updateSessionData();
+      });
+      $('.intro-search-btn-desktop').on('click', submitSearch);
+
+
+      $('#filter-reset-btn').on('click', resetSearch);
+      $('.update_result').on('click', updateResults);
+
+
+      $('.filter-hotel-review-link').on('click', goToUrl);
+
+
+      $('#contact-email-form-submit-btn').on('click', function () {
+        $('#contact-email-form').submit();
+        return false;
+      });
+
+
+      $('#header-logo-image').on('click', function () {
+        window.location.assign('/');
+      });
+      $('#top-nav-mobile-link').on('click', showMobileMenu);
+
+      $('.opening-hour-line').on('click', '', function () {
+        if (!$('#modalOpeningHours').data('bs.modal').isShown) {
+          $('#modalOpeningHours').modal('show');
+        }
+      });
+
+      $('.header-search-hotel-link').on('click', function () {
+        if (!$('#modalSearchHotel').data('bs.modal').isShown) {
+          $('#modalSearchHotel').modal('show');
+        }
+      });
+
+      $('a[href^="#an-"]').on('click', function () {
+        $('html, body').animate({
+          scrollTop: $('[id="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+        }, 500);
+        return false;
+      });
+
+      $.fn.modal.Constructor.prototype.enforceFocus = function () { }; /* Fix to get focus on select2 dropdown box in select country modal */
+
+      $('.click-to-feefo-image').on('click', gotoStandardFeefoPage);
+      $('#footer-mobile-call-button').on('click', function () {
+        window.location.assign('tel:+442037357555');
+      });
+      $('#footer-whatsapp-button').on('click', function () {
+        window.open('https://wa.me/447733528631', '_blank');
+      });
+      $('#whatsapp-link-desktop').on('click', function () {
+        window.open('https://wa.me/447733528631', '_blank');
+      });
+
+      if (!hasNewsletterCookie()) {
+        setTimeout(function () {
+          if (!$('#modalNewsletterEvent').data('bs.modal').isShown) {
+            $('#modalNewsletterEvent').modal('show');
+            $('#Newsletter_email_address_9').focus();
+          }
+          setNewsletterCookie();
+        }, 8000);
+      }
+      setReferenceCookie();
+
+
+      $(document).on('beforeSubmit', '#form_subscribe_newsletter_9', function () {
+        $.ajax({
+          url: '/site/ajax-subscribe-newsletter',
+          type: 'POST',
+          data: { email: $('#Newsletter_email_address_9').val() },
+          dataType: 'json',
+          success: function (result) {
+            if (result.message.length > 0) {
+              $('#newsletter_subscribe_result_9').html(result.message);
+              $('#newsletter_subscribe_result_9').slideDown();
+              if (result.status == 400 || result.status == 'subscribed') {
+                if ($('#modalNewsletterEvent').data('bs.modal').isShown) {
+                  setTimeout(function () {
+                    $('#modalNewsletterEvent').modal('hide')
+                  }, 2000);
+                }
+              }
+            }
+          }
+        });
+        return false; // Cancel form submitting.
+      });
+
+      $('#modalNewsletterEvent').on('shown.bs.modal', function () {
+        $('#Newsletter_email_address_9').focus();
+      })
+
+    });</script>
+
+  {% include 'parts/footer.html' %}
+
+</body>
+
+</html>

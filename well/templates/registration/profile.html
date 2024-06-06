@@ -1,0 +1,152 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="menu">
+    <ul>
+      <li class="profile">
+        <div class="img-box">
+          {% if user.profile.image %}
+          <img src="{{user.profile.image.url}}" alt="profile">
+          {% else %}
+          <img src="{% static 'images/111.jpg' %}" alt="profile">
+          {% endif %}
+        </div>
+        <h2>{{user.profile.name}}</h2>
+      </li>
+      <li>
+        <a href="{% url 'index' %}">
+          <i class="fas fa-home"></i>
+          <p>الصفحة الرئيسية</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <i class="fas fa-table"></i>
+          <p>الباقات و العروض</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="fas fa-chart-pie"></i>
+          <p>متابعة الحجز</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="fas fa-pen"></i>
+          <p>تعديل البيانات</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="fas fa-star"></i>
+          <p>المفضلة</p>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'update_profile' %}">
+          <i class="fas fa-cog"></i>
+          <p>الإعدادات</p>
+        </a>
+      </li>
+      <li class="log-out">
+        <a href="{% url 'logout_user' %}">
+          <i class="fas fa-sign-out"></i>
+          <p>تسجيل الخروج</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="title-info">
+      <a href="{% url 'index' %}">
+        <p>الصفحة الرئيسية</p>
+      </a>
+      <i class="fas fa-chart-bar"></i>
+    </div>
+    <div class="data-info">
+      <div class="box">
+        <i class="fas fa-user"></i>
+        <div class="data">
+          <p>المستخدم</p>
+          <span>100</span>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fas fa-table"></i>
+        <div class="data">
+          <p>الباقات و العروض</p>
+          <span>100</span>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fa-solid fa-xmark"></i>
+        <div class="data">
+          <p>إلغاء حجز</p>
+          <span>100</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="title-info">
+      <p>الباقات و العروض</p>
+      <i class="fas fa-chart-table"></i>
+    </div>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>العروض</th>
+          <th>السعر</th>
+          <th>الكمية</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>###</td>
+          <td><span class="price">123$</span></td>
+          <td><span class="count">6</span></td>
+        </tr>
+        <tr>
+          <td>###</td>
+          <td><span class="price">123$</span></td>
+          <td><span class="count">6</span></td>
+        </tr>
+        <tr>
+          <td>###</td>
+          <td><span class="price">123$</span></td>
+          <td><span class="count">6</span></td>
+        </tr>
+
+
+
+      </tbody>
+
+
+
+    </table>
+
+
+
+
+  </div>
+</body>
+
+</html>

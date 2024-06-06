@@ -1,0 +1,229 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="content">
+    <div id="hotel-offers-overview" class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center margin-bottom-20">
+                <h2 class="black-text margin-bottom-10">Offers under £1,500</h2>
+                Our top last minute offers under £1,500 for travel over the next 4 - 6 weeks. These are based on
+                5 night stays for single travellers and include flights and a wellbeing programme. These are
+                guide prices and depend on flight prices and availability. Terms and conditions apply.
+            </div>
+
+            <div ref="{% url 'almyra' %}"
+                class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+                <img class="full-width" src="{% static 'images/hotel/740x370//d0cec58a941a795311f14b026d6635ce.jpg' %}">
+                <div class="image-underlay-text bg-purple white-text">Almyra, Cyprus</div>
+                <div class="offer-circle title-font purple-text text-center">
+                    <span class="small_text">UP TO 30% off if booked by 29 Feb</span><br>
+                    <span class="bigger_text bold-text"></span>
+                </div>
+
+                <div class="title-font full-width-offer-text">
+                </div>
+                <div class="full-width-offer-text text-center">
+                    <a href="{% url 'almyra' %}" class="btn btn-viewofferdetails btn-white">VIEW DETAILS</a>
+                </div>
+            </div>
+
+            <div ref="/hotel/259/sianji-wellbeing-resort"
+                class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+                <img class="full-width" src="{% static 'images/hotel/740x370//97f475746c1e6df957882d801d726931.jpg' %}">
+                <div class="image-underlay-text bg-purple white-text">Sianji Wellbeing Resort, Turkey</div>
+                <div class="offer-circle title-font purple-text text-center">
+                    <span class="small_text">20% OFF for stays until 9 April</span><br>
+                    <span class="bigger_text bold-text"></span>
+                </div>
+
+                <div class="title-font full-width-offer-text">
+                </div>
+                <div class="full-width-offer-text text-center">
+                    <a href="/hotel/259/sianji-wellbeing-resort" class="btn btn-viewofferdetails btn-white">VIEW
+                        DETAILS</a>
+                </div>
+            </div>
+
+            <div ref="/hotel/248/epic-sana-algarve"
+                class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+                <img class="full-width" src="{% static 'images/hotel/740x370//07323e86907cc0cbc2eab9be89c5145f.jpg' %}">
+                <div class="image-underlay-text bg-purple white-text">Epic Sana, Portugal</div>
+                <div class="offer-circle title-font purple-text text-center">
+                    <span class="small_text">UP TO 30% off if booked by 29 Feb</span><br>
+                    <span class="bigger_text bold-text"></span>
+                </div>
+
+                <div class="title-font full-width-offer-text">
+                </div>
+                <div class="full-width-offer-text text-center">
+                    <a href="/hotel/248/epic-sana-algarve" class="btn btn-viewofferdetails btn-white">VIEW
+                        DETAILS</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 text-center">
+
+            <div id="EmailContactModal" class="modal-wide modal" role="dialog" tabindex="-1">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <div class="modal-title bold-text" style="float:left">Tailor make your last minute
+                                holiday/break</div>
+                        </div>
+                        <div class="modal-body">
+                            <form id="contact-email-form" action="/site/email-contact" method="post">
+                                <input type="hidden" name="_csrf"
+                                    value="ViYPXQ4a7wi5j-yJcUSEmjXJRzWFtC166FKy0ZmkKDs8eVsoRniCMYv_uftAffz5V6dxatONQgiFBvrl7fcFAg==">
+                                <div class="form-group field-contactemailform-ref">
+
+                                    <input type="hidden" id="contactemailform-ref" class="form-control"
+                                        name="ContactEmailForm[ref]"
+                                        value="https://www.wellbeingescapes.com/hotel/offers">
+
+                                    <p class="help-block help-block-error"></p>
+                                </div>
+                                <div class="form-group field-contactemailform-success_page">
+
+                                    <input type="hidden" id="contactemailform-success_page" class="form-control"
+                                        name="ContactEmailForm[success_page]"
+                                        value="https://www.wellbeingescapes.com/hotel/offers/thank-you">
+
+                                    <p class="help-block help-block-error"></p>
+                                </div>
+                                <div class="text-left">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group field-contactemailform-name">
+                                                <label class="control-label" for="contactemailform-name">Your
+                                                    name</label>
+                                                <input type="text" id="contactemailform-name" class="form-control"
+                                                    name="ContactEmailForm[name]" maxlength="32">
+
+                                                <p class="help-block help-block-error"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group field-contactemailform-telephone">
+                                                <label class="control-label" for="contactemailform-telephone">Your
+                                                    telephone
+                                                    number</label>
+                                                <input type="text" id="contactemailform-telephone" class="form-control"
+                                                    name="ContactEmailForm[telephone]" maxlength="32">
+
+                                                <p class="help-block help-block-error"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group field-contactemailform-email required">
+                                                <label class="control-label" for="contactemailform-email">Your
+                                                    email address</label>
+                                                <input type="text" id="contactemailform-email" class="form-control"
+                                                    name="ContactEmailForm[email]" maxlength="255" aria-required="true">
+
+                                                <p class="help-block help-block-error"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 margin-top-10 text-right">
+                                            <button type="button" id="contact-email-form-submit-btn"
+                                                class="btn btn-wbe-yellow btn-package-view-and-book">Submit<i
+                                                    class="fa fa-caret-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div><a class="btn btn-wbe-yellow btn-package-view-and-book" href="javascript:void(0);" data-toggle="modal"
+                data-target="#EmailContactModal">Contact us<br>for expert advice<i class="fa fa-caret-right"></i></a>
+        </div>
+    </div>
+    <br>
+    <div id="hotel-offers-overview" class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center margin-bottom-20">
+                <hr>
+                <h2 class="black-text margin-bottom-10">Offers under £2,500</h2>
+                Our top last minute offers under £2,500 for travel over the next 4 - 6 weeks. These are based on
+                7 night stays for single travellers and include flights and a wellbeing programme. These are
+                guide prices and depend on flight prices and availability. Terms and conditions apply.
+            </div>
+
+            <div ref="{% url 'amal-tamara' %}"
+                class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+                <img class="full-width" src="{% static 'images/hotel/740x370//9344e41bc61983ca2260d476045b688f.jpg' %}">
+                <div class="image-underlay-text bg-purple white-text">Amal Tamara, India</div>
+                <div class="offer-circle title-font purple-text text-center">
+                    <span class="small_text">Exclusive reduced introductory price</span><br>
+                    <span class="bigger_text bold-text"></span>
+                </div>
+
+                <div class="title-font full-width-offer-text">
+                </div>
+                <div class="full-width-offer-text text-center">
+                    <a href="{% url 'amal-tamara' %}" class="btn btn-viewofferdetails btn-white">VIEW DETAILS</a>
+                </div>
+            </div>
+
+            <div ref="/hotel/162/absolute-sanctuary"
+                class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+                <img class="full-width" src="{% static 'images/hotel/740x370//0cc055117c736ee96a6e3c6333d52939.jpg' %}">
+                <div class="image-underlay-text bg-purple white-text">Absolute Sanctuary, Thailand</div>
+                <div class="offer-circle title-font purple-text text-center">
+                    <span class="small_text">UP TO 30% off room + 10% off spa programme</span><br>
+                    <span class="bigger_text bold-text"></span>
+                </div>
+
+                <div class="title-font full-width-offer-text">
+                </div>
+                <div class="full-width-offer-text text-center">
+                    <a href="/hotel/162/absolute-sanctuary" class="btn btn-viewofferdetails btn-white">VIEW
+                        DETAILS</a>
+                </div>
+            </div>
+
+            <div ref="/hotel/255/porto-elounda-golf-spa-resort"
+                class="col-xs-12 col-sm-4 image-with-text-container cursor-pointer offer-hotel-block">
+                <img class="full-width" src="{% static 'images/hotel/740x370//04cb326a11ee8278eab93eecf2ae4553.jpg' %}">
+                <div class="image-underlay-text bg-purple white-text">Porto Elounda Spa, Greece</div>
+                <div class="offer-circle title-font purple-text text-center">
+                    <span class="small_text">15% off in booked by 29 Feb</span><br>
+                    <span class="bigger_text bold-text"></span>
+                </div>
+
+                <div class="title-font full-width-offer-text">
+                </div>
+                <div class="full-width-offer-text text-center">
+                    <a href="/hotel/255/porto-elounda-golf-spa-resort" class="btn btn-viewofferdetails btn-white">VIEW
+                        DETAILS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-xs-12">
+                <br>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

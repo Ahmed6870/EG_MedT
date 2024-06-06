@@ -1,0 +1,98 @@
+{% extends 'base4.html' %}
+
+{% load static %}
+{% block content %}
+
+<head>
+  <link rel="preload" href="{% static 'assets/plugins/bootstrap/bootstrap-rtl.min.css' %}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="{% static 'assets/fonts/cairo/cairo-font.css' %}" rel="preload" />
+  <link rel="stylesheet" href="{% static 'assets/plugins/animate/animate.min.css' %}" media="all" />
+  <link rel="preload" href="{% static 'assets/css/style-rtl.css' %}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+
+</head>
+
+<div class="wrapper">
+
+  <section class="py-8">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-lg-6">
+          <form name="signinform" class="signinform" id="signinform" method="POST"
+            action="{% url 'userauths:user_login' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="invalidcredentialsmessage" style="display: none; color:red;">
+              <p>
+                البريد الألكترونى أو كلمة المرور غير صحيحة, برجاء التأكد من البيانات
+              </p>
+            </div>
+            <div class="somethingwentwrongmessage" style="display: none; color: red;">
+              <p>
+                حدث خطأ ما, برجاء التواصل مع فريق الدعم أو المحاولة فى وقت أخر
+              </p>
+            </div>
+
+
+            <div class="form-outline mb-4">
+              {{form.email}}</div>
+
+            <div class="form-outline mb-4">
+              <span toggle="#formloginpassword" class="toggle-password svg eye"></span>
+              {{form.password1}}
+            </div>
+
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 min-height-0">
+                  <div class="alert-success alert fade in" style="opacity: 1;" dir="rtl">
+                    {{ message }}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <div class="d-grid">
+              <button type="submit" class="btn-05" id="btnlogin">تسجيل الدخول</button>
+            </div>
+
+          </form>
+
+
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-6">
+          <div class="row">
+
+
+            <div class="col-6 text-end">
+              <a href="{% url 'forgetpass' %}" class="link-cus" style="margin-left: -79px;">نسيت كلمة المرور؟</a>
+            </div>
+
+
+
+
+            <div class="col-12 text-center mt-4">
+              ليس لديك حساب؟ <a href="{% url 'userauths:signup' %}" class="link-cus">سجل الأن</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+{% endblock content %}
